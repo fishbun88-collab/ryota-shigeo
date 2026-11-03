@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111627" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>OFF THE RECORD | 료타 × 시게오 — IF v6</title>
+  <title>OFF THE RECORD | 료타 × 시게오 — 원본 카톡 v9</title>
   <style>
     :root { color-scheme:dark; --cream:#f7f1e9; --ink:#181827; --muted:#a7aaba; --accent:#d9a7ee; --outline:rgba(255,255,255,.13); --font:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
     * { box-sizing:border-box; }
@@ -380,7 +380,6 @@
 .device .home-line{z-index:48}
 #live-banner{display:none;position:absolute;left:12px;right:12px;top:55px;z-index:90;border:0;border-radius:18px;background:rgba(244,244,249,.94);color:#1b1d24;box-shadow:0 8px 35px #0005;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);padding:12px;gap:11px;align-items:center;text-align:left;animation:flyin .32s cubic-bezier(.2,.75,.2,1)}
 #live-banner.active{display:flex}
-#live-banner{touch-action:none;user-select:none;-webkit-user-select:none;will-change:transform,opacity}
 @keyframes flyin{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
 #live-banner img{width:39px;height:39px;object-fit:contain;border-radius:10px;flex:none}
 #live-banner .live-text{flex:1;min-width:0;font-size:12px;line-height:1.36}
@@ -550,135 +549,43 @@
 .kk-sim-only{color:#939aa1;font-size:11px;padding:8px 14px}
 
 
-/* STORY EXPANSION v5: additive chapters, original phone apps remain untouched. */
-.ios-story-icon{display:grid;place-items:center;width:61%;max-width:68px;aspect-ratio:1;border-radius:21%;background:linear-gradient(155deg,#2d3c68,#8b6bb8);box-shadow:inset 0 1px #fff4,0 3px 8px #0004;color:white;font-size:28px;line-height:1}
-.st-app{height:100%;background:#101725;color:#f8f5fa;display:flex;flex-direction:column;min-height:0}
-.st-header{flex:none;padding:55px 17px 13px;display:flex;align-items:center;gap:12px;background:#1c2438;border-bottom:1px solid #ffffff1b}
-.st-header button{background:#ffffff10;border:1px solid #ffffff2a;color:#fff;border-radius:10px;padding:9px 11px;font-size:14px}
-.st-header .st-headings{min-width:0;flex:1}.st-header strong{font-size:15px}.st-header small{display:block;font-size:10px;color:#a8b4c9;margin-top:3px}
-.st-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 17px 26px;scrollbar-width:none}
-.st-scroll::-webkit-scrollbar{display:none}
-.st-progress{height:4px;background:#ffffff1a;border-radius:10px;margin-bottom:20px;overflow:hidden}.st-progress div{height:100%;background:#d7aeec;border-radius:10px}
-.st-chapter{font-size:10px;letter-spacing:2.4px;color:#c4a6ec;font-weight:850;margin-bottom:7px}
-.st-title{font-size:25px;font-weight:850;letter-spacing:-.9px;line-height:1.22;margin:0 0 8px}
-.st-clock{color:#adb9c9;font-size:11px;margin:0 0 25px}
-.st-intro{padding:13px 15px;background:#293147;border:1px solid #ffffff1f;color:#d5ddea;line-height:1.75;border-radius:13px;font-size:13px;margin-bottom:18px}
-.st-line{display:flex;gap:8px;align-items:flex-start;margin:0 0 12px;max-width:95%}
-.st-line.me{margin-left:auto;flex-direction:row-reverse}
-.st-avatar{width:31px;height:31px;flex:none;border-radius:50%;display:grid;place-items:center;background:#ffffff24;font-size:15px}
-.st-speaker{font-size:10px;color:#b8c5d7;margin-bottom:3px}
-.st-bubble{color:#20212b;background:#f0edf0;white-space:pre-line;border-radius:4px 13px 13px 13px;padding:10px 12px;font-size:13px;line-height:1.75;overflow-wrap:anywhere}
-.st-line.me .st-bubble{background:#e1cce9;border-radius:13px 4px 13px 13px}
-.st-line.news,.st-line.note,.st-line.narration{max-width:100%;width:100%;margin:16px 0}.st-line.news .st-card{background:#f3f4f7;border-radius:12px;border-left:4px solid #a889c7;color:#283142}
-.st-card{width:100%;padding:14px 15px;background:#ffffff12;color:#e9e7ed;border-radius:12px;line-height:1.8;font-size:13px;white-space:pre-line;overflow-wrap:anywhere}
-.st-line.narration .st-card{background:transparent;color:#b3bbcf;border-left:1px solid #7f7795;font-style:italic;padding:8px 13px}
-.st-line.note .st-card{background:#fffbed;color:#383443}
-.st-end-act{margin-top:26px;display:grid;gap:9px}
-.st-act{display:block;width:100%;border:1px solid #cfb3e5;background:#e4c6ee;color:#2d2235;border-radius:13px;padding:14px;font-size:14px;font-weight:800;text-align:center;line-height:1.45}
-.st-act.alt{background:#ffffff0c;color:#f0eafa;border-color:#ffffff35}.st-act.minor{background:transparent;color:#bfb6ce;border:0;font-size:12px;padding:9px}
-.st-prompt{font-size:12px;color:#c9c9dc;font-weight:700;margin:25px 0 12px}
-.st-result{font-size:12px;color:#d7d2e1;border-left:3px solid #a186ba;padding:10px 12px;margin-top:15px;line-height:1.8}
-.st-endtitle{text-align:center;padding:42px 2px 20px}.st-endtitle .st-chapter{font-size:12px}.st-endtitle h2{font-size:31px;letter-spacing:-1px;line-height:1.38}.st-endtitle p{color:#bbc8dc;font-size:12px}
-.st-log{display:grid;gap:10px}.st-log-entry{background:#ffffff0c;border:1px solid #ffffff14;border-radius:11px;padding:13px;line-height:1.65;font-size:12px}
-.st-log-entry small{display:block;color:#b39dcc;margin-bottom:5px}
-.st-bookmark{background:#362c4e;color:#efe0fa;border:1px solid #ffffff20;border-radius:10px;padding:11px 14px;font-size:12px;line-height:1.55}
-.st-hub-link{display:inline-flex;border:0;background:none;color:#c7b9e7;text-decoration:underline;font-size:12px;padding:8px 0;margin-top:4px}
-.kk-story-continue{align-self:stretch;padding:10px 14px;background:#ffefbc;border:1px solid #e6c55f;border-radius:10px;color:#3c3424;font-size:12px;font-weight:800;margin:12px 4px 5px}
+/* 메신저 v8: 기존 카톡 디자인은 그대로 두고, 작성창·입력 중 상태만 보완 */
+.novel-composer{position:relative;z-index:3;gap:6px;}
+.novel-input-wrap{flex:1;min-width:0;position:relative;display:flex;align-items:center;}
+.novel-input-wrap input{width:100%;border-radius:24px;padding:10px 34px 10px 13px;background:rgba(255,255,255,.96);color:#2a292b;font-size:13px;overflow:hidden;text-overflow:clip;}
+.novel-input-wrap input:disabled{background:#f3f3f3;color:#949494;opacity:1;-webkit-text-fill-color:#999;}
+.novel-composer .kk-send:disabled{opacity:.45;filter:grayscale(.25);}
+.novel-switch{position:absolute;right:2px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#666;font-size:23px;width:30px;height:35px;padding:0;}
+.novel-reply-popover{position:absolute;z-index:8;bottom:70px;left:28px;right:28px;background:#fff;border-radius:16px;box-shadow:0 5px 30px #0003;padding:6px;max-height:38vh;overflow-y:auto;display:grid;gap:3px;}
+.novel-reply-popover button{color:#292929;padding:11px;border:0;border-radius:10px;text-align:left;background:#f7f7f7;line-height:1.45;font-size:13px;}
+.novel-reply-popover button.selected{background:#fbe795;}
+.novel-msgtime{align-self:flex-end;flex:none;font-size:9px;font-weight:400;color:#f5f8fa;margin:0 2px 3px;text-shadow:0 1px 2px #48546688;}
+.kk-is-typing .kk-balloon{min-width:55px;display:flex;align-items:center;gap:5px;}
+.kk-is-typing .kk-balloon span{display:block;background:#8c9099;border-radius:50%;width:5px;height:5px;animation:novel-dot 1.1s infinite alternate;}
+.kk-is-typing .kk-balloon span:nth-child(2){animation-delay:.2s}.kk-is-typing .kk-balloon span:nth-child(3){animation-delay:.4s}
+@keyframes novel-dot{from{opacity:.3;transform:translateY(2px)}to{opacity:1;transform:translateY(-2px)}}
+.novel-call-caption{border-radius:18px;background:#ffffff13;max-width:340px;width:calc(100% - 44px);margin:15px auto;padding:15px 12px;min-height:68px;display:grid;place-items:center;text-align:center;font-size:15px;line-height:1.5;color:#fff;}
+#live-banner{touch-action:pan-y;will-change:transform,opacity;}
 
 
-/* V6 selection-driven narrative: no new images, existing wallpaper/photos remain unchanged. */
-.ot-home-card{position:absolute;left:5.5%;right:5.5%;bottom:25%;z-index:3;border-radius:18px;border:1px solid #ffffff80;background:linear-gradient(140deg,#171e35e8,#24213be8);color:white;text-align:left;padding:12px 15px;box-shadow:0 10px 28px #0006;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;gap:12px}
-.ot-home-card span{flex:1;min-width:0}.ot-home-card b{display:block;font-size:14px}.ot-home-card small{display:block;font-size:11px;color:#e4ddec;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ot-home-card .ot-arrow{font-size:22px;font-weight:300}
-.ot-stage{height:100%;padding-top:55px;display:flex;flex-direction:column;min-height:0;color:white;background:#172235}
-.ot-stage.chat{background:#b4c5d5;color:#23303c}
-.ot-stage.x{background:#0d1016;color:#f5f5f8}
-.ot-stage.instagram{background:#111019;color:#faf6fb}
-.ot-stage.notes{background:#faf6e8;color:#2b2633}
-.ot-stage.photos{background:#10131e;color:#fff}
-.ot-stage.call{background:linear-gradient(158deg,#313b50,#171d2f 73%);color:#fff}
-.ot-head{display:flex;gap:10px;align-items:center;padding:10px 14px 9px;min-height:61px;flex:none;border-bottom:1px solid #ffffff20;background:#171c2e;color:#fff}
-.ot-stage.chat .ot-head{background:#acbfd0;color:#192633;border-bottom-color:#53667935}
-.ot-stage.notes .ot-head{background:#f9f5e8;color:#302739;border-bottom-color:#988d7e35}
-.ot-head button{border:0;background:#ffffff16;color:inherit;border-radius:11px;padding:9px 11px;white-space:nowrap}
-.ot-stage.chat .ot-head button,.ot-stage.notes .ot-head button{background:#00000010}
-.ot-head-body{min-width:0;flex:1}.ot-head-body strong{display:block;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ot-head-body small{display:block;font-size:10px;opacity:.7;margin-top:3px}
-.ot-progress{height:3px;flex:none;background:#ffffff22}.ot-progress > span{height:100%;display:block;background:#d9b7e5;transition:width .2s}
-.ot-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:15px 13px 18px;scrollbar-width:none}
-.ot-scroll::-webkit-scrollbar{display:none}
-.ot-timestamp{text-align:center;opacity:.73;font-size:11px;padding:8px 5px 16px;line-height:1.6}
-.ot-intro{font-size:12px;line-height:1.75;color:#e3e6f0;background:#ffffff13;border:1px solid #ffffff20;padding:12px 13px;border-radius:11px;margin:0 0 16px}
-.ot-stage.chat .ot-intro{background:#ffffff65;border-color:#ffffff79;color:#2b3d50}.ot-stage.notes .ot-intro{background:#e8ddc3;color:#343035}
-.ot-scroll .st-line{max-width:100%;margin-bottom:11px}.ot-scroll .st-bubble{box-shadow:0 1px 3px #0001}
-.ot-stage.chat .st-bubble{background:white;color:#24282d}.ot-stage.chat .st-line.me .st-bubble{background:#ffe15a}
-.ot-stage.chat .st-speaker{color:#35465b}.ot-stage.chat .st-line.me .st-speaker{color:#2e4255}
-.ot-stage.chat .st-avatar{background:#e6d4ba;color:#222}
-.ot-stage.x .st-bubble,.ot-stage.instagram .st-bubble{background:#242c3a;color:#f6f6f7;border:1px solid #ffffff16}
-.ot-stage.x .st-line.me .st-bubble,.ot-stage.instagram .st-line.me .st-bubble{background:#243d57;color:#fff}
-.ot-stage.notes .st-bubble{background:#fff;color:#2b2736}.ot-stage.notes .st-speaker{color:#59506b}
-.ot-stage.photos .st-bubble,.ot-stage.call .st-bubble{background:#ffffff21;color:#fff}
-.ot-stage.call .st-line.me .st-bubble{background:#8291ab6e}
-.ot-stage.chat .st-line.narration .st-card{color:#4c5c6d;border-left-color:#637889}.ot-stage.notes .st-line.narration .st-card{color:#554b59}
-.ot-stage.chat .st-line.news .st-card,.ot-stage.x .st-line.news .st-card{border-left:4px solid #b288c9;background:#f6f5fa;color:#293342;border-radius:13px}
-.ot-stage.notes .st-line.note .st-card{background:#fff;border:1px solid #e9debd;box-shadow:0 4px 15px #0001}
-.ot-stage.photos .st-line.note .st-card{background:#253247;color:#f6f5fa}
-.ot-stage.call .ot-timestamp{margin:16px 0}.ot-stage.call .ot-timestamp:before{content:'☎';display:block;font-size:34px;margin-bottom:9px}
-.ot-actions{z-index:4;flex:none;padding:11px 13px max(19px,env(safe-area-inset-bottom));background:#151b2b;color:#fff;border-top:1px solid #ffffff26;max-height:47%;overflow-y:auto;scrollbar-width:none}
-.ot-stage.chat .ot-actions{background:#f2f2f3;color:#253041;border-top-color:#9ba8b8}
-.ot-stage.notes .ot-actions{background:#f8f4e9;color:#302b39;border-top-color:#d2c6b2}
-.ot-actions .st-act{font-size:13px;padding:11px 12px;margin:6px 0 0;line-height:1.45;border-radius:12px}
-.ot-actions .st-act.alt{background:#ffffff14;color:#fff;border-color:#ffffff5a}
-.ot-stage.chat .ot-actions .st-act.alt,.ot-stage.notes .ot-actions .st-act.alt{background:#fff;color:#293141;border-color:#abb4c5}
-.ot-stage.chat .ot-actions .st-act{background:#ffe260;border-color:#e5c843;color:#302c24}
-.ot-action-label{display:block;font-size:11px;letter-spacing:.2px;opacity:.8;margin:0 0 5px}
-.ot-action-result{font-size:12px;line-height:1.8;padding:11px;background:#ffffff14;border-radius:12px;border:1px solid #ffffff22;white-space:pre-line}
-.ot-stage.chat .ot-action-result,.ot-stage.notes .ot-action-result{color:#273344;background:#fff}
-.ot-scenes-counter{font-size:10px;text-align:right;opacity:.75;margin:8px 0 0}
-.ot-endinghead{text-align:center;padding:38px 4px 28px}.ot-endinghead small{letter-spacing:2.3px;color:#caaff0;font-weight:700}.ot-endinghead h1{font-size:26px;line-height:1.3;margin:16px 0 10px}.ot-endinghead p{font-size:13px;color:#c9cedb}
-.ot-footer-note{text-align:center;font-size:11px;opacity:.72;margin-top:10px}
-.ot-legacy-panel{padding:10px 12px;background:#edf1f5;color:#27313e;border-top:1px solid #bbc3cb;font-size:12px;text-align:center;flex:none}
-.ot-legacy-panel button{display:block;border:0;background:#ffe066;padding:10px 12px;margin:7px auto 2px;border-radius:11px;font-weight:700;color:#24282d;width:100%}
-.ot-old-note{font-size:11px;color:#536373;text-align:center;padding:7px}
-.ot-end-collection{display:grid;gap:9px;margin-top:12px}
-.ot-end-collection button{width:100%;border:1px solid #ffffff35;border-radius:10px;background:#ffffff12;color:#fff;padding:14px;text-align:left;display:flex;justify-content:space-between;gap:9px}
-.ot-end-collection button:disabled{opacity:.42}
-@media (max-height:700px){.ot-home-card{bottom:26%;padding:10px}.ot-actions{padding-top:8px;padding-bottom:12px}.ot-scroll{padding-top:10px}}
+/* 대본 v9 전용: 기존 카카오톡 UI 유지. 첨부 내용은 AI 이미지가 아닌 CSS/텍스트로 표현. */
+.novel-file{display:grid;gap:9px;min-width:176px;max-width:235px;white-space:normal;line-height:1.55;text-align:left;padding:13px!important}
+.novel-file strong{font-size:14px;border-bottom:1px solid #bbb;padding-bottom:7px}
+.novel-file span{font-size:12px;line-height:1.9;display:block;color:#5a5860}
+.novel-photo{padding:5px!important;max-width:210px;overflow:hidden}
+.novel-photo small{display:block;font-size:10px;color:#787e89;padding:6px 5px 3px}
+.novel-desk{height:128px;min-width:182px;border-radius:7px;background:linear-gradient(145deg,#a48973,#ba9c81 55%,#977b68);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
+.novel-laptop{width:118px;height:70px;border:5px solid #40414b;border-bottom-width:8px;border-radius:5px;background:#e6e8eb;box-shadow:0 5px 2px #0004;display:grid;place-items:center;transform:rotate(-4deg)}
+.novel-blurred-title{font-size:10px;font-weight:800;color:#50555d;filter:blur(2.1px);padding:8px;text-align:center}
+.novel-notebook{height:13px;color:#eee;font-size:12px;letter-spacing:2px;transform:rotate(-4deg)}
+.novel-reply-popover .novel-locked{opacity:.44;background:#e8e8e8;color:#888}
 
 
-/* V7: narrative takes place inside existing Kakao, X and telephone. NO separate story application. */
-.kk-room .kk-timeline{padding-bottom:20px}
-.native-chat-date{font-size:10px;color:#f5fbff;text-align:center;margin:19px 0 9px;text-shadow:0 1px 3px #758ca7}
-.native-msgmeta{color:#f7faff;text-align:center;font-size:10px;margin:14px 0 5px}
-.native-story-note{max-width:95%;font-size:12px;line-height:1.65;background:#ffffff80;border:1px solid #ffffff8f;border-radius:12px;padding:10px 12px;margin:11px auto;color:#34485b;white-space:pre-wrap;word-break:keep-all}
-.native-link-card{display:block;width:94%;background:#fff;border:1px solid #dae0e7;color:#242e39;text-align:left;border-radius:12px;padding:12px 14px;margin:11px auto;box-shadow:0 2px 6px #2336;font-size:12px;line-height:1.6}
-.native-link-card b{display:block;margin-bottom:5px;font-size:13px}.native-link-card small{display:block;color:#707e8d;margin-top:5px}
-.native-controls{flex:none;background:#f9f9fb;border-top:1px solid #c2ced8;padding:10px 13px max(15px,env(safe-area-inset-bottom));color:#3b4450;max-height:41%;overflow-y:auto}
-.native-controls .native-hint{font-size:11px;line-height:1.5;color:#6c7885;text-align:center;margin:1px 0 9px}
-.native-btn{width:100%;border:1px solid #e2ca53;border-radius:12px;background:#ffe469;color:#282822;padding:12px 12px;text-align:left;font-size:13px;line-height:1.5;font-weight:600;margin:4px 0;word-break:keep-all}
-.native-btn.secondary{background:#fff;color:#384c5a;border-color:#d5dce5;font-weight:500}
-.native-btn.small{font-size:11px;padding:8px 11px;text-align:center}
-.native-progress{font-size:10px;text-align:center;color:#80919e;margin-top:7px}
-.native-current{border-left:3px solid #e5bb40;background:#fff9e5;color:#59431c;padding:10px 13px;font-size:12px;line-height:1.5}
-.native-top-list{border:1px solid #ffe5aa;background:#fffbef;color:#483e32;display:block;width:calc(100% - 30px);text-align:left;border-radius:12px;margin:7px 15px 10px;padding:12px;font-size:12px}
-.native-top-list b{display:block;font-size:13px;margin-bottom:4px}
-.native-badge{background:#e94f56;color:white;border-radius:10px;min-width:18px;height:18px;padding:2px 5px;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
-.native-ending-card{text-align:center;color:#324457;background:#fff8d9;border:1px solid #f0db99;border-radius:12px;margin:16px 5px;padding:15px 10px;line-height:1.8}
-.native-ending-card b{font-size:17px}.native-ending-card small{color:#756b54}
-.native-x-footer{background:#f7f8fb;padding:11px 14px;border-top:1px solid #e4e7ef}
-.native-callstory{margin:12px auto 0;width:94%;max-width:460px;flex:1;min-height:0;overflow-y:auto;text-align:left;border-radius:13px;background:#ffffff13;padding:14px;font-size:13px;line-height:1.65;color:#fff}
-.native-callstory .talk{margin:0 0 11px}.native-callstory .who{font-size:10px;opacity:.67;display:block}.native-callstory .mine{text-align:right;color:#ffe78a}
-.native-call-actions{width:94%;margin:8px auto 12px;max-height:35%;overflow-y:auto}.native-call-actions .native-btn.secondary{background:#ffffff1a;border-color:#ffffff6e;color:#fff}
-.native-ring-avatar{margin:20vh auto 12px;width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#cfc4b2,#e4d6c7);font-size:54px;box-shadow:0 0 0 9px #ffffff10,0 0 0 21px #ffffff08}
-.native-ring-name{font-size:29px;letter-spacing:-.5px;text-align:center}.native-ring-label{font-size:13px;opacity:.75;text-align:center;margin:8px 0}
-.native-ring-actions{display:flex;margin:auto 0 4vh;gap:24px;justify-content:space-around}
-.native-ring-actions button{border:0;background:none;color:#fff;display:grid;place-items:center;gap:9px;font-size:12px;max-width:130px}
-.native-ring-actions button span{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;font-size:30px;color:#fff}
-.native-ring-actions .decline span{background:#ca4b56}.native-ring-actions .accept span{background:#30a169}
-#call-surface.native-story-call{display:flex;flex-direction:column;padding:52px 10px 16px}
-#call-surface.native-story-call .call-person{font-size:21px;margin-top:5px}
-#call-surface.native-story-call .call-state{font-size:12px;margin:4px 0}
-#call-surface.native-story-call .call-min-title{font-size:12px}
-#live-banner{touch-action:none;-webkit-user-select:none;user-select:none;overscroll-behavior:contain}
-#live-banner .live-dismiss{min-width:34px;min-height:34px;display:grid;place-items:center}
+/* v10 PDF automatic side chats; no independent story screens or choices. */
+.novel-auto-composer{gap:12px;align-items:center;color:#777;pointer-events:none}
+.novel-auto-composer>span:first-child,.novel-auto-composer>span:last-child{font-size:21px}
+.novel-auto-placeholder{display:flex;align-items:center;min-height:38px;border:1px solid #d7d7d7;background:#f8f8f8;border-radius:24px;padding:0 13px;flex:1;font-size:13px;color:#a4a4a4}
+.novel-speaker{display:block;font-size:10px;color:#626262;font-weight:700;margin-bottom:3px}
 
 </style>
 </head>
@@ -695,14 +602,14 @@
   <script>
   (() => {
     'use strict';
-    const KEY='ryota-shigeo-if-v3';
+    const KEY='ryota-shigeo-if-v3'; // 이전 저장 기록은 그대로 유지
     const WALL_KEY='ryota-shigeo-custom-wallpaper-v1';
     const DEFAULT_STORY_WALLPAPER=null;
     const fresh = () => ({name:'시게오',page:'lock',app:'',sub:'',ending:'',liked:false,chatReplied:false,seenStory:false,seenPhoto:false,seenMemo:false,checkedCall:false,usedHelp:false,lockNotifCount:0,passcode:'',passcodeError:'',xTab:'for-you',likedPosts:[],replyChoice:'',readArticle:false,xSection:'feed',xNotifTab:'all',xDmReply:'',igLikes:[],igSaves:[],igComments:[],igTab:'feed',igReply:'',liveAlertsSeen:0,kkTab:'chats',kkDrafts:{},kkSent:{},kkRead:{},kkLastTime:{},xDmRead:{},xDmSent:{},xDmDrafts:{},kkProfile:'',callMode:'',callContact:'',callMuted:false,callSpeaker:false,callSeconds:0,callDialpad:false});
     let s;
     try { s={...fresh(),...JSON.parse(localStorage.getItem(KEY)||'{}')}; } catch { s=fresh(); }
     s.page='lock';s.app='';s.sub='';s.lockNotifCount=0;s.passcode='';s.xTab=s.xTab||'for-you';s.likedPosts=s.likedPosts||[];s.xSection='feed';s.igTab='feed';
-    s.storyStep=Number.isFinite(s.storyStep)?s.storyStep:0;s.storyAnswers=s.storyAnswers||{};s.storyEnding=s.storyEnding||'';s.storyViewing='';s.storyLineIndex=Math.max(0,Number(s.storyLineIndex||0));s.storyEndingLineIndex=Math.max(0,Number(s.storyEndingLineIndex||0));s.kkRead=s.kkRead||{};s.kkLastTime=s.kkLastTime||{};s.xDmRead=s.xDmRead||{};s.xDmSent=s.xDmSent||{};s.xDmDrafts=s.xDmDrafts||{};
+    s.kkRead=s.kkRead||{};s.kkLastTime=s.kkLastTime||{};s.xDmRead=s.xDmRead||{};s.xDmSent=s.xDmSent||{};s.xDmDrafts=s.xDmDrafts||{};
     const $=id=>document.getElementById(id);
     const safe=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(s));}catch{}};
@@ -711,7 +618,7 @@
     const button=(label,act,extra='')=>`<button type="button" data-act="${act}" ${extra}>${label}</button>`;
     let toastHandle;
     const toast=msg=>{ const el=$('toast'); el.textContent=msg; el.hidden=false; clearTimeout(toastHandle); toastHandle=setTimeout(()=>el.hidden=true,2900); };
-    function go(page,app='',sub=''){const old=s.page;s.page=page;s.app=app;s.sub=sub;save();render();if((page==='home'||page==='app')&&old!=='home'&&old!=='app')startLiveAlerts();}
+    function go(page,app='',sub=''){const old=s.page;s.page=page;s.app=app;s.sub=sub;if(page==='app'&&app==='chat'&&chatContacts.some(c=>c.id===sub)){novelMarkRead(sub);}save();render();if((page==='home'||page==='app')&&old!=='home'&&old!=='app')startLiveAlerts();if(page==='app'&&app==='chat'&&SIDE_AUTO[sub])novelEnterSide(sub);}
     function header(title,back='home',right='') { return `<header class="app-header"><button class="icon-btn" data-act="${back}" aria-label="뒤로가기">‹</button><h2>${title}</h2><span style="min-width:35px;text-align:right">${right}</span></header>`; }
     const appMap={chat:['카톡','chat','☏'],instagram:['인스타','insta','◎'],gallery:['사진','gallery','✿'],notes:['메모','notes','▤'],phone:['전화','phone','☎'],info:['도움말','info','?']};
     const homeLayout=[
@@ -728,7 +635,7 @@
       {id:'stub-message',label:'메시지',cls:'message',act:'stub:메시지'},
       {id:'chat',label:'카카오톡',cls:'kakaotalk',act:'open:chat'}
     ];
-    function appIcon(id){let [label,cls,ico]=appMap[id];return `<span class="app-icon ${cls}">${ico}${id==='chat'&&!s.chatReplied?'<span class="count">2</span>':''}</span>`;}
+    function appIcon(id){let [label,cls,ico]=appMap[id];return `<span class="app-icon ${cls}">${ico}${id==='chat'&&chatContacts.some(c=>novelUnread(c)>0)?'<span class="count">'+chatContacts.filter(c=>novelUnread(c)>0).length+'</span>':''}</span>`;}
     function appButton(id){return `<button class="app-button" data-act="open:${id}">${appIcon(id)}<span>${appMap[id][0]}</span></button>`;}
     function homeAppButton(item,{dock=false}={}){return `<button class="app-button" data-act="${item.act}" aria-label="${item.label} 열기"><span class="app-icon ${item.cls}"></span><span>${item.label}</span></button>`;}
     function intro(){return `<div class="content intro"><div><div class="eyebrow">INTERACTIVE PHONE MYSTERY</div><h1>11:47</h1><p class="description">축제가 끝난 밤, 복도에 떨어진 휴대폰 한 대.<br>잠금화면에 알림이 떠올랐다.<br><br>“그 애를 찾고 싶으면, 마지막 기록을 봐.”</p><div class="ornament" aria-hidden="true">◈</div></div><form id="name-form"><label for="player-name">당신의 이름은?</label><input class="name-field" id="player-name" autocomplete="off" maxlength="12" placeholder="예: 유나" value="${safe(s.name)}" required><button class="primary" type="submit">이야기 시작하기 →</button><div class="caption">실제 카톡·인스타 계정과 연동되지 않는 가상 이야기입니다.<br>진행 상황은 이 기기의 브라우저에만 저장됩니다.</div></form></div>`;}
@@ -768,7 +675,7 @@
       ['사진','photos','open:gallery'],['설정','settings','open:info']
     ];
     const dockIcons=[['전화','phone','open:phone'],['Safari','safari','stub:Safari'],['메시지','messages','stub:메시지'],['카카오톡','kakaotalk','open:chat']];
-    function iosApp([label,file,action]) {return `<button class="ios-app" type="button" data-act="${action}" aria-label="${label} 열기">${file==='story'?'<span class="ios-story-icon">✉</span>':`<img src="${ICON_ASSETS[file]}" alt="">`}<span class="ios-app-label">${label}</span></button>`;}
+    function iosApp([label,file,action]) {return `<button class="ios-app" type="button" data-act="${action}" aria-label="${label} 열기"><img src="${ICON_ASSETS[file]}" alt=""><span class="ios-app-label">${label}</span></button>`;}
     function home(){return `<div class="content ios-home"><div class="story-wallpaper"></div><div class="ios-app-grid">${homeIcons.map(iosApp).join('')}</div><div class="ios-pages">● ○</div><button class="ios-search" data-act="open:search" aria-label="검색"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg> 검색</button><div class="ios-dock">${dockIcons.map(iosApp).join('')}</div></div>`;}
     function spotlight(){return appShell('검색',`<div class="ios-search-screen"><input type="search" id="ios-app-query" placeholder="앱 검색" autocomplete="off" aria-label="앱 검색"><div class="ios-search-results" id="ios-search-results">${[...homeIcons,...dockIcons,['메모','notes','open:notes']].map(([label,file,action])=>`<button data-act="${action}" data-app-name="${label.toLowerCase()}"><img src="${ICON_ASSETS[file==='notes'?'settings':file]}" alt="">${label}</button>`).join('')}</div></div>`);}
     function wallpaperCard(){return `<section class="wallpaper-controls"><h3>배경화면 변경</h3><p>사진 선택을 누르면 내 아이폰 사진을 잠금화면·암호화면·홈 화면에 적용할 수 있어요. 원본 아이콘 10개와 앱 배치는 그대로 유지됩니다.</p><div class="wallpaper-preview" id="wallpaper-preview"></div><label for="wallpaper-file" style="display:block;font-weight:700;font-size:13px">내 사진 선택</label><input id="wallpaper-file" type="file" accept="image/*"><button class="secondary" data-act="wallpaper-reset" type="button">무지 배경으로 되돌리기</button><p>선택한 사진은 이 브라우저에만 저장돼요. 다른 사람에게도 같은 배경을 보여주려면 기본 배경 이미지를 웹사이트에 포함해야 해요.</p></section>`;}
@@ -801,7 +708,7 @@
       const liked=(s.likedPosts||[]).includes(p.id);
       return `<article class="x-tweet"><span class="x-avatar">${p.avatar}</span><div class="x-tweet-main"><div class="x-meta"><strong>${safe(p.name)}</strong><span>${safe(p.handle)} · ${p.when}</span><span class="x-ellipsis">···</span></div><button type="button" class="x-textbtn" data-act="x-post:${p.id}">${safe(p.body)}</button>${p.type==='news'?`<button class="x-linkcard" data-act="x-article"><small>SPORTS FOCUS · 단독 보도</small><b>키쿠치 시게오, 일반인 남성과 열애설… 선수 측 “확인 중”</b><span>사진 없음 · 기사 보기</span></button>`:''}<div class="x-actions"><button data-act="x-post:${p.id}">♧ <span>${detail?'4':Math.round(parseInt(p.reposts.replace(/,/g,''),10)/5).toLocaleString('ko-KR')}</span></button><button data-act="x-retweet:${p.id}">⇄ <span>${p.reposts}</span></button><button class="${liked?'liked':''}" data-act="x-like:${p.id}">${liked?'♥':'♡'} <span>${p.likes}</span></button><button data-act="x-share">↥</button></div></div></article>`;
     }
-    function xArticle(){return `<div class="x-screen story-article"><div class="x-app-top"><button data-act="x-main" aria-label="뒤로가기">‹</button><b>기사</b><span>↥</span></div><div class="article-content"><div class="article-publication">SPORTS FOCUS <span>야구 · 단독</span></div><div class="article-tag">단독</div><h1>국가대표 키쿠치 시게오, 일반인 남성과 열애설… 야구계도 ‘술렁’</h1><div class="article-lead">온라인에 확산된 목격담으로 사생활 의혹 제기… 소속팀 “확인 중”</div><div class="article-byline">스포츠포커스 취재팀 | 2026.11.02 06:21</div><div class="article-photo">사진 없음<br><small>본 기사는 게임 속 가상 보도입니다</small></div><p>일본 야구 국가대표로 활약 중인 키쿠치 시게오 선수를 둘러싼 열애설이 온라인을 뜨겁게 달구고 있다. 상대는 대학에 재학 중인 일반인 남성으로 알려졌다.</p><p>2일 새벽 SNS를 중심으로 두 사람이 오랜 기간 교제해 왔다는 글이 확산됐다. 두 사람이 학창 시절부터 알고 지낸 사이라는 주장도 이어졌지만, 구체적인 교제 기간과 경위는 확인되지 않았다.</p><p>키쿠치의 소속팀 관계자는 이날 본지에 “관련 내용을 확인하고 있다. 선수의 사생활과 관련된 사안인 만큼 신중한 입장”이라고 답했다. 대표팀 차원의 공식 입장은 아직 나오지 않은 상태다.</p><p>갑작스러운 소식에 팬들의 반응은 엇갈리고 있다. 일부 팬은 실망감을 드러낸 반면, 사생활 공개 방식과 온라인 인신공격을 우려하는 목소리도 커지고 있다.</p><p>한편 키쿠치는 강속구와 날카로운 슬라이더, 빠른 발을 바탕으로 주목받은 선수다. 이번 보도 이후 그의 SNS에는 수많은 댓글과 언급이 쏟아지고 있다.</p><div class="article-disclaimer">※ 창작 웹게임을 위해 제작한 허구 기사입니다. 실제 언론 보도나 인물과 무관합니다.</div>${nativeStep()>=6?`<div class="native-story-note">[속보 후속 기사] 열애설 이후 일반인 신상을 추측하는 게시물이 확산 중이다. 확인되지 않은 목격담으로 특정인을 지목하는 행위가 논란이 되고 있다.</div>`:''}${nativeStep()===6?`<button class="native-btn" data-act="native-read-x">후속 기사 확인 완료 · 카톡으로 →</button>`:nativeStep()===0?`<button class="native-btn" data-act="native-read-x">기사 확인 완료 · 료타에게 답장하기 →</button>`:`<button class="article-back" data-act="native-return-chat">료타와 대화하기 →</button>`}</div></div>`;}
+    function xArticle(){return `<div class="x-screen story-article"><div class="x-app-top"><button data-act="x-main" aria-label="뒤로가기">‹</button><b>기사</b><span>↥</span></div><div class="article-content"><div class="article-publication">SPORTS FOCUS <span>야구 · 단독</span></div><div class="article-tag">단독</div><h1>국가대표 키쿠치 시게오, 일반인 남성과 열애설… 야구계도 ‘술렁’</h1><div class="article-lead">온라인에 확산된 목격담으로 사생활 의혹 제기… 소속팀 “확인 중”</div><div class="article-byline">스포츠포커스 취재팀 | 2026.11.02 06:21</div><div class="article-photo">사진 없음<br><small>본 기사는 게임 속 가상 보도입니다</small></div><p>일본 야구 국가대표로 활약 중인 키쿠치 시게오 선수를 둘러싼 열애설이 온라인을 뜨겁게 달구고 있다. 상대는 대학에 재학 중인 일반인 남성으로 알려졌다.</p><p>2일 새벽 SNS를 중심으로 두 사람이 오랜 기간 교제해 왔다는 글이 확산됐다. 두 사람이 학창 시절부터 알고 지낸 사이라는 주장도 이어졌지만, 구체적인 교제 기간과 경위는 확인되지 않았다.</p><p>키쿠치의 소속팀 관계자는 이날 본지에 “관련 내용을 확인하고 있다. 선수의 사생활과 관련된 사안인 만큼 신중한 입장”이라고 답했다. 대표팀 차원의 공식 입장은 아직 나오지 않은 상태다.</p><p>갑작스러운 소식에 팬들의 반응은 엇갈리고 있다. 일부 팬은 실망감을 드러낸 반면, 사생활 공개 방식과 온라인 인신공격을 우려하는 목소리도 커지고 있다.</p><p>한편 키쿠치는 강속구와 날카로운 슬라이더, 빠른 발을 바탕으로 주목받은 선수다. 이번 보도 이후 그의 SNS에는 수많은 댓글과 언급이 쏟아지고 있다.</p><div class="article-disclaimer">※ 창작 웹게임을 위해 제작한 허구 기사입니다. 실제 언론 보도나 인물과 무관합니다.</div><button class="article-back" data-act="x-main">X에서 반응 보기 →</button></div></div>`;}
 
     const xDms=[
       {id:'reporter',emoji:'📰',name:'스포츠픽 취재팀',handle:'@sports_pick24',preview:'현재 입장 확인 가능할까요?',time:'06:31',unread:true,
@@ -829,7 +736,7 @@
       return `<div class="x-screen"><div class="x-page-header"><b>알림</b><span class="right">⚙</span></div><div class="x-notif-tabs"><button class="${mode==='all'?'active':''}" data-act="x-notif-tab:all">전체</button><button class="${mode==='mentions'?'active':''}" data-act="x-notif-tab:mentions">내 언급</button></div><div class="x-scroll">${items.map(t=>`<button class="x-notification-row" data-act="${t.route}"><span class="x-notif-ico">${t.kind==='news'?'📰':t.kind==='like'?'♥':t.kind==='follow'?'👤':'＠'}</span><span class="x-notif-content"><b>${t.time}</b><div>${safe(t.text)}</div></span></button>`).join('')}</div>${xNav('notifications')}</div>`;
     }
     function xDmList(){return `<div class="x-screen"><div class="x-page-header"><b>쪽지</b><span class="right">✎</span></div><div class="x-scroll"><div class="x-story-note">모두 게임 속 가상의 계정과 메시지입니다.</div>${xDms.map(m=>{const last=xLatest(m);return `<button class="x-dm-row" data-act="x-dm:${m.id}"><span class="x-avatar">${m.emoji}</span><span class="x-dm-details"><span><b>${safe(m.name)}</b> <small style="display:inline">${safe(m.handle)} · ${safe(last.time)}</small></span><small>${safe(last.text)}</small></span>${xUnread(m)?'<span style="color:#1d9bf0">●</span>':''}</button>`;}).join('')}</div>${xNav('dms')}</div>`;}
-    function xDmThread(){const id=s.sub.slice(3),m=xDms.find(t=>t.id===id)||xDms[0];const msgs=[...m.messages];if(id==='reporter'&&s.xDmReply)msgs.push(['me',s.xDmReply==='later'?'공식 입장은 구단을 통해 전달하겠습니다.':'개별 인터뷰에는 응하지 않겠습니다.']);for(const message of (s.xDmSent?.[id]||[]))msgs.push(['me',message]);return `<div class="x-screen"><div class="x-page-header"><button data-act="x-nav:dms" aria-label="쪽지 목록으로">‹</button><span class="x-avatar" style="width:30px;height:30px;font-size:17px">${m.emoji}</span><b style="font-size:15px">${safe(m.name)}</b></div><div class="x-scroll" id="x-dm-timeline"><div class="x-dm-thread"><div style="text-align:center;font-size:12px;color:#777"><b>${safe(m.name)}</b><p>${safe(m.handle)}</p></div>${msgs.map(([who,t])=>who==='day'?`<div class="x-chatdate">${safe(t)}</div>`:`<div class="x-dm-bubble ${who==='me'?'me':''}">${safe(t)}</div>`).join('')}${id==='reporter'&&!s.xDmReply?`<div class="kk-choices" style="padding:10px"><span>답장하기</span><button data-act="x-dm-reply:later">공식 입장은 구단을 통해 전달하겠습니다.</button><button data-act="x-dm-reply:decline">개별 인터뷰에는 응하지 않겠습니다.</button></div>`:''}</div></div>${nativeStep()===3?`<div class="native-x-footer"><button class="native-btn" data-act="native-next">쪽지 확인 완료 · 다음 알림 →</button></div>`:''}</div>`;}
+    function xDmThread(){const id=s.sub.slice(3),m=xDms.find(t=>t.id===id)||xDms[0];const msgs=[...m.messages];if(id==='reporter'&&s.xDmReply)msgs.push(['me',s.xDmReply==='later'?'공식 입장은 구단을 통해 전달하겠습니다.':'개별 인터뷰에는 응하지 않겠습니다.']);for(const message of (s.xDmSent?.[id]||[]))msgs.push(['me',message]);return `<div class="x-screen"><div class="x-page-header"><button data-act="x-nav:dms" aria-label="쪽지 목록으로">‹</button><span class="x-avatar" style="width:30px;height:30px;font-size:17px">${m.emoji}</span><b style="font-size:15px">${safe(m.name)}</b></div><div class="x-scroll" id="x-dm-timeline"><div class="x-dm-thread"><div style="text-align:center;font-size:12px;color:#777"><b>${safe(m.name)}</b><p>${safe(m.handle)}</p></div>${msgs.map(([who,t])=>who==='day'?`<div class="x-chatdate">${safe(t)}</div>`:`<div class="x-dm-bubble ${who==='me'?'me':''}">${safe(t)}</div>`).join('')}${id==='reporter'&&!s.xDmReply?`<div class="kk-choices" style="padding:10px"><span>답장하기</span><button data-act="x-dm-reply:later">공식 입장은 구단을 통해 전달하겠습니다.</button><button data-act="x-dm-reply:decline">개별 인터뷰에는 응하지 않겠습니다.</button></div>`:''}</div></div><form class="x-dm-foot" id="x-dm-compose-form"><input type="text" id="x-dm-message-input" maxlength="280" autocomplete="off" placeholder="쪽지 보내기" aria-label="X 쪽지 입력" value="${safe(s.xDmDrafts?.[id]||'')}"><button type="submit" aria-label="쪽지 전송">➤</button></form></div>`;}
     function xSearch(){return `<div class="x-screen"><div class="x-page-header"><b>검색</b></div><div class="x-scroll"><div style="padding:10px 16px"><input id="x-live-query" class="x-search-field" style="display:block;margin:0;width:100%;border:0;outline:0" value="키쿠치 시게오" aria-label="X 검색어" placeholder="검색어를 입력해 주세요"></div><div class="x-story-note">실시간 인기 키워드</div>${[['1','키쿠치 시게오 열애설','24.8만 게시물'],['2','국가대표','8.4만 게시물'],['3','#시게오_지켜','3.2만 게시물'],['4','선수 사생활','1.4만 게시물']].map(([i,n,c])=>`<button class="x-notification-row" data-act="x-nav:feed"><span class="x-notif-ico">${i}</span><span class="x-notif-content"><b>${n}</b><div style="color:#7a8087">${c}</div></span></button>`).join('')}<button class="x-notification-row" data-act="x-article">관련 보도 읽기 →</button></div>${xNav('search')}</div>`;}
 
     function xApp(){
@@ -841,14 +748,22 @@
       if(section==='notifications')return xNotif();
       if(section==='search')return xSearch();
       const tab=s.xTab||'for-you';
-      const selected=tab==='following'? xPosts.filter(p=>p.type==='support'||p.id==='p2'):xPosts;
+      const selected=[...(tab==='following'?xPosts.filter(p=>p.type==='support'||p.id==='p2'):xPosts),...NOVEL_NEW_X.filter((p,i)=>novel().beat >= [2,3,4][i] && (tab!=='following'||p.type==='support'))];
       return `<div class="x-screen"><div class="x-brandrow"><span class="x-brand-avatar">⚾</span><b>𝕏</b><button data-act="x-nav:search" aria-label="검색">⌕</button></div><div class="x-tabs"><button class="${tab==='for-you'?'selected':''}" data-act="x-tab:for-you">추천</button><button class="${tab==='following'?'selected':''}" data-act="x-tab:following">팔로잉</button></div><div class="x-scroll" id="x-feed-scroll"><div class="x-trending"><small>대한민국 트렌드 · 스포츠</small><strong>키쿠치 시게오 열애설</strong><span>관련 게시물 24.8만</span><button data-act="x-article">기사 읽기 ›</button></div>${selected.map(p=>xPost(p)).join('')}<div class="x-legal">모든 계정·게시물과 기사 내용은 창작입니다.</div></div><button class="x-compose-fab" data-act="x-compose" aria-label="게시물 작성">＋</button>${xNav('feed')}</div>`;
     }
     const chatContacts=[
       {id:'ryota',name:'료타 선배',avatar:'🐶',color:'#e6d4ba',last:'시게오, 나한테 연락만 해. 괜찮아?',time:'06:29',unread:4},
       {id:'shou',name:'카토 쇼우',avatar:'🫧',color:'#b5d4e7',last:'야 시게오 괜찮냐? 문자 보면 답해',time:'06:30',unread:3},
       {id:'aina',name:'스즈키 아이나',avatar:'🍮',color:'#f3d5c9',last:'시게오!!! 기사 봤어? 전화 받아',time:'06:30',unread:2},
-      {id:'club',name:'구단 홍보팀',avatar:'⚾',color:'#cad8ce',last:'키쿠치 선수, 확인 부탁드립니다.',time:'06:32',unread:2}
+      {id:'club',name:'구단 홍보팀',avatar:'⚾',color:'#cad8ce',last:'키쿠치 선수, 확인 부탁드립니다.',time:'06:32',unread:2},
+      {id:'chyotaro',name:'쵸타로',avatar:'🍀',color:'#bed7d5',last:'형, 기사 봤어.',time:'07:01',unread:0},
+      {id:'team',name:'선수단 전체',avatar:'🏟️',color:'#c6cedc',last:'',time:'07:21',unread:0},
+      {id:'miyake',name:'미야케 선배',avatar:'🥎',color:'#c9ccdc',last:'',time:'08:02',unread:0},
+      {id:'captain',name:'주장 하세가와',avatar:'🧢',color:'#d5ddd3',last:'',time:'08:30',unread:0},
+      {id:'director',name:'감독',avatar:'📋',color:'#d0d5dd',last:'',time:'09:10',unread:0},
+      {id:'nomura',name:'노무라',avatar:'⚾',color:'#bcd8d5',last:'',time:'13:20',unread:0},
+      {id:'oka',name:'오카',avatar:'🌿',color:'#d3d4b9',last:'',time:'15:45',unread:0},
+      {id:'grandma',name:'할머니',avatar:'🍲',color:'#e8cdbd',last:'',time:'21:20',unread:0}
     ];
     const msgHistories={
       ryota:[
@@ -923,22 +838,313 @@
         ['day','2026년 11월 2일 · 오늘'],['them','키쿠치 선수, 현재 인터넷에서 선수 관련 보도가 확산되고 있습니다.'],['them','외부 취재 연락에는 개별 대응하지 마시고 먼저 구단으로 연락 부탁드립니다.']
       ]
     };
-    function chatUnread(c){
-      const n=nativeStep();if(n>0&&n<ST_SCENES.length&&nativeRoomFor(n)===c.id && (s.nativeReadStep?.[c.id]??-1)<n)return 1;
-      return s.kkRead?.[c.id]?0:c.unread;
+    // v8: 자연스럽게 이어지는 메신저 게임. 기존 화면/사진/메시지 기록 보존.
+    // 이야기의 진행은 오직 료타 대화방에서 '전송'을 눌렀을 때만 일어난다.
+    // v9: 료타방 대본 · 카톡 시뮬레이터 — 대본의 대사와 분기만 메인 루트로 사용.
+    // 날짜는 기존 11월 1~2일 저장 기록에 맞춰 대본의 '임시' 날짜를 조정했다.
+    const SCRIPT_VERSION=9;
+    const NOVEL_NEW_X = [
+      {id:'n1',avatar:'📰',name:'스포츠포커스',handle:'@sports_focus',when:'낮 12:31',body:'[후속] 키쿠치 시게오 열애설. 일반인 추정 사진이 확산되고 있다.',likes:'1,902',reposts:'703',type:'news'},
+      {id:'n2',avatar:'⚾',name:'야구 소식',handle:'@baseball_updates',when:'오후 8:52',body:'구단이 사실관계를 확인 중. 개인적인 신상 추측은 삼가야 한다는 목소리가 나온다.',likes:'2,310',reposts:'802',type:'support'},
+      {id:'n3',avatar:'🏟️',name:'구단 알림',handle:'@club_notice',when:'다음 날',body:'키쿠치 시게오 관련 공식 입장이 발표됐다. 선수는 야구에 집중하겠다고 밝혔다.',likes:'6,020',reposts:'2,335',type:'support'}
+    ];
+    const R_STAGE_CHOICES = {
+      0:[
+        {text:'기사 봤냐',o:1,t:0},
+        {text:'야 일어났냐ㅋㅋ',o:0,t:1},
+        {text:'료타에게 전화를 건다',kind:'call',o:0,t:0}
+      ],
+      1:[
+        {text:'ㅋㅋ 마스크 쓴 건 아쉽더라',t:1},
+        {text:'농담 말고. 괜찮냐고 물은 거야',o:1},
+        {text:'됐고 점심 뭐 먹었어'}
+      ],
+      2:[
+        {text:'구단에서 이렇게 가자는데. 이게 제일 안전해',kind:'decision',flag:'DENY'},
+        {text:'오늘 홍보팀이랑 얘기했어. 별건 아냐',kind:'decision',flag:'HIDE'},
+        {text:'구단은 사실무근으로 가자는 초안을 보냈어',kind:'decision',flag:'OPEN',o:1,t:1}
+      ],
+      3:[
+        {text:'내일 구단 초안대로 부인할 거야',end:'bad'},
+        {text:'내일은 아무 입장도 안 낼 거야. 그냥 던진다',end:'normal'},
+        {text:'내일 인정할 거야',end:'happy',locked:true}
+      ],
+      4:[{text:'아니, 그런 말이 아니라—'},{text:'...그래.'}],
+      5:[{text:'알겠어. 기다릴게.'},{text:'도망치는 거야?'}],
+      6:[{text:'이 사람은 제가 힘들 때나 언제나 곁에 있어 준 사람입니다.'},{text:'저는 소중한 사람과 교제하고 있습니다.'}],
+      7:[{text:'이 사람이 없었다면 저는 야구를 그만뒀을지도 모릅니다.'},{text:'이 사람 덕분에 여기까지 올 수 있었습니다.'}],
+      8:[{text:'선수는 그라운드 위의 모습으로 말하면 된다고 생각합니다.'},{text:'선수는 경기에 집중하면 된다고 생각합니다.'}]
+    };
+
+    // v10: 사용자 PDF '서브방 대본 · 카톡 시뮬레이터 (자동 재생)' verbatim dialogue.
+    // 료타방의 오리지널 분기, 호감도, 엔딩 코드는 변경하지 않는다.
+    const A=(who,body,sender)=>sender?[who,body,sender]:[who,body];
+    const SIDE_AUTO={
+      shou:{group:1,time:'07:03',messages:[
+        A('them','야'),A('them','시게오 뉴스 봤는데'),A('them','일단 아무한테도 답하지 말고'),A('them','야 시게오 괜찮냐? 문자 보면 답해'),
+        A('me','방금 확인했어. 아직 아무한테도 답 안 했어'),A('them','ㅇㅇ 잘했어'),A('them','근데 너 괜찮다고 할 때가 제일 안 괜찮은 거 알지'),
+        A('me','...멍해. 뭘 해야 할지 모르겠어'),A('them','일단 숨부터 쉬어. 연습 끝나면 갈 수 있어'),
+        A('them','그리고 네가 누구랑 사귀든 난 상관없다. 슬럼프 올 때마다 찾아오던 자리 그대로 있을 테니까'),
+        A('me','...고맙다'),A('them','고마우면 밥이나 먹어')]},
+      aina:{group:1,time:'07:15',messages:[
+        A('them','시게오 어디야?? 기사 봤지'),A('them','나 지금 열받아서 손 떨려'),
+        A('them','댓글 단 인간들 전부 찾아가서 야구부 들어오라고 할까 (농담 아님)'),
+        A('me','그건 네가 야구부에 들어오는 얘기 아니냐'),A('them','그치. 내가 들어가서 걔네 전부 공으로 맞춰줄 거야'),
+        A('them','밥은 먹었어? 안 먹었으면 먹어 일단'),A('them','주말에 그 카페 가자. 신메뉴 나왔다? 내가 쏜다'),
+        A('me','이 상황에 디저트냐'),A('them','이 상황이니까 디저트지'),
+        A('them','너 어릴 때부터 안 좋은 일 있으면 단 거 먹으면서 입 다물고 있었잖아'),
+        A('them','입 다물고 있어도 되니까 옆에만 있을게'),A('them','할머니 댁에는 내가 저녁에 들러볼게'),A('me','...고맙다')]},
+      chyotaro:{group:1,time:'07:40',messages:[
+        A('them','기사 봤다'),A('them','남이 어떻게 살든 관심 없는데'),A('them','그딴 걸로 공 흔들리면 나한테 죽는다'),
+        A('them','야구로 만나자 키쿠치. 그때까지 멀쩡해라'),A('me','네가 뭔 상관이야'),
+        A('them','상관없지. 그러니까 더 열받는 거다'),A('me','...아직도 그때 일로 으르렁거릴 줄 알았는데'),
+        A('them','그건 그거고'),A('note','입력 중…'),A('them','그때 공은 지금도 고의였다고 생각한다'),
+        A('me','아니라고 몇 번을 말해'),A('them','그래도 오늘은 인정해준다. 네 공이 빠른 건'),
+        A('note','읽음. 쵸타로는 더 이상 말이 없다.')]},
+      team:{group:2,time:'07:21',messages:[
+        A('them','📰 기사 링크를 공유했습니다.','선수단 전체'),A('note','3분간 아무도 말이 없다.'),
+        A('them','올 시즌 왜 이 모양이었는지 이제 알겠네요','미야케'),
+        A('them','선배님 그만하세요','노무라'),A('them','내가 뭘? 사실을 말한 건데','미야케'),
+        A('them','야. 단톡에서 할 얘기 아니다','오카'),
+        A('them','이 얘기는 단톡에서 금지. 내일 면담에서 팀 입장 정리한다','하세가와'),
+        A('them','네, 주장님','미야케'),
+        A('note','읽음 29 → 30 → 31'),A('note','입력창에 “죄송합니다”가 써졌다가 지워졌다.')]},
+      miyake:{group:2,time:'08:02',messages:[
+        A('them','야구나 하랬더니 남자끼리 연애질이나 하고 있었네'),A('them','더럽다'),
+        A('them','연애할 정신은 있었나 보지? 네 덕에 이번 시즌 말아먹은 거 아니냐 ㅋ'),
+        A('note','읽음. 한참 입력 중…'),A('me','선배님. 최근 5경기 제 방어율은 2.10입니다'),
+        A('me','연애 얘기는 모르겠고, 성적 얘기는 거기서 하시죠'),A('them','...'),
+        A('them','선배한테 말이 많네 ㅋ'),A('note','미야케의 입력 중…이 떴다 사라진다. 이후 메시지는 없다.')]},
+      captain:{group:2,time:'08:30',messages:[
+        A('them','시게오. 보는 즉시 답해라'),A('me','네, 주장님'),
+        A('them','내일 오전 9시 감독실. 구단 홍보팀과 입장 정리해서 와라'),
+        A('them','개인 일이 팀 일이 된 거 알지'),A('me','알고 있습니다'),
+        A('them','알면 됐다'),A('them','단톡에서 미야케가 한 말은 내가 따로 얘기해 두겠다. 너는 대꾸하지 마라'),
+        A('me','...알겠습니다'),A('note','읽음. 주장은 더 이상 말이 없다.')]},
+      director:{group:2,time:'09:10',messages:[
+        A('them','내일 9시 감독실'),A('note','감독 이름을 본 순간 시게오의 손이 잠깐 멈춘다.'),
+        A('note','답은 한참 뒤에 간다.'),A('me','네, 알겠습니다'),
+        A('them','투수는 몸이 우선이다. 밥 먹고 자라')]},
+      nomura:{group:2,time:'13:20',messages:[
+        A('them','선배님, 괜찮으세요?'),A('them','저는 솔직히 상관없는데요'),
+        A('them','단톡 분위기가 좀... 미야케 선배가 저한테도 계속 뭐라 해서요'),
+        A('me','너까지 말려들 필요 없어'),A('them','아뇨 그게 아니라'),
+        A('them','저 선배님 슬라이더 보고 야구 계속하는 거라서요'),
+        A('them','그것만 알아주세요'),A('me','...알았다. 밥 먹어')]},
+      oka:{group:2,time:'15:45',messages:[
+        A('them','시게오'),A('them','연애가 문제가 아니야. 요즘 투구폼이 문제였어'),
+        A('them','릴리스포인트가 낮아졌다. 팔이 내려와'),A('me','...알고 있었습니다'),
+        A('them','알고 있었으면서 혼자 안고 있었네'),A('them','내일 불펜에서 보자. 일은 일이고 공은 공이다'),
+        A('them','숨긴다고 편해지는 건 아니더라. 나중에 얘기하자'),A('me','...네')]},
+      grandma:{group:3,time:'21:20',messages:[
+        A('them','밥은 먹었냐'),A('me','먹었어'),A('them','거짓말. 목소리에 안 먹은 티가 난다'),
+        A('me','...진짜야 할머니'),A('them','아이나가 왔다 갔다. 전복죽 끓여놨더라. 내려오면 데워 먹어'),
+        A('me','응'),A('them','시게오야'),A('them','할머니는 야구 규칙은 몰라도 네가 던질 때 얼굴은 안다'),
+        A('them','그 얼굴만 되찾아라. 그거면 된다'),A('me','...응'),A('them','자라'),
+        A('note','할머니는 기사 얘기를 한 번도 꺼내지 않는다. 시게오는 끝내 묻지 못한다.')]}
+    };
+    // The club PR room is not in the uploaded side-script PDF; retain its v9 interaction verbatim.
+    const CLUB_SCRIPT={club:[
+      {min:2,send:['보내주신 입장문 초안 확인했습니다.'],reply:['검토 부탁드립니다.','현재 초안은 「오랜 친구 사이이며 사실무근」입니다.','내일 면담에서 다시 논의하겠습니다.']},
+      {min:3,send:['상대방 개인정보 확산은 차단해 주세요'],reply:['최대한 대응하겠습니다.','개인적인 신상 추측은 모니터링하고 있습니다.']},
+      {min:4,send:['내일 면담 일정 확인했습니다.'],reply:['네, 키쿠치 선수.','개별 취재에 응하지 않도록 부탁드립니다.']}
+    ]};
+    const SIDE_IDS=Object.keys(SIDE_AUTO);
+    const SIDE_EPILOGUE={
+      happy:{
+        shou:[A('them','7이닝 2실점 봤다. 발표문은 딱딱해서 웃었고 마지막 줄에서 울 뻔했다'),A('me','안 울었잖아'),A('them','울 뻔했다고 했지 울었다곤 안 했다')],
+        aina:[A('them','승리투수 축하!!! 카페 예약했다. 이번엔 료타도 데려와')],
+        chyotaro:[A('them','오늘 공은 인정한다. 다음엔 내 타석에서 보자. 그때도 던질 수 있으면 그때 더 인정해주마')],
+        oka:[A('them','폼 돌아왔더라. 불펜은 내일도 열려 있다. 맥주도 같이')]},
+      normal:{
+        shou:[A('them','연락 줄었다며. 얼굴이나 보러 가라. 그건 안 늦는다')],
+        aina:[A('them','카페 약속 아직 유효. 안 와도 네 몫까지 내가 먹는다')],
+        chyotaro:[A('them','6이닝 2실점. 나쁘지 않았다. 변명은 필요 없다')],
+        oka:[A('them','폼은 아직 덜 잡혔다. 내일 불펜')]},
+      bad:{
+        shou:[A('them','부인한 거 봤다. 틀렸다고는 안 할게'),A('them','괜찮냐고 물으면 괜찮다고 할 거지? 그러니까 안 물어. 대신 나 여기 있다')],
+        aina:[A('them','밥은 먹었어? 그 얘기는 안 해도 되니까 카페만 와')],
+        chyotaro:[A('them','공은 잘 던졌다. 근데 던지는 얼굴이 아니더라')],
+        oka:[A('them','폼이 문제인 줄 알았는데 아니더라. 맥주 한잔하자')]}
+    };
+
+    let novelTimer=null,novelTypingTimer=null,suppressBannerClick=false;
+    let sideTimers={};
+    function novelFresh(){return {version:SCRIPT_VERSION,beat:0,stage:0,phase:'ready',log:[
+      {who:'day',body:'2026년 11월 1일 · 어젯밤'},
+      {who:'them',body:'내일 훈련 일찍이지? 무리하지 마ㅋㅋ',time:'23:48'},
+      {who:'them',body:'졸리면 내 얼굴 생각하면서 던져 야구 천재님',time:'23:48'},
+      {who:'me',body:'자라 좀',time:'23:49'},
+      {who:'day',body:'2026년 11월 2일 · 오늘'}
+    ],queue:[],outgoing:'',O:0,T:0,answerIndex:0,flag:'',route:'',side:{},seen:{},unlocked:[],ending:'',recentIncoming:{},epilogue:false,press:[],clockLabel:'06:40',popup:false,init:true};}
+    function novel(){if(!s.chatNovel || s.chatNovel.version!==SCRIPT_VERSION){if(s.chatNovel && s.chatNovel.version!==SCRIPT_VERSION && !s.v8ChatArchive)s.v8ChatArchive=s.chatNovel;s.chatNovel=novelFresh();save();}return s.chatNovel;}
+    function novelSide(id){const n=novel();if(!n.side)n.side={};
+      if(SIDE_AUTO[id]){if(!n.side[id]||n.side[id].autoVersion!==10){if(n.side[id]&&!n.sideArchive)n.sideArchive={};if(n.side[id])n.sideArchive[id]=n.side[id];n.side[id]={autoVersion:10,log:[],queue:[],phase:'locked',opened:false,readComplete:false,epilogueQueued:false,epilogueShown:false};save();}return n.side[id];}
+      if(!n.side[id])n.side[id]={turn:0,log:[],answerIndex:0,phase:'ready',queue:[],popup:false};return n.side[id];}
+    function novelIsRoom(id){return s.page==='app'&&s.app==='chat'&&s.sub===id;}
+    function novelClock(){return ({0:'06:40',1:'12:31',2:'20:52',3:'23:47',4:'23:49',5:'23:55',6:'23:58',7:'23:59',8:'00:01'})[novel().stage]||'방금';}
+    function novelMarkRead(id){const n=novel();s.kkRead[id]=true;n.seen[id]=true;n.recentIncoming[id]=0;const b=$('live-banner');if(b?.classList.contains('active')&&b.dataset.act==='chat:'+id)dismissLiveBanner();save();}
+    function novelPush(who,body,id='ryota',time,sender){const n=novel();const obj={who,body,time:time||(SIDE_AUTO[id]?.time)||n.clockLabel||novelClock()};if(sender)obj.sender=sender;if(id==='ryota')n.log.push(obj);else novelSide(id).log.push(obj);if(who==='them'){if(novelIsRoom(id))novelMarkRead(id);else{n.seen[id]=false;n.recentIncoming[id]=(n.recentIncoming[id]||0)+1;}}save();}
+    function novelSideReady(id){const side=novelSide(id);if(SIDE_AUTO[id])return novel().beat>=SIDE_AUTO[id].group;const part=CLUB_SCRIPT[id]?.[side.turn];return !!part&&novel().beat>=part.min;}
+    function novelComposeOptions(id){const n=novel();if(id==='ryota'){if(n.ending||n.phase!=='ready')return [];if(n.outgoing)return [n.outgoing];return (R_STAGE_CHOICES[n.stage]||[]).map(v=>v.text);}if(SIDE_AUTO[id])return [];const side=novelSide(id);return side.phase==='ready'&&novelSideReady(id)?(CLUB_SCRIPT[id][side.turn].send||[]):[];}
+    function novelPreview(id){const opt=novelComposeOptions(id);const idx=id==='ryota'?novel().answerIndex:novelSide(id).answerIndex;return opt[Math.min(idx,opt.length-1)]||'';}
+    function novelDisplayMessages(id){
+      const base=(msgHistories[id]||[]).map(([who,body])=>({who,body,old:true}));
+      if(id!=='ryota'){
+        if(SIDE_AUTO[id]){const today=base.findIndex(m=>m.who==='day'&&m.body.includes('11월 2일'));return [...(today<0?base:base.slice(0,today)),...novelSide(id).log];}
+        return [...base,...novelSide(id).log];}
+      const n=novel(),cut=base.findIndex(m=>m.who==='day'&&m.body.includes('11월 2일'));
+      if(cut<0)return [...base,...n.log];
+      const yesterday=n.log.filter((m,i)=>i>0&&i<4);
+      const today=n.log.slice(5); // 나의 새 06:40 메시지부터: 어제-오늘 사이에 기존 06:29 기록 삽입
+      return [...base.slice(0,cut),...yesterday,...base.slice(cut),...today];
     }
-    function chatLatest(c){
-      const n=nativeStep(),dynamic=nativeMessageEntries(c.id);
-      if(n>=ST_SCENES.length&&c.id==='ryota'&&(s.storyEndingLineIndex||0)>0){
-        const end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open;const lines=end.lines.slice(0,s.storyEndingLineIndex||0).filter(l=>l[0]==='me'||l[0]==='ryota');
-        if(lines.length){const [who,body]=lines[lines.length-1];return {text:(who==='me'?'나: ':'')+body,time:'지금'};}
+    function novelMessageMarkup(m,c){if(m.who==='day'||m.who==='note')return `<div class="kk-date">${safe(m.body)}</div>`;
+      if(m.who==='file')return `<div class="kk-message other">${chatAvatar(c)}<div class="kk-balloon novel-file"><strong>📄 ${safe(m.body.split('|')[0])}</strong><span>${safe(m.body.split('|').slice(1).join('|'))}</span></div></div>`;
+      if(m.who==='photo')return `<div class="kk-message other">${chatAvatar(c)}<div class="kk-balloon novel-photo"><div class="novel-desk"><div class="novel-laptop"><div class="novel-blurred-title">키쿠치 시게오 열애설</div></div><div class="novel-notebook">▤　▤　▤</div></div><small>강의실 책상 · 기사 화면</small></div></div>`;
+      const mt=m.old?'':`<small class="novel-msgtime">${safe(m.time||'')}</small>`;
+      return `<div class="kk-message ${m.who==='me'?'mine':'other'}">${m.who==='them'?chatAvatar(c):''}${m.who==='me'?mt:''}<div class="kk-balloon">${m.sender?`<small class="novel-speaker">${safe(m.sender)}</small>`:''}${safe(m.body)}</div>${m.who==='them'?mt:''}</div>`;}
+    function novelRoom(id){const c=chatContacts.find(x=>x.id===id)||chatContacts[0];const n=novel();const row=id==='ryota'?n:novelSide(id);
+      const items=novelDisplayMessages(id).map(m=>novelMessageMarkup(m,c)).join('');
+      const options=novelComposeOptions(id),draft=novelPreview(id),receiving=row.phase==='receiving',ending=id==='ryota'&&n.ending;
+      const isAuto=!!SIDE_AUTO[id];const canSend=!!draft&&!receiving&&!ending&&!isAuto;
+      const switchOptions=!isAuto&&options.length>1&&!row.outgoing;
+      const pop= switchOptions&&row.popup?`<div class="novel-reply-popover">${options.map((t,i)=>{const locked=id==='ryota'&&n.stage===3&&i===2&&(n.O<2||n.T<2);return `<button class="${(row.answerIndex||0)===i?'selected':''} ${locked?'novel-locked':''}" data-act="${locked?'novel-locked':'novel-option:'+id+':'+i}">${locked?'🔒 ':''}${safe(t)}</button>`;}).join('')}</div>`:'';
+      const typing=receiving&&novelIsRoom(id)?`<div class="kk-message other kk-is-typing">${chatAvatar(c)}<div class="kk-balloon"><span></span><span></span><span></span></div></div>`:'';
+      const hint=ending?'':receiving?'입력 중...':(!draft?'새 메시지를 기다리는 중...':'메시지 입력');
+      return `<div class="kk-room" id="kk-room"><div class="kk-roomhead"><button data-act="chat-main">‹</button><strong>${safe(c.name)}</strong><button data-act="call:${id}" aria-label="통화">☎</button></div><div class="kk-timeline" id="kk-timeline"><button class="kk-old-link" data-act="chat-old">↑ 예전 대화부터 보기</button>${items}${typing}</div>${pop}${isAuto?`<div class="kk-composer-v3 novel-auto-composer"><span>＋</span><span class="novel-auto-placeholder">${row.phase==='receiving'?'대화 중…':'메시지 입력'}</span><span>♧</span></div>`:`<form class="kk-composer-v3 novel-composer" id="kk-compose-form"><button type="button" data-act="chat-old" aria-label="이전 대화">＋</button><div class="novel-input-wrap"><input id="kk-message-input" type="text" autocomplete="off" readonly value="" data-full="${safe(draft)}" placeholder="${safe(hint)}" ${canSend?'':'disabled'} aria-label="보낼 메시지">${switchOptions?`<button class="novel-switch" type="button" data-act="novel-toggle:${id}" aria-label="다른 문장 보기">⌄</button>`:''}</div><button type="submit" class="kk-send" ${canSend?'':'disabled'}>${id==='ryota'&&n.stage===0&&n.answerIndex===2?'전화':'전송'}</button></form>`}</div>`;}
+    function novelPreviewLatest(id){const all=novelDisplayMessages(id);const last=[...all].reverse().find(m=>['them','me','file','photo'].includes(m.who));const c=chatContacts.find(c=>c.id===id);if(SIDE_AUTO[id]&&!novelSide(id).log.length)return {text:'',time:''};return last?{text:(last.who==='me'?'나: ':'')+(last.who==='file'?'📄 '+last.body.split('|')[0]:last.who==='photo'?'사진':last.body),time:last.time||c?.time||'방금'}:{text:c?.last||'',time:c?.time||''};}
+    function novelUnread(c){if(novelIsRoom(c.id))return 0;const n=novel();if(SIDE_AUTO[c.id])return (n.recentIncoming[c.id]||0);return ((s.kkRead[c.id]||n.seen[c.id])?0:(c.unread||0))+(n.recentIncoming[c.id]||0);}
+    function novelStartTyping(){clearTimeout(novelTypingTimer);const x=$('kk-message-input');if(!x||x.disabled)return;const full=x.dataset.full||'';if(!full)return;let at=0;x.value='';function tick(){if(!x.isConnected||x.dataset.full!==full)return;at=Math.min(full.length,at+3);x.value=full.slice(0,at);if(at<full.length)novelTypingTimer=setTimeout(tick,18);}novelTypingTimer=setTimeout(tick,130);}
+    function novelAfterRender(){if(novelIsRoom(s.sub))novelStartTyping();}
+    function novelFlash(id,body){if(novelIsRoom(id)||s.page==='lock'||s.page==='passcode')return;const c=chatContacts.find(x=>x.id===id);if(c)pushLiveAlert({kind:'kakaotalk',title:c.name,text:body,route:'chat:'+id});}
+    function R(who,body){return [who,body];}
+    function novelQueue(seq){const n=novel();n.queue.push(...seq.map(v=>Array.isArray(v)?v:['them',v]));n.phase='receiving';save();render();novelDrain();}
+    function novelPrepareStage(stage){const n=novel();n.stage=stage;n.beat=stage+1;n.clockLabel=({0:'06:40',1:'12:31',2:'20:52',3:'23:47',4:'23:49',5:'23:55',6:'23:58',7:'23:59',8:'00:01'})[stage]||'방금';n.answerIndex=0;n.popup=false;n.outgoing='';
+      const pre=stage===1?[R('day','2026년 11월 2일 · 낮 12:31'),R('photo',''),R('them','나 유명해졌네ㅋㅋㅋ'),R('them','사진 잘 나왔더라 이 각도 마음에 듦'),R('them','얼굴이 반쯤 가려진 게 아쉽긴 한데ㅋㅋㅋ')]:
+        stage===2?[R('day','2026년 11월 2일 · 밤 8:52'),R('them','나 도착ㅋㅋ 오늘 하루종일 폰 불났다'),R('them','우리 과 애가 이 야구선수 너 아니냐고 하더라'),R('them','나 아니라고 했어 나는 훨씬 잘생김ㅋㅋㅋ'),R('them','너 오늘 뭐 먹었어'),R('note','료타는 오늘 한 번도 ‘괜찮냐’고 묻지 않았다. 대신 ‘뭐 먹었어’만 세 번 물었다.')]:
+        stage===3?[R('day','2026년 11월 2일 · 밤 11:47'),R('note','정확히 24시간 전, 마지막 대화는 ‘자라 좀’이었다.'),R('them',n.flag==='DENY'?'초안 다시 봤는데 진짜 완벽하다. 이대로 가. 나 걱정은 하지 마ㅋㅋ':n.flag==='HIDE'?'나 눈치 빠른 거 알지. 하고 싶은 말 있으면 해. 안 해도 되고ㅋㅋ':'아직 안 잤냐'),...(n.flag==='OPEN'?[R('them','나도 못 잠ㅋㅋ')]:[])]:[];
+      novelQueue(pre);
+    }
+    function novelFinishEnding(route){const n=novel();n.ending=route;n.epilogue=true;n.unlocked=[...new Set([...(n.unlocked||[]),route])];n.phase='ended';n.beat=9;save();render();novelMaybeUnlockEpilogue();}
+    function novelAdvance(){const n=novel();n.phase='ready';n.answerIndex=0;n.popup=false;
+      if(n.next){const next=n.next;n.next='';if(typeof next==='number')novelPrepareStage(next);else if(next.startsWith('ending:'))novelFinishEnding(next.slice(7));else {n.stage=Number(next);n.beat=n.stage+1;n.clockLabel=novelClock();save();render();}}
+      else {save();render();}}
+    function novelDrain(){clearTimeout(novelTimer);const n=novel();if(n.phase!=='receiving')return;
+      if(!n.queue.length){novelAdvance();return;}
+      novelTimer=setTimeout(()=>{const entry=n.queue.shift();if(!entry)return;
+        if(entry[0]==='me'){n.outgoing=entry[1];n.phase='ready';save();render();return;}
+        if(entry[0]==='effect'){novelSideEffect(entry[1]);novelDrain();return;}
+        if(entry[0]==='ending'){novelFinishEnding(entry[1]);return;}
+        if(entry[0]==='stage'){novelPrepareStage(Number(entry[1]));return;}
+        novelPush(entry[0],entry[1]);if(entry[0]==='them')novelFlash('ryota',entry[1]);
+        if(novelIsRoom('ryota')||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrain();
+      },entryDelay(n.queue[0]));
+    }
+    function entryDelay(entry){return entry?.[0]==='note'?1000:entry?.[0]==='photo'?950:entry?.[0]==='file'?1400:760;}
+    function novelSideEffect(kind){
+      if(kind==='first'||kind==='second'||kind==='third'){
+        const g={first:1,second:2,third:3}[kind];
+        if(novel().beat<g)novel().beat=g;
+        for(const id of SIDE_IDS)if(SIDE_AUTO[id].group===g)novelUnlockSide(id);
+        if(kind==='second')novelPush('them','입장 초안 송부드립니다. 「오랜 친구 사이이며 사실무근」','club');
       }
-      if(dynamic.length){let [who,body]=dynamic[dynamic.length-1];return {text:(who==='me'?'나: ':'')+body.slice(0,90),time:ST_SCENES[Math.min(n,ST_SCENES.length-1)]?.time||'지금'};}
-      if(c.id==='ryota'&&s.replyChoice){const msg=s.replyChoice==='safe'?'선배, 전 괜찮아요. 선배는 밖에 나가지 마세요.':'지금 숙소입니다. 전화는 잠깐만 기다려 주세요.';return {text:'나: '+msg,time:'06:33'};}
-      const sent=s.kkSent?.[c.id]||[];if(sent.length)return {text:'나: '+sent[sent.length-1],time:s.kkLastTime?.[c.id]||'방금'};
-      return {text:c.last,time:c.time};
     }
-    function xLatest(m){
+    function novelStageSequence(stage,idx){const n=novel();const base=R;
+      if(stage===0){return [
+        [R('note','료타가 읽었다. 입력 중… 이 떴다가 사라졌다.'),R('them','응. 봤어')],
+        [R('them','ㅋㅋㅋㅋㅋㅋ 어 일어났지'),R('them','6시에 누가 연락해 야구부 새벽 훈련이냐ㅋㅋㅋ'),R('note','평소엔 ㅋ이 두세 개인데.')],
+        [R('note','통화 연결 중…'),R('note','신호음만 가다가 끊겼다.'),R('note','2분 뒤'),R('them','미안 지금 통화 못 해ㅋㅋ')]
+        ][idx].concat([R('them','나 1교시라서 가야 돼. 이따 연락할게'),R('effect','first'),R('stage',1)]);}
+      if(stage===1){return [
+        [R('them','ㅋㅋㅋ 그치 눈이 제일 잘생겼는데'),R('them','야 근데'),R('note','입력 중… 사라짐')],
+        [R('note','입력 중… 한참 후'),R('them','괜찮지ㅋㅋ 학교에선 아무도 몰라'),R('them','넌 어떤데'),R('me','...별로')],
+        [R('them','편의점 삼각김밥ㅋㅋ 참치마요'),R('me','또 참치마요냐ㅋㅋ'),R('them','왜 맛있잖아'),R('me','그러다 질리겠다'),R('them','그럼 네가 맛있는 거 사줘ㅋㅋ')]
+        ][idx].concat([R('them','나 교수님 부르셔서 잠깐 ㅅㄱ'),R('effect','second'),R('stage',2)]);}
+      if(stage===2){return [
+        [R('them','아 ㅇㅇ 그게 맞지ㅋㅋ'),R('them','오랜 친구 ㅋㅋㅋ 나 오랜 친구 맞네'),R('them','문장 깔끔하네. 이대로 가'),R('note','료타가 먼저 한 발 물러났다.')],
+        [R('them','...ㅋㅋ 별거 아니면 다행이네'),R('them','근데 너 방금 문장 평소보다 길었다'),R('them','눈치 못 챈 척해줄게')],
+        [R('me','근데 그게 맞는지 모르겠어'),R('me','나 지금 좀 무서워. 야구 때문에도, 너 때문에도'),R('me','나 이런 말 하는 거 싫어하는 거 알지'),R('note','입력 중… 아주 오래'),R('them','야구 천재님이 갑자기 왜 이러시지ㅋㅋ'),R('them','아 뒷목 뻐근하다'),R('them','...나도 무서워')]
+        ][idx].concat([R('them','일단 오늘은 자. 내일 면담이잖아'),R('effect','third'),R('stage',3)]);}
+      return [];
+    }
+    function novelEndSequence(choice){
+      if(choice==='bad')return [R('note','읽음. 입력 중… 사라짐… 입력 중…'),R('them','ㅇㅋㅇㅋ'),R('them','잘 골랐네 야구 천재님'),R('them','네 커리어가 먼저지ㅋㅋ 나는 오랜 친구 하면 되겠다'),R('stage',4)];
+      if(choice==='normal')return [R('them','그냥 던진다고?ㅋㅋㅋ'),R('them','인정도 부인도 안 하고. 너답다 진짜'),R('them','근데 한동안 시끄러울 텐데'),R('me','알아'),R('them','알면서도 그러네ㅋㅋ'),R('them','그럼 나 당분간 경기 못 가겠다. 카메라가 관중석 훑을 텐데'),R('me','...그래'),R('them','대신 중계는 켜놓을게'),R('them','7회 전에 졸면 어떡하냐ㅋㅋ'),R('day','2026년 11월 3일 · 면담과 경기'),R('note','감독: 사생활은 사생활이다. 던져라.'),R('note','6이닝 2실점 노디시전. 팀은 연패를 끊었다.'),R('day','일주일 뒤'),R('me','다음 주에 시간 돼?'),R('them','...갑자기?'),R('me','그냥 얼굴이나 보려고'),R('them','웬일이냐 너ㅋㅋㅋ 알겠어'),R('them','마스크 챙겨'),R('effect','epilogue'),R('ending','normal')];
+      if(choice==='happy')return [R('note','읽음. 입력 중… 사라짐'),R('them','ㅋㅋㅋ 야'),R('them','갑자기?'),R('them','잠깐 생각 좀 해볼게'),R('note','10분이 지났다. 읽음. 답은 없다.'),R('stage',5)];
+      return [];
+    }
+    function novelHappyAfterWait(index){return [
+      ...(index===0?[R('note','12분 뒤'),R('them','...')]:[R('them','아니거든?ㅋㅋㅋㅋ 누가 도망쳐')]),
+      R('them','이거'),R('file','반박자.txt|그 애가 던진 공이 미트에 꽂히는 소리를, 나는 관중석 맨 뒷줄에서 센다. 하나, 둘, 셋. 박수가 터지기 직전의 반 박자는 세상에서 제일 조용한 곳이다. 거기 숨어 있으면 아무도 내가 누구를 보는지 모른다. 그런데 오늘은 이상하게, 숨는 게 더 시끄럽다.'),
+      R('them','아무한테도 보여준 적 없는 거야'),R('them','도망 안 가려고 보내는 거다'),R('them','읽고 웃으면 죽는다'),
+      R('me','이거 네 글이냐'),R('them','아 뒷목 뻐근하다ㅋㅋㅋ'),R('them','난 항상 맨 뒷줄에서 봤어. 네가 던지는 거'),R('them','사람 많은 데서 티 내면 네가 잃을 게 많으니까'),R('them','근데 숨는다고 네가 안 맞는 건 아니더라'),
+      R('me','숨겨도 맞는 건 똑같았어'),R('me','어차피 맞을 거면 같이 맞자'),R('them','야구 천재님 말 예쁘게 하네'),
+      R('me','내기하자'),R('them','내기~? 네가 질 텐데, 괜찮겠어?'),R('me','내일 선발이야. 7이닝 막으면 내가 이기는 거고'),R('me','내가 이기면 너 내일 맨 앞줄에서 봐'),R('them','188이 맨 앞줄?ㅋㅋㅋ 눈에 띄는 걸로는 1등인데'),R('them','...ㅇㅋ 콜'),R('them','어차피 네가 질 거니까'),
+      R('me','입장문 초안 쓰는 중인데'),R('them','보여줘. 내가 문예창작부 출신이다'),R('stage',6)
+    ];}
+    function novelAfterPress(){const n=novel();const msg=[...n.press,'남은 시즌과 클라이맥스 시리즈에서, 응원해 주시는 분들의 기대를 절대 실망시키지 않겠습니다.'].join(' ');
+      return [R('file','공식 입장문 초안.txt|'+msg),R('them','딱딱해ㅋㅋㅋ'),R('them','근데 마지막 줄 좋다'),R('them','야구로 말하겠다는 거잖아. 시게오답다'),R('day','2026년 11월 3일 · 낮 12:00'),R('note','[기사] 키쿠치 시게오, 열애 인정 “곁에 있어 준 사람”'),R('them','반응 반반이다ㅋㅋ'),R('them','마지막 줄 때문에 판이 바뀌었어. 다들 오늘 경기 보겠대'),R('me','그럼 던져야지'),R('day','2026년 11월 3일 · 저녁'),R('note','7이닝 2실점. 시게오가 승리투수가 됐다. 관중석 맨 앞줄에는 마스크를 쓴 키 큰 남자가 있었다.'),R('them','내기 내가 졌네'),R('them','맨 앞줄 소감: 공 진짜 빠르다'),R('them','얼굴 다 찍힌 것 같은데ㅋㅋ'),R('me','잘 찍혔더라'),R('them','그치 나 원래 잘생김'),R('me','잘생긴 건 인정한다'),R('them','!!! 방금 뭐라고 했어. 다시 말해봐. 녹음하게'),R('effect','epilogue'),R('ending','happy')];
+    }
+    function novelSend(id){const n=novel();const options=novelComposeOptions(id);if(!options.length)return;
+      if(id!=='ryota'&&SIDE_AUTO[id])return;
+      if(id!=='ryota'){const side=novelSide(id),data=CLUB_SCRIPT[id][side.turn];const text=options[Math.min(side.answerIndex,options.length-1)];side.answerIndex=0;side.turn++;side.phase='receiving';side.queue=data.reply.map(x=>R('them',x));novelPush('me',text,id);save();render();novelDrainSide(id);return;}
+      if(n.phase!=='ready')return;
+      if(n.outgoing){novelPush('me',n.outgoing);n.outgoing='';n.phase='receiving';save();render();novelDrain();return;}
+      const stage=n.stage,ix=Math.min(n.answerIndex,options.length-1),choice=R_STAGE_CHOICES[stage]?.[ix];if(!choice)return;
+      if(choice.locked&&(n.O<2||n.T<2)){novelLocked();return;}
+      n.O+=choice.o||0;n.T+=choice.t||0;n.answerIndex=0;n.popup=false;
+      if(choice.flag)n.flag=choice.flag;
+      if(choice.kind==='decision'){novelPush('me',choice.text);n.phase='receiving';const seq=novelStageSequence(stage,ix);n.queue=[...seq];save();render();novelDrain();return;}
+      if(choice.kind==='call'){novelPush('note','료타에게 전화를 걸었다.');}else novelPush('me',choice.text);
+      if(stage<=2){n.queue=novelStageSequence(stage,ix);n.phase='receiving';save();render();novelDrain();return;}
+      if(stage===3){n.route=choice.end;n.queue=novelEndSequence(n.route);n.phase='receiving';save();render();novelDrain();return;}
+      if(stage===4){n.queue= ix===0?[R('them','야. 나 눈치 빠르잖아. 이런 말 하는 거 힘든 거 알아. 그래서 더 안 듣고 싶다ㅋㅋ')]:[R('them','응. 그래.')];n.queue.push(R('them','한동안은 연락 안 하는 게 서로한테 좋겠다. 기자들 붙을 수도 있고'),R('them','건강 챙겨. 야구 잘하고'),R('day','2026년 11월 3일 · 오전 10:00'),R('note','[기사] 키쿠치 시게오 측 “오랜 친구 사이… 사실무근”'),R('note','주장: 정리됐다. 다음 경기 준비. 정리는 됐지만 분위기는 정리되지 않았다.'),R('me','미안'),R('note','읽음 표시 1 · 야구는 지켰다. 이긴 기분은 들지 않았다.'),R('ending','bad'));n.phase='receiving';save();render();novelDrain();return;}
+      if(stage===5){n.queue=novelHappyAfterWait(ix);n.phase='receiving';save();render();novelDrain();return;}
+      if(stage>=6&&stage<=8){n.press.push(choice.text);const reaction=stage===6?[ix===0?'...이건 좀 반칙 아니냐ㅋㅋ':'너무 보도자료 같은데ㅋㅋ 근데 너답다']:stage===7?(ix===0?['그 부분은 빼면 안 돼?', '안 빼']:['무난하다ㅋㅋ']):[ix===0?'그래 이게 너지':'교과서냐ㅋㅋ'];
+        n.queue=[...reaction.map((t,i)=>R(stage===7&&ix===0&&i===1?'me':'them',t))];if(stage===8)n.queue.push(...novelAfterPress());else n.queue.push(R('stage',stage+1));n.phase='receiving';save();render();novelDrain();}
+    }
+    function novelLocked(){const n=novel();n.popup=false;novelPush('note','“내일 인…”까지 쓰다가 지웠다.');novelPush('me','아직은 못 하겠다.');n.answerIndex=0;save();render();}
+    function novelDrainSide(id){const side=novelSide(id);clearTimeout(sideTimers[id]);if(side.phase!=='receiving')return;
+      if(!SIDE_AUTO[id]){if(!side.queue.length){side.phase='ready';save();if(novelIsRoom(id))render();return;}
+        sideTimers[id]=setTimeout(()=>{const e=side.queue.shift();novelPush(e[0],e[1],id);if(e[0]==='them')novelFlash(id,e[1]);if(novelIsRoom(id)||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrainSide(id);},700);return;}
+      if(!side.queue.length){side.phase='done';if(novelIsRoom(id)){side.readComplete=true;novelMarkRead(id);}save();render();novelMaybeUnlockEpilogue();return;}
+      const e=side.queue[0];const delay=e[0]==='note'?2300:e[0]==='me'?2200:Math.min(3400,1800+(e[1]||'').length*24);
+      sideTimers[id]=setTimeout(()=>{if(side.phase!=='receiving')return;const msg=side.queue.shift();novelPush(msg[0],msg[1],id,side.epilogueQueued?(novel().ending==='normal'?'20:10':'21:30'):undefined,msg[2]);if(msg[0]==='them')novelFlash(id,msg[1]);if(novelIsRoom(id)||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrainSide(id);},delay);
+    }
+    function novelUnlockSide(id){const n=novel(),spec=SIDE_AUTO[id],side=novelSide(id);if(!spec||side.phase!=='locked'||n.beat<spec.group)return;
+      side.phase='pending';side.queue=[...spec.messages.slice(1)];
+      novelPush('day','2026년 11월 2일 · '+spec.time,id);
+      const first=spec.messages[0];novelPush(first[0],first[1],id,spec.time,first[2]);if(first[0]==='them')novelFlash(id,first[1]);save();
+    }
+    function novelSyncSideUnlocks(){const b=novel().beat;for(const id of SIDE_IDS){if(b>=SIDE_AUTO[id].group)novelUnlockSide(id);}novelMaybeUnlockEpilogue();}
+    function novelEnterSide(id){if(!SIDE_AUTO[id])return;const side=novelSide(id);
+      if(side.phase==='locked')novelUnlockSide(id);
+      side.opened=true;novelMarkRead(id);
+      if(side.phase==='pending'){side.phase='receiving';save();render();novelDrainSide(id);return;}
+      if(side.phase==='done'){side.readComplete=true;save();novelMaybeUnlockEpilogue();}
+      else if(side.phase==='receiving')novelDrainSide(id);
+    }
+    function novelMaybeUnlockEpilogue(){const n=novel();if(n.epilogueUnlocked||!n.ending||!SIDE_IDS.every(id=>novelSide(id).readComplete))return;
+      n.epilogueUnlocked=true;const ep=SIDE_EPILOGUE[n.ending]||{};
+      for(const [id,entries] of Object.entries(ep)){const side=novelSide(id);side.epilogueQueued=true;
+        side.phase='pending';side.queue=[...entries.slice(1)];novelPush('day',n.ending==='normal'?'일주일 뒤':'2026년 11월 3일 · 밤',id,n.ending==='normal'?'20:10':'21:30');
+        novelPush(entries[0][0],entries[0][1],id,n.ending==='normal'?'20:10':'21:30',entries[0][2]);if(entries[0][0]==='them')novelFlash(id,entries[0][1]);
+      }
+      save();render();if(SIDE_AUTO[s.sub]&&ep[s.sub])novelEnterSide(s.sub);
+    }
+    function novelAction(a){if(a.startsWith('novel-toggle:')){const id=a.slice(13);const r=id==='ryota'?novel():novelSide(id);r.popup=!r.popup;save();render();return true;}
+      if(a.startsWith('novel-option:')){const [,id,num]=a.split(':');const r=id==='ryota'?novel():novelSide(id);r.answerIndex=Number(num)||0;r.popup=false;save();render();return true;}
+      if(a==='novel-locked'){novelLocked();return true;}
+      if(a==='novel-restart'){if(confirm('료타방 대본을 처음부터 다시 시작할까요? 이전 시연 데이터는 백업되고, 기존 사진과 다른 앱 기록은 유지됩니다.')){clearTimeout(novelTimer);Object.values(sideTimers).forEach(clearTimeout);s.chatNovel=novelFresh();save();go('app','chat','ryota');}return true;}
+      return false;}
+    function novelResume(){const n=novel();novelSyncSideUnlocks();if(n.phase==='receiving')novelDrain();for(const id of [...SIDE_IDS,'club'])if(novelSide(id).phase==='receiving')novelDrainSide(id);}
+    function novelCallAction(a){return false;} // 일반 통화 UI는 보존, 대본의 부재중 전화는 카톡 기록으로 처리.
+    function novelUpdateCallText(){}
+
+    function chatUnread(c){return novelUnread(c);}
+    function chatLatest(c){return novelPreviewLatest(c.id);}
+        function xLatest(m){
       const sent=s.xDmSent?.[m.id]||[];
       if(sent.length)return {text:'나: '+sent[sent.length-1],time:'방금'};
       if(m.id==='reporter'&&s.xDmReply)return {text:'나: '+(s.xDmReply==='later'?'공식 입장은 구단을 통해 전달하겠습니다.':'개별 인터뷰에는 응하지 않겠습니다.'),time:'방금'};
@@ -946,34 +1152,23 @@
     }
     function xUnread(m){return m.unread&&!s.xDmRead?.[m.id];}
     function chatAvatar(c){return `<span class="kk-avatar" style="background:${c.color}">${c.avatar}</span>`;}
-    function kakaotalkRoom(id){
-      const c=chatContacts.find(x=>x.id===id)||chatContacts[0];
-      const history=msgHistories[id]||[];
-      const original=history.map(([who,body])=>who==='day'?`<div class="kk-date">${safe(body)}</div>`:`<div class="kk-message ${who==='me'?'mine':'other'}">${who==='them'?chatAvatar(c):''}<div class="kk-balloon">${safe(body)}</div></div>`).join('');
-      const extra=nativeMessageEntries(id).map(e=>nativeEntryHTML(e,c)).join('');
-      const demo=(s.kkSent?.[id]||[]).map(t=>`<div class="kk-message mine"><div class="kk-balloon">${safe(t)}</div></div>`).join('');
-      // No free-form demo composer. The only player messages are real story choices.
-      nativeMarkRead(id);
-      const progress=nativeStep()&&extra?`<div class="native-msgmeta">2026년 11월 2일 · 새 대화</div>`:'';
-      return `<div class="kk-room" id="kk-room"><div class="kk-roomhead"><button data-act="chat-main">‹</button><strong>${safe(c.name)}</strong><button data-act="call:${id}" aria-label="통화">☎</button></div><div class="kk-timeline" id="kk-timeline"><button class="kk-old-link" data-act="chat-old">↑ 예전 대화부터 보기</button>${original}${progress}${extra}${nativeEndingEntries(id)}${demo?`<div class="kk-date">이전 버전에서 작성한 메시지</div>${demo}`:''}</div>${nativeChatActions(id)}</div>`;
-    }
-
-    // v3: same existing contact list and message histories, with friend list / profiles.
+    function kakaotalkRoom(id){return novelRoom(id);}
+        // v3: same existing contact list and message histories, with friend list / profiles.
     function kkBottomTabs(){
       const tabs=[['friends','♟','친구'],['chats','▣','채팅'],['open','◉','오픈채팅'],['more','···','더보기']];
       return `<nav class="kk-tabs" aria-label="카카오톡 하단 메뉴">${tabs.map(([id,ico,label])=>`<button class="${(s.kkTab||'chats')===id?'active':''}" data-act="kk-tab:${id}" aria-label="${label}"><span class="kk-tab-ico">${ico}</span>${label}</button>`).join('')}</nav>`;
     }
     function kkFriendList(){
-      return `<div class="kk-scroll"><div class="kk-friends-me"><span class="kk-avatar">⚾</span><span class="kk-row-body"><b>키쿠치 시게오</b><small>프로필 사진 준비 중</small></span></div><div class="kk-friends-divider">친구 ${chatContacts.length}</div>${chatContacts.map(c=>`<button class="kk-row kk-friends-row" data-act="kk-profile:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}</b><span class="kk-friend-sub">${safe(c.last)}</span></span></button>`).join('')}</div>`;
+      return `<div class="kk-scroll"><div class="kk-friends-me"><span class="kk-avatar">⚾</span><span class="kk-row-body"><b>키쿠치 시게오</b><small>프로필 사진 준비 중</small></span></div><div class="kk-friends-divider">친구 ${chatContacts.length}</div>${chatContacts.map(c=>`<button class="kk-row kk-friends-row" data-act="kk-profile:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}</b><span class="kk-friend-sub">${safe(chatLatest(c).text)}</span></span></button>`).join('')}</div>`;
     }
     function kkHome(){
       const tab=s.kkTab||'chats';
-      const inner=tab==='friends'?kkFriendList():tab==='chats'?`<div class="kk-scroll"><p class="kk-notice">2026년 11월 2일 · 오전 6:33</p><button class="native-top-list" data-act="native-start"><b>${nativeStep()>=ST_SCENES.length?'✓ 결말 확인하기':'● '+safe(nativeStepLabel())}</b>${nativeStep()>=ST_SCENES.length?'료타와의 대화에서 엔딩을 확인하세요.':'새 메시지가 도착했습니다 · 눌러서 대화 계속하기 →'}</button>${chatContacts.map(c=>{const last=chatLatest(c),unread=chatUnread(c);return `<button class="kk-row" data-act="chat:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}</b><small>${safe(last.text)}</small></span><span class="kk-row-right"><time>${safe(last.time)}</time>${unread?`<i>${unread}</i>`:''}</span></button>`;}).join('')}<div class="kk-listfoot">채팅방에서 위로 스크롤하면 지난 기록을 볼 수 있어.</div></div>`:`<div class="kk-scroll" style="display:grid;align-content:center;justify-items:center;gap:12px;color:#888;padding:35px"><div style="font-size:40px">${tab==='open'?'◉':'···'}</div><b>${tab==='open'?'오픈채팅':'더보기'}</b><p style="font-size:12px;text-align:center">이 화면은 UI 참고용입니다.<br>추가 인물이나 스토리는 아직 정해지지 않았습니다.</p></div>`;
+      const inner=tab==='friends'?kkFriendList():tab==='chats'?`<div class="kk-scroll"><p class="kk-notice">2026년 11월 2일</p>${chatContacts.map(c=>{const last=chatLatest(c),unread=chatUnread(c);return `<button class="kk-row" data-act="chat:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}</b><small>${safe(last.text)}</small></span><span class="kk-row-right"><time>${safe(last.time)}</time>${unread?`<i>${unread}</i>`:''}</span></button>`;}).join('')}<div class="kk-listfoot">채팅방에서 위로 스크롤하면 지난 기록을 볼 수 있어.</div></div>`:`<div class="kk-scroll" style="display:grid;align-content:center;justify-items:center;gap:12px;color:#888;padding:35px"><div style="font-size:40px">${tab==='open'?'◉':'···'}</div><b>${tab==='open'?'오픈채팅':'더보기'}</b><p style="font-size:12px;text-align:center">이 화면은 UI 참고용입니다.<br>추가 인물이나 스토리는 아직 정해지지 않았습니다.</p></div>`;
       return `<div class="kk-list"><div class="kk-top"><h2>${tab==='friends'?'친구':tab==='chats'?'채팅':tab==='open'?'오픈채팅':'더보기'}</h2><span class="kk-tools"><button data-act="kk-search" aria-label="검색">⌕</button><button data-act="kk-options" aria-label="더보기">⚙</button></span></div>${inner}${kkBottomTabs()}</div>`;
     }
     function kkProfile(id){
       const c=chatContacts.find(c=>c.id===id);if(!c)return kkHome();
-      return `<div class="kk-profile-pane"><button class="kk-profile-close" data-act="kk-profile-close" aria-label="닫기">×</button>${chatAvatar(c)}<h2>${safe(c.name)}</h2><p class="friend-description">${safe(c.last)}</p><div class="kk-profile-actions"><button data-act="chat:${c.id}"><span>▤</span>1:1 채팅</button><button data-act="call:${c.id}"><span>☎</span>통화</button></div></div>`;
+      return `<div class="kk-profile-pane"><button class="kk-profile-close" data-act="kk-profile-close" aria-label="닫기">×</button>${chatAvatar(c)}<h2>${safe(c.name)}</h2><p class="friend-description">${safe(chatLatest(c).text)}</p><div class="kk-profile-actions"><button data-act="chat:${c.id}"><span>▤</span>1:1 채팅</button><button data-act="call:${c.id}"><span>☎</span>통화</button></div></div>`;
     }
     function kkKeyboardMock(){return `<div class="kk-sim-keyboard" aria-hidden="true"><div class="keyrow">${'ㅂㅈㄷㄱㅅㅛㅕㅑㅐㅔ'.split('').map(c=>`<span>${c}</span>`).join('')}</div><div class="keyrow">${'ㅁㄴㅇㄹㅎㅗㅓㅏㅣ'.split('').map(c=>`<span>${c}</span>`).join('')}</div><div class="keyrow">${'ㅋㅌㅊㅍㅠㅜㅡ'.split('').map(c=>`<span>${c}</span>`).join('')}</div></div>`;}
 
@@ -1014,8 +1209,8 @@
     const photos=[{kind:'corridor',title:'멈춘 복도 시계',txt:'오후 11시 47분. 같은 시각에 멈춘 시계.'},{kind:'door',title:'3층 방송실',txt:'문 옆에서 빨간 리본이 발견됐다.'},{kind:'ribbons',title:'빨간 리본',txt:'소연이 항상 가방에 달고 다니던 리본.'},{kind:'sky',title:'축제의 마지막 밤',txt:'우리 모두가 함께 있었던 마지막 순간.'},{kind:'corridor',title:'끝나지 않은 복도',txt:'사진을 다시 보니 끝에 희미한 불빛이 보인다.'},{kind:'door',title:'닫힌 문',txt:'문은 안쪽에서 열 수 있는 구조다.'}];
     function gallery(){return appShell('사진',`<div class="memory-gallery"><div class="memory-title">최근 항목 <small>6장</small></div><div class="memory-grid"><div>⚾<small>첫 국가대표 유니폼</small></div><div>🍵<small>녹차 두 잔</small></div><div>📖<small>선배가 빌려준 책</small></div><div>🌧️<small>비 오던 날</small></div><div>🎟️<small>야구장 표 두 장</small></div><div>🌆<small>경기 끝난 저녁</small></div></div><p>사진은 나중에 교체할 수 있도록 비워두었어.</p></div>`);}
     function notes(){return appShell('메모',`<div class="memory-gallery"><div class="memory-title">메모</div><div class="story-note"><small>2023.01.15</small><h3>등번호</h3><p>57번으로 뛰면 잘 어울릴 거라던 선배.<br>말은 아무렇게나 하면서 은근히 사람 신경 쓰이게 만든다.<br>...사인부터 해 주라고 할 것 같으니까.</p></div><div class="story-note"><small>2026.10.28</small><h3>해야 할 일</h3><p>훈련 9:00<br>인터뷰<br>할머니께 전화<br>선배가 빌린 책 돌려받기</p></div></div>`);}
-    function phone(){return appShell('최근 통화',`<div class="memory-gallery"><div class="memory-title">최근 통화</div><button class="kk-row" data-act="call:ryota"><span class="kk-avatar" style="background:#e6d4ba">🐶</span><span class="kk-row-body"><b style="color:#ce4455">료타 선배</b><small>부재중 전화 · 오늘 06:31</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:shou"><span class="kk-avatar" style="background:#b5d4e7">🫧</span><span class="kk-row-body"><b>카토 쇼우</b><small>부재중 전화 · 06:30</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:club"><span class="kk-avatar" style="background:#cad8ce">⚾</span><span class="kk-row-body"><b>구단 홍보팀</b><small>부재중 전화 · 06:32</small></span><span>ⓘ</span></button><p class="kk-sim-only">통화 UI는 시연용이며 통화 대사는 아직 확정되지 않았습니다.</p></div>`);}
-    function help(){return appShell('설정',`<div class="help-panel"><h2>시게오의 휴대폰</h2><p>료타 × 시게오 IF · 아웃팅 보도 이후의 아침</p>${wallpaperCard()}<p><button class="secondary" data-act="lock-screen">잠금화면 다시 보기</button> <button class="secondary" data-act="open:chat">카톡 열기</button> <button class="secondary" data-act="call-preview">전화 수신 UI 시연</button></p><p style="font-size:11px;color:#888">전화 수신 시연의 발신자와 시점은 스토리 설정이 아닙니다.</p><p><button class="secondary" data-act="native-restart">카톡 이야기 처음부터 다시 시작</button></p><p style="font-size:12px;color:#777">본문과 계정은 모두 창작이며 실제 사람의 연애·성적 지향 정보가 아닙니다.</p></div>`);}
+    function phone(){return appShell('최근 통화',`<div class="memory-gallery"><div class="memory-title">최근 통화</div><button class="kk-row" data-act="call:ryota"><span class="kk-avatar" style="background:#e6d4ba">🐶</span><span class="kk-row-body"><b style="color:#ce4455">료타 선배</b><small>부재중 전화 · 오늘 06:31</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:shou"><span class="kk-avatar" style="background:#b5d4e7">🫧</span><span class="kk-row-body"><b>카토 쇼우</b><small>부재중 전화 · 06:30</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:club"><span class="kk-avatar" style="background:#cad8ce">⚾</span><span class="kk-row-body"><b>구단 홍보팀</b><small>부재중 전화 · 06:32</small></span><span>ⓘ</span></button><p class="kk-sim-only">부재중 통화 기록</p></div>`);}
+    function help(){return appShell('설정',`<div class="help-panel"><h2>시게오의 휴대폰</h2><p>료타 × 시게오 IF · 아웃팅 보도 이후의 아침</p>${wallpaperCard()}<p><button class="secondary" data-act="lock-screen">잠금화면 다시 보기</button> <button class="secondary" data-act="open:chat">카톡 열기</button> <button class="secondary" data-act="call-preview">전화 수신 UI 시연</button></p><p style="font-size:11px;color:#888">전화 수신 시연의 발신자와 시점은 스토리 설정이 아닙니다.</p><p><button class="secondary" data-act="novel-restart">료타방 대본 처음부터 다시 시작</button></p><p style="font-size:11px;color:#777">료타 대화방의 전송 버튼으로만 메인 이야기가 이어집니다. 쇼우·아이나·홍보팀 대화는 자유롭게 확인할 수 있습니다.</p><p style="font-size:12px;color:#777">본문과 계정은 모두 창작이며 실제 사람의 연애·성적 지향 정보가 아닙니다.</p></div>`);}
 
 
     // v3 calls are purely an interface rehearsal. No caller, dialogue or story event is canonized.
@@ -1029,18 +1224,17 @@
     function callButtons(){const items=[['mute','♩','음소거'],['keypad','▦','키패드'],['speaker','◖))','스피커'],['add','＋','통화 추가'],['video','▣','영상'],['contact','♙','연락처']];return `<div class="call-controls">${items.map(([key,ico,label])=>`<button class="call-control ${((key==='mute'&&s.callMuted)||(key==='speaker'&&s.callSpeaker))?'active':''}" data-act="call-ui:${key}"><span>${ico}</span>${label}</button>`).join('')}</div>`;}
     function drawCall(){
       const node=$('call-surface');if(!node)return;
-      if(!s.callMode){node.innerHTML='';node.classList.remove('active');node.classList.remove('native-story-call');return;}
-      if(s.callStoryLive&&nativeStep()>=18&&nativeStep()<ST_SCENES.length){node.classList.add('active','native-story-call');node.innerHTML=nativeCallUI();return;}
-      node.classList.remove('native-story-call');
+      if(!s.callMode){node.innerHTML='';node.classList.remove('active');return;}
       const incoming=s.callMode==='incoming',outgoing=s.callMode==='outgoing';
       node.classList.add('active');
       const dial=s.callDialpad?`<div class="dialpad">${['1','2','3','4','5','6','7','8','9','*','0','#'].map(n=>`<button data-act="call-ui:key:${n}">${n}</button>`).join('')}</div>`:callButtons();
-      node.innerHTML=`<div class="call-min-title">${incoming?'수신 전화 · UI 미리보기':outgoing?'통화 연결 중 · UI 미리보기':'통화 중 · UI 미리보기'}</div><div class="call-person">${safe(callName())}</div><div class="call-state" id="call-state">${incoming?'휴대폰 수신 화면':outgoing?'연결 중...':formatCallTime(s.callSeconds||0)}</div>${incoming?'':dial}<div class="call-actions">${outgoing?`<button class="call-action accept" data-act="call-ui:connect"><span>▶</span>연결 시연</button>`:''}${incoming?`<button class="call-action decline" data-act="call-ui:decline"><span>☎</span>거절</button><button class="call-action accept" data-act="call-ui:accept"><span>☎</span>응답</button>`:`<button class="call-action end" data-act="call-ui:end"><span>☎</span>종료</button>`}</div><div class="call-homebar"></div>`;
+      node.innerHTML=`<div class="call-min-title">${incoming?'수신 전화':outgoing?'통화 연결 중':'통화 중'}</div><div class="call-person">${safe(callName())}</div><div class="call-state" id="call-state">${incoming?'휴대전화':outgoing?'연결 중...':formatCallTime(s.callSeconds||0)}</div>${incoming?'':dial}<div class="call-actions">${outgoing?`<button class="call-action accept" data-act="call-ui:connect"><span>▶</span>연결</button>`:''}${incoming?`<button class="call-action decline" data-act="call-ui:decline"><span>☎</span>거절</button><button class="call-action accept" data-act="call-ui:accept"><span>☎</span>응답</button>`:`<button class="call-action end" data-act="call-ui:end"><span>☎</span>종료</button>`}</div><div class="call-homebar"></div>`;
     }
     function startCall(mode,who){clearCallTimer();s.callMode=mode;s.callContact=who;s.callSeconds=0;s.callDialpad=false;s.callMuted=false;s.callSpeaker=false;drawCall();}
     function activeCall(){s.callMode='connected';s.callSeconds=0;drawCall();clearCallTimer();callClock=setInterval(()=>{if(s.callMode!=='connected'){clearCallTimer();return;}s.callSeconds++;const clock=$('call-state');if(clock)clock.textContent=formatCallTime(s.callSeconds);},1000);}
     function stopCall(){clearCallTimer();s.callMode='';s.callDialpad=false;drawCall();}
     function callAction(a){
+      if(novelCallAction(a))return;
       if(a==='decline'||a==='end'){stopCall();return;}
       if(a==='accept'||a==='connect'){activeCall();return;}
       if(a==='mute'){s.callMuted=!s.callMuted;drawCall();return;}
@@ -1057,465 +1251,16 @@
       {kind:'x',title:'X · 새로운 언급',text:'@kikuchi_57 님을 언급하는 게시물이 계속 늘고 있습니다.',route:'x-nav:notifications'}
     ];
     let liveStarted=false,liveTimers=[],bannerTimeout=null;
-    // The floating top notification may be dismissed with a finger swipe.
-    // Game progress, the lock-screen notifications and ordinary taps are unchanged.
-    let bannerDrag=null,bannerExitTimeout=null,bannerIgnoreClick=false;
-    function resetLiveBannerPosition(){
-      const node=$('live-banner');
-      node.style.transition='';node.style.transform='';node.style.opacity='';node.style.animation='';
-    }
-    function dismissLiveBanner(){
-      const node=$('live-banner');
-      bannerDrag=null;
-      clearTimeout(bannerTimeout);clearTimeout(bannerExitTimeout);
-      node.classList.remove('active');node.innerHTML='';node.removeAttribute('data-act');
-      resetLiveBannerPosition();
-    }
+    function dismissLiveBanner(){const node=$('live-banner');node.classList.remove('active');node.innerHTML='';node.style.transform='';node.style.opacity='';node.removeAttribute('data-act');clearTimeout(bannerTimeout);}
     function pushLiveAlert(event){
       if(s.page==='lock'||s.page==='passcode')return;
-      // A later notification must not inherit a previous one's swipe animation.
-      clearTimeout(bannerExitTimeout);bannerDrag=null;bannerIgnoreClick=false;resetLiveBannerPosition();
       const node=$('live-banner');node.innerHTML=`<img src="${ICON_ASSETS[event.kind]||ICON_ASSETS.x}" alt=""><span class="live-text"><strong>${safe(event.title)}<small>지금</small></strong><span class="live-message">${safe(event.text)}</span></span><button class="live-dismiss" aria-label="알림 닫기">×</button>`;
       node.dataset.act=event.route;node.classList.add('active');
       clearTimeout(bannerTimeout);bannerTimeout=setTimeout(dismissLiveBanner,5800);
     }
-    function startLiveAlerts(){
-      if(liveStarted)return;liveStarted=true;
-      liveStoryAlerts.forEach((item,i)=>{liveTimers.push(setTimeout(()=>{s.liveAlertsSeen=Math.max(s.liveAlertsSeen||0,i+1);save();pushLiveAlert(item);},[4200,13500,25700,39500][i]));});
-    }
-
-
-// ===== OFF THE RECORD: six playable chapters, three branching endings =====
-// Additive, isolated scenario engine. Original photo/X/Kakao/phone behavior remains.
-const ST_CHAPTERS=[
-  ['06:27','기사가 뜬 아침'],['07:18','대답할 수 없는 질문'],
-  ['10:06','아무렇지 않은 척'],['12:42','누구를 위한 선택인가'],
-  ['18:17','말하지 않은 마음'],['22:31','마지막 통화']
-];
-const ST_SCENES=[
- {c:1,time:'06:27',title:'하루의 시작',intro:'휴대폰은 아침부터 쉴 새 없이 울린다. 잠금화면의 첫 알림을 눌렀다.',lines:[
- ['news','[단독] 야구 국가대표 키쿠치 시게오, 일반인 남성과 열애설.\n기사에 상대 남성의 이름은 없다. 소속팀은 사실관계를 확인 중이라고 밝혔다.'],
- ['narration','기사 아래로 반응이 쏟아진다. 화면을 내릴수록 숨이 막히는 기분이다.'],
- ['x','누군가: “기사 사실임? 공식 입장 내놔.”'],['x','다른 팬: “선수 사생활까지 파헤치지 말자.”'],
- ['narration','상단 알림에 익숙한 이름이 나타난다. 료타 선배.']]},
- {c:1,time:'06:33',title:'료타에게서 온 메시지',intro:'2023년 1월 14일, 2026년 10월 29일과 어젯밤의 대화가 남아 있는 채팅방이다.',lines:[
- ['ryota','시게오.'],['ryota','기사 봤어?'],['ryota','전화해도 돼? 아니, 바쁠 거 같아서 일단 기다릴게.'],['ryota','시게오, 나한테 연락만 해. 괜찮아?']
- ],choices:{key:'reply',question:'료타에게 어떻게 답할까?',options:[
- ['safe','선배, 전 괜찮아요. 선배는 밖에 나가지 마세요.'],['wait','지금 숙소입니다. 전화는 잠깐만 기다려 주세요.']]}},
- {c:1,time:'06:48',title:'친구들이 걱정하는 방식',intro:'카카오톡에는 쇼우와 아이나의 메시지도 쌓여 있다.',lines:[
- ['shou','야. 나 지금 뉴스 봤는데.'],['shou','너 또 혼자 처리하려고 하지 마라. 지금 뭐 하고 있어?'],['me','기사 보고 있어.'],['shou','그걸 왜 계속 봐. 알아서 뭐 하게.'],['me','몰라.'],['shou','... 일단 밥부터 먹어라. 너 이럴 때 밥 안 먹는 거 안다.'],
- ['aina','야아아아!!! 너 지금 어디야??'],['me','숙소.'],['aina','다행이다. 밖에 돌아다니는 줄 알았어.'],['me','왜.'],['aina','아니 그냥!! 걱정되니까 그렇지.'],['me','나 괜찮아.'],['aina','너 그 말 할 때 제일 안 괜찮거든?']]},
- {c:1,time:'07:03',title:'모르는 사람의 확신',intro:'X 쪽지함. 낯선 계정에서 메시지가 도착했다.',lines:[
- ['x','알 수 없는 계정: 기사 나온 거 봤죠? 다들 알고 있어요.'],
- ['x','알 수 없는 계정: 선수님이 직접 해명할 생각은 없어요?'],
- ['narration','누가 무엇을 안다는 건지는 적혀 있지 않다. 시게오는 답장하지 않은 채 화면을 닫는다.']]},
- {c:2,time:'07:18',title:'구단의 연락',intro:'홍보팀과의 대화. 여기서부터는 말 한마디도 기사화될 수 있다.',lines:[
- ['club','키쿠치 선수, 현재 보도 내용을 확인하고 있습니다. 기자들의 개별 연락에는 응하지 말아 주세요.'],
- ['me','상대방에 대한 이야기도 나왔습니까?'],
- ['club','기사에는 신원이 명시되지 않았습니다. 다만 온라인에서 추측성 게시물이 확산되고 있습니다.'],
- ['me','그쪽은 일반인입니다. 이름이나 사진이 공개되지 않도록 대응할 수 있습니까?'],
- ['club','관련 게시물을 확인하고 필요한 조치를 검토하겠습니다. 모든 확산을 막겠다고 확답드리기는 어렵습니다.'],
- ['me','알겠습니다.']]},
- {c:2,time:'07:51',title:'공식 입장',intro:'인터넷 반응은 점점 거세지고 있다. 시게오는 어떻게 대응할까?',lines:[
- ['narration','선수 개인 계정으로 입장을 밝히면 추가 보도가 나올 수 있다. 아무 말도 하지 않으면 홍보팀과의 조율이 늦어진다.']
- ],choices:{key:'press',question:'기사에 어떻게 대응할까?',options:[
- ['team','홍보팀을 통해서만 대응한다'],['direct','X에 직접 글을 작성하려 한다'],['silent','아무 대응도 하지 않는다']]}},
- {c:2,time:'08:26',title:'두 번째 기사',intro:'상대방의 신상을 추측하는 게시물이 확산되고 있다는 새 기사가 올라왔다.',lines:[
- ['news','키쿠치 시게오 열애설 여파… 온라인서 상대 남성 신상 추측 확산\n목격담과 과거 사진을 근거로 일반인을 지목하는 글이 퍼지고 있으나 사실관계는 확인되지 않았다.'],
- ['narration','보도는 사실과 추측을 구분하고 있지만, 댓글에서는 그 차이가 빠르게 사라진다.'],
- ['ryota','시게오. 나 기사 봤어.'],['ryota','생각보다 일이 커졌네.'],['ryota','근데 나 아직 괜찮아. 너무 걱정하지 마.'],
- ['narration','“괜찮아”라는 말이 오늘따라 자꾸 마음에 걸린다.']]},
- {c:3,time:'10:06',title:'별일 없던 어제',intro:'인스타그램의 료타 스토리에는 녹차 한 잔과 책 한 권이 남아 있다.',lines:[
- ['note','2026.10.29 · 경기 후\n료타: 오늘도 경기 봤다! 마지막 타석은 진짜 멋있었는데?\n시게오: 그렇게 대놓고 보지 말라고 했잖아요.\n료타: 에이, 또 보고 싶은 거면서.\n시게오: ...부정은 안 하겠습니다.'],
- ['narration','평범해서 특별한 줄 몰랐던 기록. 채팅방을 아래로 내리면 오늘의 메시지가 다시 보인다.']]},
- {c:3,time:'10:14',title:'평소처럼 말하고 싶어서',intro:'료타가 먼저 장난스럽게 말을 건다. 그러나 곧 진심이 새어 나온다.',lines:[
- ['me','선배.'],['ryota','오, 드디어 왔네. 우리 바쁜 국가대표님께서 무슨 일이실까~'],
- ['me','지금 장난칠 기분 아닙니다.'],['ryota','알지. 미안. 그냥 평소처럼 얘기하고 싶었어.'],
- ['me','밖에는 안 나가셨죠?'],['ryota','응. 오늘은 집에 있어.'],
- ['me','대학 쪽에서 연락 온 건 없습니까?'],['ryota','몇 명한테 기사 링크는 왔어. 그냥 다들 그 얘기 하더라.'],
- ['me','안 괜찮으면 안 괜찮다고 하셔도 됩니다.'],
- ['narration','“입력 중...”이 나타났다 사라진다. 그리고 다시 나타난다.'],
- ['ryota','... 나 좀 무섭긴 해. 솔직히.'],['ryota','네가 나 때문에 곤란해질까 봐.']]},
- {c:3,time:'10:22',title:'같은 두려움',intro:'시게오는 뭐라고 답해야 할지 생각한다.',lines:[['narration','선배도 두렵다. 자신 역시 두렵다. 그걸 말하면 더 큰 불안이 되는 걸까?']],choices:{key:'fear',question:'료타의 두려움에 어떻게 답할까?',options:[
- ['honest','저도 무섭습니다. 같이 생각해 봅시다.'],['protect','제가 알아서 처리하겠습니다. 걱정 마세요.'],['separate','당분간 만나지 않는 게 좋겠습니다.']]}},
- {c:3,time:'11:30',title:'1호 팬',intro:'사진첩과 오래된 카카오톡 기록에는 같은 사람의 흔적이 남아 있다.',lines:[
- ['note','2023.01.14 · 오래된 카카오톡\n료타: 나중에 네가 국대 되면 내 사인 받아주기.\n시게오: 제가 국대 되면 선배한텐 유료로 해드리겠습니다.\n료타: 너무하다~ 그럼 나 1호 팬 할래.'],
- ['note','메모 · 2026.10.29\n경기장에 오지 말라고 했다. 사람들 눈에 띄는 게 싫으니까.\n그런데 막상 선배가 안 보이면 괜히 관중석부터 찾게 된다.\n이건 선배한텐 말 안 할 거다.'],
- ['narration','그때는 웃어넘겼던 말이 지금은 무겁게 남아 있다.']]},
- {c:4,time:'12:42',title:'개인의 일, 구단의 일',intro:'홍보팀에서 다시 전화가 왔다.',lines:[
- ['club','현재 관계를 확인하거나 부인하지 않는 방향을 검토하고 있습니다. 선수님 의사를 듣고 싶습니다.'],
- ['me','상대방에 대한 언급은 필요 없습니다.'],
- ['club','네. 일반인 신상에 관한 언급은 피하겠습니다. 한 가지 여쭤봐도 되겠습니까?'],
- ['club','당사자분과 향후 대응에 관해 직접 이야기해 보셨습니까?'],
- ['me','아직입니다.'],
- ['club','저희는 공식 대응을 도와드릴 수 있습니다. 개인적인 관계에 관한 결정까지 대신할 수는 없습니다.'],
- ['narration','전화를 끊는다. 오늘 료타와 연락은 했지만, 정작 가장 중요한 질문은 하지 않았다는 사실이 떠오른다.']]},
- {c:4,time:'13:08',title:'지우지 못한 문장',intro:'메모 앱의 새 문서. 시게오는 몇 마디를 적고, 지운다.',lines:[
- ['note','제목 없음 · 13:08\n선배는 아무 잘못도 없다.\n내가 조금만 조심했으면 됐을 일이다.\n처음부터 만나지 말았어야 했나.\n...\n[삭제된 문장] 그렇다고 후회하는 건 아니다.'],
- ['narration','연애한 사실을 후회하는 건 아니다. 하지만 그 마음조차 설명하는 방법을 모르겠다.']]},
- {c:4,time:'13:20',title:'누구의 결정인가',intro:'홍보팀은 공식 입장에 관한 최종 연락을 기다리고 있다.',lines:[['narration','어떻게 할지 스스로 정하고 싶다. 동시에 선배에게 무슨 말을 해야 할지 자신이 없다.']],choices:{key:'decision',question:'시게오는 어떻게 할까?',options:[
- ['ask','료타의 생각을 먼저 듣는다'],['official','우선 공식 입장만 준비한다'],['break','관계를 정리할 생각을 한다']]}},
- {c:4,time:'14:10',title:'할 말 있어',intro:'료타의 메시지는 평소와 다르게 짧고 조심스럽다.',lines:[
- ['ryota','시게오. 혹시 오늘 밤에는 시간 돼?'],['ryota','얼굴 보는 건 좀 그렇겠지.'],
- ['ryota','그럼 전화라도 하자.'],['ryota','나 너한테 할 말 있어.'],
- ['narration','시게오는 쉽게 답하지 못한다. 할 말은 자신에게도 많으니까.']]},
- {c:5,time:'18:17',title:'친구가 해주는 말',intro:'카토 쇼우는 상황을 해결해 주려 들지 않는다. 대신 시게오에게 묻는다.',lines:[
- ['shou','야. 너 료타 선배랑 얘기했냐?'],['me','했어.'],['shou','제대로?'],['me','...'],['shou','안 했네.'],
- ['me','내가 뭘 할 수 있는데. 내가 선수만 아니었으면 이런 일도 없었겠지.'],
- ['shou','야, 그건 좀 아니지. 네가 선수인 게 잘못이냐? 남의 신상 뒤지는 사람들이 문제지.'],
- ['me','...'],['shou','너 료타 선배 아끼는 거 알아. 근데 네가 혼자 다 결정하면 그 사람은 뭐가 되냐.'],
- ['me','그건 그렇지.'],['shou','그럼 가서 얘기해. 나한테 이러고 있지 말고.']]},
- {c:5,time:'19:02',title:'서툴러도 괜찮다고',intro:'아이나는 잔소리를 하다가, 뜻밖의 말을 건넨다.',lines:[
- ['aina','시게오!!! 너 저녁 먹었어?'],['me','아직.'],['aina','아 진짜!!! 너 이럴 줄 알았어.'],['me','먹을 거야.'],
- ['aina','맨날 먹을 거라 하고 안 먹잖아. 그리고 있잖아.'],['aina','오늘은 좀 못난 모습 보여줘도 돼.'],['me','뭐?'],
- ['aina','너 맨날 뭐든 잘해야 되는 줄 알잖아. 근데 이번엔 너도 처음 겪는 일이잖아.'],
- ['aina','모르겠으면 모른다고 해도 되지.'],['me','...'],['aina','아 됐어. 밥이나 먹어!!']]},
- {c:5,time:'20:45',title:'밤이 오기 전에',intro:'이제는 료타에게 답해야 한다.',lines:[['narration','이 말 한마디가 모든 것을 결정하지는 않는다. 그러나 누군가는 먼저 대화의 문을 열어야 한다.']],choices:{key:'evening',question:'료타에게 어떤 메시지를 보낼까?',options:[
- ['call','늦어서 죄송합니다. 오늘 밤에 통화할 수 있을까요?'],['wait','아직 정리가 안 됐습니다. 조금만 기다려 주세요.'],['silent','오늘은 연락하지 않는 게 좋겠습니다.']]}},
- {c:5,time:'22:30',title:'수신 전화',intro:'휴대폰이 울린다. 화면 한가운데, 료타 선배라는 이름이 뜬다.',lines:[
- ['note','☎ 료타 선배\n휴대전화 · 수신 중...'],
- ['narration','지금 전화를 받을 수도, 몇 분 뒤에 다시 걸 수도 있다. 통화를 피한 시간은 돌이킬 수 없지만, 아직 이야기는 끝나지 않았다.']
- ],choices:{key:'incoming',question:'전화를 어떻게 할까?',options:[
- ['answer','지금 전화를 받는다'],['later','잠깐 거절하고 다시 전화를 건다']]}},
- {c:6,time:'22:31',title:'오랜만에 듣는 목소리',intro:'통화 연결. 작은 잡음 뒤로 료타의 목소리가 들린다.',lines:[
- ['ryota','여보세요?'],['me','...선배.'],['ryota','와, 드디어 목소리 듣는다. 우리 시게오가 오늘 엄청 바빴나 봐?'],
- ['me','죄송합니다.'],['ryota','에이. 사과하라고 한 말은 아니었어. 그냥... 목소리 듣고 싶었어.'],
- ['me','...'],['ryota','시게오?'],['me','듣고 있습니다.'],['ryota','응. 다행이다.'],
- ['ryota','오늘 하루 종일 생각했는데, 나 네가 무슨 생각 하는지 잘 모르겠더라.'],
- ['me','저도 잘 모르겠습니다.'],['ryota','뭐야, 너답지 않게.'],['me','...그러게요.']]},
- {c:6,time:'22:38',title:'말하지 않은 마음',intro:'서로 두려운 것을 말하기 시작한다. 무엇보다 먼저 답해야 할 질문이 있다.',lines:[
- ['ryota','시게오. 너 나랑 사귀는 거 후회해?'],['me','...뭐라고요?'],
- ['ryota','나 때문에 네가 곤란해졌잖아.'],['me','그런 말 하지 마세요.'],
- ['ryota','그러니까 네 생각을 듣고 싶다고.'],['me','후회 안 합니다. 한 번도요.'],
- ['me','선배를 만난 걸 후회한 적은 없습니다.'],['ryota','... 응. 그 말 들으니까 좀 살 것 같다.'],
- ['ryota','그런데 오늘은 네가 자꾸 괜찮다고만 해서, 나랑 더 이상 엮이고 싶지 않은 건가 싶었어.'],
- ['me','아닙니다.'],['ryota','알아. 지금은 알겠어.'],
- ['ryota','근데 나도 네 애인이잖아. 이런 일은 나한테도 물어봐 줬으면 좋겠어.']]},
- {c:6,time:'22:42',title:'우리 사이의 마지막 질문',intro:'서로의 목소리가 잠시 끊긴다. 시게오는 무슨 말을 할지 결정한다.',lines:[
- ['narration','열애 기사를 낸 사람도, 구단도, 세상도 아닌. 지금 두 사람의 관계를 결정할 수 있는 사람은 둘뿐이다.']
- ],choices:{key:'final',question:'시게오는 마지막으로 무엇을 말할까?',options:[
- ['together','저 혼자 결정하지 않겠습니다. 선배는 어떻게 하고 싶으세요?'],
- ['pause','우리 둘 다 정리할 시간이 필요한 것 같습니다. 선배는 어떻게 생각하세요?'],
- ['end','...선배. 우리 여기까지 하는 게 좋겠습니다.']]}},
-];
-const ST_ENDINGS={
- happy:{title:'우리의 다음 계절',subtitle:'The season we chose together.',kind:'HAPPY END',lines:[
- ['me','저 혼자 결정하지 않겠습니다. 선배는 어떻게 하고 싶으세요?'],['ryota','나? 음... 어려운 질문이네.'],
- ['ryota','사실 나도 무서워. 사람들이 뭐라고 할지도 모르겠고. 네가 지금처럼 야구할 수 있을지도 걱정되고.'],
- ['ryota','근데 그래도 너랑 헤어지고 싶지는 않아.'],['me','저도요.'],['ryota','응?'],
- ['me','저도 헤어지고 싶지 않습니다.'],['ryota','...너 오늘 왜 이렇게 솔직해?'],
- ['me','선배가 물어보셨잖아요.'],['ryota','하하. 그럼 우리 일단 내일부터 생각하자.'],
- ['ryota','오늘 당장 모든 걸 해결할 필요는 없잖아.'],['me','...네. 그럽시다.'],
- ['news','11월 3일. 구단은 선수의 사생활에 대한 확인을 하지 않으며 일반인 신상 추측과 개인정보 유포를 삼가 달라고 밝혔다. 여론은 단숨에 바뀌지 않았다.'],
- ['ryota','시게오~ 일어났어? 오늘 훈련 끝나고 전화할까?'],['me','선배 시간 되시면요.'],
- ['ryota','나야 우리 국대님 1호 팬이니까 시간 비워야지. 나 아직 사인 못 받았잖아.'],
- ['me','유료라고 했습니다.'],['ryota','와, 진짜 너무한 애인이다.'],['me','...선배한테는 무료로 해드리겠습니다.'],
- ['ryota','어? 지금 뭐라고 했어?'],['me','두 번 말 안 합니다.'],['ryota','ㅋㅋㅋㅋ 알겠어. 고마워, 시게오.'],
- ['narration','모든 일이 해결된 것은 아니다. 그래도 두 사람은 앞으로의 일을 함께 결정하기로 했다.']
- ]},
- open:{title:'조금 느린 우리',subtitle:'Not goodbye. Not yet.',kind:'OPEN END',lines:[
- ['me','우리 조금 시간을 갖는 게 좋겠습니다.'],['ryota','...헤어지자는 거야?'],
- ['me','아닙니다. 적어도 전 그런 뜻으로 말한 건 아닙니다.'],['ryota','그럼 얼마나?'],['me','잘 모르겠습니다.'],
- ['ryota','뭐야. 기간도 안 정했어?'],['me','...죄송합니다.'],['ryota','하하. 그런 얼굴 하지 마. 얼굴은 안 보이지만.'],
- ['me','제가 선배를 좋아하는 건 변하지 않습니다.'],['ryota','...알아. 나도 그래.'],
- ['ryota','대신 하나만 약속하자. 혼자서 끝내지 않기. 그건 꼭 지켜줘.'],['me','...알겠습니다.'],
- ['narration','11월 9일. 둘의 채팅방에는 며칠간 메시지가 오지 않았다.'],
- ['ryota','시게오. 오늘 경기 봤어. 역시 잘하더라.'],['ryota','나 아직 1호 팬 맞지?'],
- ['narration','시게오는 한동안 입력하다가 지우고, 다시 적는다.'],['me','네. 당연하죠.'],
- ['ryota','다행이다. 그럼 다음에 또 연락할게.'],
- ['narration','지금은 가까워질 수 없지만, 그들의 이야기가 끝났다고 단정할 수도 없다.']
- ]},
- bad:{title:'읽지 않은 메시지',subtitle:'The words I never sent.',kind:'SAD END',lines:[
- ['me','선배. 우리 여기까지 하는 게 좋겠습니다.'],['ryota','...뭐?'],
- ['me','지금 같은 상황이 계속되면 선배만 힘들어집니다.'],['ryota','그건 네 생각이잖아.'],
- ['ryota','나 아까 물어봤잖아. 후회하냐고.'],['me','후회 안 합니다.'],
- ['ryota','그런데 왜 헤어지자는 건데?'],['me','선배를 위해서입니다.'],
- ['ryota','...그 말이 제일 싫다. 나를 위해서라는 말. 왜 그걸 네가 정해.'],
- ['me','죄송합니다.'],['ryota','시게오. 나 너 진짜 많이 좋아했어.'],
- ['me','...압니다.'],['ryota','아니. 넌 잘 모르는 것 같아.'],
- ['ryota','알겠어. 네가 그렇게까지 생각했다면 나도 더 붙잡진 않을게.'],
- ['ryota','그래도 마지막으로 하나만. 나랑 사귀어서 행복했어?'],
- ['me','...네. 행복했습니다.'],['ryota','...다행이다. 나도.'],
- ['narration','통화 종료. 며칠 후, 시게오는 다시 훈련하고 경기에 나간다.'],
- ['note','2023.01.14 · 카카오톡\n료타: 너 너무하다~ 그럼 나 1호 팬 할래.'],
- ['narration','채팅창에 “선배. 오늘 경기 보셨습니까?”라고 적었다가 지운다.'],
- ['narration','보내지 않은 문장은 어디에도 남지 않았다.']
- ]}
-};
-function storyScore(){
- const a=s.storyAnswers||{};
- return (s.replyChoice==='wait'?1:0)+(a.press==='team'?1:a.press==='direct'?-1:0)
- +(a.fear==='honest'?2:a.fear==='separate'?-2:0)
- +(a.decision==='ask'?1:a.decision==='break'?-2:0)
- +(a.evening==='call'?1:a.evening==='silent'?-1:0)
- +(a.incoming==='answer'?1:0);
-}
-function storyLine(who,txt){
- const labels={ryota:['료타 선배','🐶'],shou:['카토 쇼우','🫧'],aina:['스즈키 아이나','🍮'],club:['구단 홍보팀','⚾'],x:['𝕏','𝕏'],me:['시게오','⚾']};
- const str=safe(txt).replace(/\\n/g,'<br>');
- if(['note','narration','news'].includes(who))return `<div class="st-line ${who}"><div class="st-card">${str}</div></div>`;
- const [name,emoji]=labels[who]||['알림','✉'];
- return `<div class="st-line ${who==='me'?'me':''}"><span class="st-avatar" aria-hidden="true">${emoji}</span><div><div class="st-speaker">${name}</div><div class="st-bubble">${str}</div></div></div>`;
-}
-function storyChoiceFollowup(key,value){
- if(key==='reply')return value==='safe'?'료타: 응. 기다릴게. 네가 괜찮다고 할 때까지.':'료타: 응. 기다릴게. 네가 괜찮다고 할 때까지.';
- if(key==='press')return ({team:'홍보팀: 확인했습니다. 공식 발표 전까지 선수님과 협의하겠습니다.',direct:'시게오: “내 사생활에 다른 사람을 끌어들이지 마세요.” 글쓰기 화면에서 손가락이 멈춘다. 최종 게시 전에 다시 생각한다.',silent:'홍보팀의 연락은 계속 쌓인다. 아직 입장은 정리되지 않았다.'})[value];
- if(key==='fear')return ({honest:'시게오: 선배 탓이 아닙니다. 저도 무섭습니다. 그러니까 같이 생각해 봅시다. / 료타: ...응.',protect:'시게오: 제가 알아서 처리하겠습니다. / 료타: ...그래. 네가 그렇게 말하면야.',separate:'시게오: 당분간 만나지 않는 게 좋겠습니다. / 료타: ...그런 뜻이었구나.'})[value];
- if(key==='decision')return ({ask:'시게오: 선배와 먼저 얘기하겠습니다.',official:'시게오: 관계에 관한 확인은 하지 않겠습니다. 상대방 언급은 피해주세요.',break:'시게오: ...당분간 개인적인 관계를 정리해야 할 것 같습니다.'})[value];
- if(key==='evening')return ({call:'료타: 응! 나 시간 많아. ...사실 오늘은 손에 아무것도 안 잡혔지만. 밤에 전화해.',wait:'료타: 알겠어. 그래도 오늘 안에 한 번은 얘기하자.',silent:'료타: 알겠어. 근데 그 말이 다른 뜻이라면, 전화로 얘기해 줬으면 좋겠어.'})[value];
- if(key==='incoming')return value==='later'?'한 번 전화를 거절한다. 조금 뒤, 시게오가 다시 전화를 건다. 이번에는 료타가 받는다.':'시게오가 통화 버튼을 누른다. 연결음이 멈춘다.';
- return '';
-}
-function storyMedium(step){
- if([0,3,5,6].includes(step))return ['x','𝕏 · 기사와 게시물'];
- if(step===7)return ['instagram','Instagram · 료타의 스토리'];
- if(step===10)return ['photos','사진 · 오래된 기록'];
- if(step===12)return ['notes','메모 · 제목 없음'];
- if([11,18,19,20,21].includes(step))return ['call','전화 · 료타 선배'];
- const titles={2:'카카오톡 · 친구들의 메시지',4:'카카오톡 · 구단 홍보팀',13:'카카오톡 · 구단 홍보팀',15:'카카오톡 · 카토 쇼우',16:'카카오톡 · 스즈키 아이나'};
- return ['chat',titles[step]||'카카오톡 · 료타 선배'];
-}
-function storyPhase(step){let c=ST_SCENES[Math.min(step,ST_SCENES.length-1)].c;return `CH.${String(c).padStart(2,'0')} / 06`}
-function storyStageButtons(opts){return opts.map(o=>`<button class="st-act ${o.class||'alt'}" data-act="${o.act}">${safe(o.label)}</button>`).join('');}
-function storyChapterView(){
- if(s.sub==='story-log'){
-  const entries=ST_SCENES.filter((sc,i)=>i<(s.storyStep||0)&&sc.choices).map(sc=>{
-   const ans=sc.choices.key==='reply'?s.replyChoice:s.storyAnswers?.[sc.choices.key];
-   const match=sc.choices.options.find(o=>o[0]===ans);
-   return `<div class="st-log-entry"><small>CH.${String(sc.c).padStart(2,'0')} · ${safe(sc.time)}</small><b>${safe(sc.title)}</b><div>${safe(match?.[1]||'선택 기록 없음')}</div></div>`;
-  }).join('');
-  return `<div class="ot-stage x"><div class="ot-head"><button data-act="story-resume">‹</button><div class="ot-head-body"><strong>선택 기록</strong><small>OFF THE RECORD</small></div></div><div class="ot-scroll"><div class="st-log">${entries||'<div class="st-intro">아직 선택 기록이 없어요.</div>'}</div></div><div class="ot-actions">${storyStageButtons([{act:'story-resume',label:'다시 이야기로 돌아가기',class:''}])}</div></div>`;
- }
- if(s.sub==='story-collection'){
-  const entries=[['happy','우리의 다음 계절'],['open','조금 느린 우리'],['bad','읽지 않은 메시지']];
-  return `<div class="ot-stage x"><div class="ot-head"><button data-act="story-resume">‹</button><div class="ot-head-body"><strong>엔딩 보관함</strong><small>해금한 결말을 다시 감상할 수 있습니다</small></div></div><div class="ot-scroll"><div class="ot-endinghead"><small>COLLECTION</small><h1>기록된 세 개의 결말</h1><p>선택에 따라 달라진 두 사람의 미래</p></div><div class="ot-end-collection">${entries.map(([id,title],i)=>`<button ${!(s.storyUnlocked||[]).includes(id)?'disabled':''} data-act="story-review:${id}"><span>ENDING 0${i+1} · ${safe(title)}</span><span>${(s.storyUnlocked||[]).includes(id)?'다시 보기 ›':'🔒'}</span></button>`).join('')}</div></div><div class="ot-actions">${storyStageButtons([{act:'story-resume',label:'현재 진행으로 돌아가기',class:''},{act:'story-restart',label:'새 회차 시작'}])}</div></div>`;
- }
- const step=Math.min(Number(s.storyStep||0),ST_SCENES.length);
- if(step>=ST_SCENES.length || s.storyViewing){
-  const ending=ST_ENDINGS[s.storyViewing||s.storyEnding]||ST_ENDINGS.open,visible=Math.min(ending.lines.length,Math.max(3,Number(s.storyEndingLineIndex||0)||3)),endDone=visible>=ending.lines.length;
-  const body=ending.lines.slice(0,visible).map(line=>storyLine(...line)).join('');
-  return `<div class="ot-stage call"><div class="ot-head"><button data-act="home" aria-label="홈으로">⌂</button><div class="ot-head-body"><strong>OFF THE RECORD</strong><small>결말 · ${safe(ending.kind)}</small></div><button data-act="story-collection">보관함</button></div><div class="ot-progress"><span style="width:100%"></span></div><div class="ot-scroll" id="ot-scroll"><div class="ot-endinghead"><small>${safe(ending.kind)}</small><h1>${safe(ending.title)}</h1><p>${safe(ending.subtitle)}</p></div>${body}${endDone?'<div class="ot-footer-note">— THE END —</div>':''}</div><div class="ot-actions">${endDone?storyStageButtons([{act:'story-collection',label:'모든 결말 보기',class:''},{act:'story-restart',label:'처음부터 다시 플레이'},{act:'home',label:'홈으로 돌아가기'}]):storyStageButtons([{act:'story-end-continue',label:'다음 대사 보기 →',class:''}])}<div class="ot-scenes-counter">엔딩 ${(s.storyUnlocked||[]).length} / 3 해금</div></div></div>`;
- }
- const scene=ST_SCENES[step],platform=storyMedium(step),[theme,appTitle]=platform;
- const visible=Math.min(scene.lines.length,Math.max(3,Number(s.storyLineIndex||0)||3));
- const allRead=visible>=scene.lines.length;
- const key=scene.choices?.key, chosen=key?(key==='reply'?s.replyChoice:s.storyAnswers?.[key]):'';
- const label=scene.choices?.question||'다음 장면';
- let controls='';
- if(!allRead)controls=`<span class="ot-action-label">화면에 도착한 메시지를 읽어보세요.</span>${storyStageButtons([{act:'story-more',label:`다음 대사 보기 (${visible}/${scene.lines.length}) →`,class:''}])}`;
- else if(key&&!chosen){controls=`<span class="ot-action-label">${safe(label)}</span>${storyStageButtons(scene.choices.options.map(([id,txt])=>({act:`story-choice:${key}:${id}`,label:txt})))}`;}
- else{
-  const follow=key && key!=='final' ? storyChoiceFollowup(key,chosen):'';
-  controls=`${follow?`<div class="ot-action-result">${safe(follow)}</div>`:''}${key?`<div class="ot-scenes-counter">선택 완료 · 다음 장면을 확인하세요</div>`:''}${storyStageButtons([{act:'story-next',label:step===ST_SCENES.length-1?'결말로 →':'다음 장면으로 →',class:''}])}`;
- }
- const readLink=step===0?'<button class="st-act minor" data-act="story-link:x">기존 X 기사 살펴보기</button>':step===1?'<button class="st-act minor" data-act="story-link:chat:ryota">기존 카카오톡 기록 확인하기</button>':step===7?'<button class="st-act minor" data-act="story-link:instagram">기존 인스타그램 게시물 보기</button>':step===10?'<button class="st-act minor" data-act="story-link:notes">기존 메모 확인하기</button>':'';
- return `<div class="ot-stage ${theme}"><div class="ot-head"><button data-act="home" aria-label="홈으로">‹</button><div class="ot-head-body"><strong>${safe(appTitle)}</strong><small>${storyPhase(step)} · ${safe(scene.title)}</small></div><button data-act="story-log" aria-label="선택 기록">기록</button></div><div class="ot-progress"><span style="width:${Math.round((step+1)/ST_SCENES.length*100)}%"></span></div><div class="ot-scroll" id="ot-scroll"><div class="ot-timestamp">2026년 11월 2일 · ${safe(scene.time)}<br>${safe(scene.title)}</div><div class="ot-intro">${safe(scene.intro)}</div>${scene.lines.slice(0,visible).map(line=>storyLine(...line)).join('')}</div><div class="ot-actions">${controls}${readLink}<div class="ot-scenes-counter">장면 ${step+1} / ${ST_SCENES.length} · 진행 상황 자동 저장</div></div></div>`;
-}
-function storyAct(a){
- if(a==='story-open') {s.storyViewing='';s.sub='';go('app','story');return true;}
- if(a==='story-log'){s.sub='story-log';save();render();return true;}
- if(a==='story-collection'){s.storyViewing='';s.sub='story-collection';save();render();return true;}
- if(a==='story-resume'){s.sub='';save();render();return true;}
- if(a==='story-more'){let sc=ST_SCENES[s.storyStep||0];if(!sc)return true;s.storyLineIndex=Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0)+3);save();render();return true;}
- if(a==='story-end-continue'){let end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open;s.storyEndingLineIndex=Math.min(end.lines.length,Math.max(3,s.storyEndingLineIndex||0)+3);save();render();return true;}
- if(a==='story-next'){
-  const scene=ST_SCENES[s.storyStep||0];if(!scene)return true;
-  if(Math.max(3,s.storyLineIndex||0)<scene.lines.length){toast('대사를 먼저 읽어주세요.');return true;}
-  const selected=scene.choices?(scene.choices.key==='reply'?s.replyChoice:s.storyAnswers?.[scene.choices.key]):true;
-  if(!selected){toast('답장을 선택해 주세요.');return true;}
-  if(scene.choices?.key==='final'){
-    s.storyEnding=selected==='end'?'bad':selected==='pause'?'open':storyScore()>=3?'happy':'open';
-    s.storyUnlocked=s.storyUnlocked||[];if(!s.storyUnlocked.includes(s.storyEnding))s.storyUnlocked.push(s.storyEnding);
-    s.storyStep=ST_SCENES.length;s.storyEndingLineIndex=0;s.callStoryLive=false;s.callMode='';
-  }else s.storyStep=Math.min(ST_SCENES.length,(s.storyStep||0)+1);
-  s.storyLineIndex=0;s.sub='';save();render();return true;
- }
- if(a.startsWith('story-first-reply:')){
-  const answer=a.split(':')[1];if(!['safe','wait'].includes(answer))return true;
-  s.replyChoice=answer;s.kkRead.ryota=true;s.storyAnswers=s.storyAnswers||{};
-  if((s.storyStep||0)<2)s.storyStep=2;
-  s.storyLineIndex=0;s.sub='';go('app','story');return true;
- }
- if(a.startsWith('story-choice:')){
-  const [key,val]=a.slice(13).split(':');const sc=ST_SCENES[s.storyStep||0];
-  if(!sc?.choices||sc.choices.key!==key||!sc.choices.options.some(o=>o[0]===val))return true;
-  if(Math.max(3,s.storyLineIndex||0)<sc.lines.length){toast('대사를 먼저 읽어주세요.');return true;}
-  if(key==='reply'){s.replyChoice=val;s.kkRead.ryota=true;}else s.storyAnswers[key]=val;
-  save();render();return true;
- }
- if(a.startsWith('story-review:')){
-  const id=a.split(':')[1];if(!(s.storyUnlocked||[]).includes(id))return true;
-  s.storyViewing=id;s.sub='';s.storyEndingLineIndex=0;save();render();return true;
- }
- if(a==='story-restart'){
-  if(!confirm('이야기를 첫 장면부터 다시 시작할까요? 기존 사진·앱·과거 메시지는 그대로 유지됩니다.'))return true;
-  s.storyStep=0;s.storyLineIndex=0;s.storyEnding='';s.storyEndingLineIndex=0;s.storyAnswers={};s.replyChoice='';s.storyReviewMode=false;s.storyViewing='';s.sub='';save();go('app','story');return true;
- }
- if(a.startsWith('story-link:')){
-  const route=a.slice(11);
-  if(route==='x')go('app','x','article');
-  else if(route.startsWith('chat:')){const id=route.slice(5);s.kkRead[id]=true;go('app','chat',id);}
-  else if(route==='instagram')go('app','instagram','story:ryota');
-  else if(route==='notes')go('app','notes');
-  else go('home');
-  return true;
- }
- return false;
-}
-// ===== END narrative addition =====
-
-
-    // ===== Native scene integration. Never opens a separate story application. =====
-    // Times, original pre-scandal messages, portraits, wallpaper and imagery are not replaced.
-    const NATIVE_SCENE_ROOM=['ryota','ryota','shou','ryota','club','club','ryota','ryota','ryota','ryota','ryota','club','club','club','ryota','shou','aina','ryota','ryota','ryota','ryota','ryota'];
-    function nativeStep(){return Math.max(0,Math.min(ST_SCENES.length,Number(s.storyStep||0)));}
-    function nativeRoomFor(step){if(step===2&&(s.storyLineIndex||0)>=6)return 'aina';return NATIVE_SCENE_ROOM[step]||'ryota';}
-    function nativeDestination(step){if(step===3)return {app:'x',sub:'dm:unknown'};if(step===6)return {app:'x',sub:'article'};if(step>=18&&step<ST_SCENES.length)return {app:'call',sub:''};return {app:'chat',sub:nativeRoomFor(step)};}
-    function nativeGotoStep(){
-      const n=nativeStep(),dest=nativeDestination(n);
-      if(dest.app==='call'){s.callStoryLive=true;s.callMode=n===18?'incoming':'connected';s.callContact='ryota';s.callSeconds=0;s.page='app';s.app='chat';s.sub='ryota';save();render();return;}
-      s.callStoryLive=false;s.callMode='';s.page='app';s.app=dest.app;s.sub=dest.sub;s.kkTab='chats';if(dest.app==='chat')s.kkRead[dest.sub]=true;save();render();
-    }
-    function nativeStepLabel(){const sc=ST_SCENES[nativeStep()];return sc?`CH.${String(sc.c).padStart(2,'0')} · ${sc.title}`:'에필로그 · 결말';}
-    function nativeMarkRead(id){s.nativeReadStep=s.nativeReadStep||{};s.nativeReadStep[id]=Math.max(s.nativeReadStep[id]||-1,nativeStep());s.kkRead[id]=true;save();}
-    function nativeNextAlert(){
-       const idx=nativeStep();if(idx>=ST_SCENES.length||s.callStoryLive)return;
-       const who=nativeRoomFor(idx),c=chatContacts.find(p=>p.id===who);
-       const isX=idx===3||idx===6;
-       if(s.page==='app'&&!isX&&c)pushLiveAlert({kind:'kakaotalk',title:c.name,text:`새 메시지가 도착했습니다 · ${ST_SCENES[idx].title}`,route:`chat:${who}`});
-       else if(s.page==='app'&&isX)pushLiveAlert({kind:'x',title:'X · 새로운 알림',text:ST_SCENES[idx].title,route:idx===3?'x-dm:unknown':'x-article'});
-    }
-    function nativeAdvance(){
-      const n=nativeStep(),sc=ST_SCENES[n];if(!sc)return;
-      const complete=Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0))>=sc.lines.length;
-      if(!complete){toast('먼저 도착한 메시지를 확인해 주세요.');return;}
-      const ans=sc.choices?(sc.choices.key==='reply'?s.replyChoice:s.storyAnswers?.[sc.choices.key]):true;
-      if(!ans){toast('답장을 선택해 주세요.');return;}
-      if(sc.choices?.key==='final'){
-        s.storyEnding=ans==='end'?'bad':ans==='pause'?'open':storyScore()>=3?'happy':'open';
-        s.storyUnlocked=s.storyUnlocked||[];if(!s.storyUnlocked.includes(s.storyEnding))s.storyUnlocked.push(s.storyEnding);
-        s.storyStep=ST_SCENES.length;s.storyEndingLineIndex=0;
-      }else s.storyStep=n+1;
-      s.storyLineIndex=0;s.storyViewing='';s.nativeReadStep=s.nativeReadStep||{};save();nativeGotoStep();nativeNextAlert();
-    }
-    function nativeChoice(key,val){
-      const sc=ST_SCENES[nativeStep()];if(!sc?.choices||sc.choices.key!==key||!sc.choices.options.some(o=>o[0]===val))return;
-      if(key==='reply')s.replyChoice=val;else s.storyAnswers[key]=val;
-      s.storyLineIndex=sc.lines.length;save();nativeAdvance();
-    }
-    function nativeMore(){const sc=ST_SCENES[nativeStep()];if(!sc)return;
-      s.storyLineIndex=Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0)+3);
-      save();const dest=nativeDestination(nativeStep());
-      // The conversation crosses from Shou to Aina as the next messages arrive.
-      if(dest.app==='chat'&&s.sub!==dest.sub){nativeGotoStep();return;}
-      render();
-    }
-    function nativeRestart(){
-      if(!confirm('료타와 시게오의 이야기를 처음부터 다시 시작할까요? 기존 사진과 과거 채팅은 그대로 남습니다.'))return;
-      Object.assign(s,{storyStep:0,storyLineIndex:0,storyEnding:'',storyEndingLineIndex:0,storyAnswers:{},replyChoice:'',callStoryLive:false,callMode:'',nativeReadStep:{}});
-      save();go('app','chat','ryota');
-    }
-    function nativeAct(a){
-      if(a==='native-start'){nativeGotoStep();return true;}
-      if(a==='native-more'){nativeMore();return true;}
-      if(a==='native-next'){nativeAdvance();return true;}
-      if(a==='native-read-x'){const sc=ST_SCENES[nativeStep()];if(sc)s.storyLineIndex=sc.lines.length;nativeAdvance();return true;}
-      if(a.startsWith('native-choice:')){const p=a.slice(14).split(':');nativeChoice(p[0],p[1]);return true;}
-      if(a==='native-restart'){nativeRestart();return true;}
-      if(a==='native-end-more'){const end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open;s.storyEndingLineIndex=Math.min(end.lines.length,(s.storyEndingLineIndex||0)+4);save();render();return true;}
-      if(a==='native-call-answer'){s.storyStep=19;s.storyLineIndex=0;s.callStoryLive=true;s.callMode='connected';s.callContact='ryota';save();nativeGotoStep();return true;}
-      if(a==='native-call-later'){toast('료타의 전화가 계속 울린다. 통화 버튼을 눌러 이어갈 수 있어.');return true;}
-      if(a==='native-return-chat'){go('app','chat','ryota');return true;}
-      if(a==='native-return-x'){go('app','x','article');return true;}
-      if(a==='native-return-dm'){go('app','x','dm:unknown');return true;}
-      return false;
-    }
-    function nativeMessageEntries(id){
-      const entries=[],n=nativeStep();
-      for(let i=0;i<=Math.min(n,ST_SCENES.length-1);i++){
-        const sc=ST_SCENES[i];let prior=nativeRoomFor(i),limit=i<n?sc.lines.length:Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0));
-        if(i===1){
-          // The pre-existing 06:29 incoming messages are already in the original thread.
-          // The player's chosen answer and Ryota's reply must be added as REAL chat bubbles.
-          if(i<n&&id==='ryota'&&s.replyChoice){entries.push(['me',s.replyChoice==='safe'?'선배, 전 괜찮아요. 선배는 밖에 나가지 마세요.':'지금 숙소입니다. 전화는 잠깐만 기다려 주세요.']);entries.push(['them','응. 기다릴게. 네가 괜찮다고 할 때까지.']);}
-          continue;
-        }
-        if(i===0)prior='ryota';
-        if(i>=18)continue; // real telephone call, not fabricated Kakao messages.
-        for(let k=0;k<limit;k++){
-          const [who,body]=sc.lines[k];
-          if(who==='ryota'||who==='shou'||who==='aina'||who==='club')prior=who;
-          const contact=['ryota','shou','aina','club'].includes(who)?who:prior;
-          if(contact!==id)continue;
-          // Older commentary/news is a linked preview in the actual conversation.
-          if(who==='me')entries.push(['me',body]);
-          else if(['ryota','shou','aina','club'].includes(who))entries.push(['them',body]);
-          else if(who==='news')entries.push(['news',body]);
-          else if(who==='note'||who==='narration')entries.push(['system',body]);
-          else if(who==='x')entries.push(['x',body]);
-        }
-        if(i<n&&sc.choices){
-          const chosen=sc.choices.key==='reply'?s.replyChoice:s.storyAnswers?.[sc.choices.key];
-          const option=sc.choices.options.find(p=>p[0]===chosen);
-          if(option&&nativeRoomFor(i)===id){
-            // Show the actual sent selection in the room, not in a detached choice log.
-            if(['reply','fear','evening'].includes(sc.choices.key))entries.push(['me',option[1]]);
-            else entries.push(['system',`선택한 대응: ${option[1]}`]);
-            const follow=storyChoiceFollowup(sc.choices.key,chosen);
-            if(follow)entries.push(['system',follow.replaceAll(' / ','\n')]);
-          }
-        }
-      }
-      return entries;
-    }
-    function nativeEntryHTML(entry,c){const [who,body]=entry;
-      if(who==='news')return `<button class="native-link-card" data-act="x-article"><b>📰 SPORTS FOCUS · 기사</b>${safe(body)}<small>눌러서 X의 기사 확인하기 ›</small></button>`;
-      if(who==='x')return `<button class="native-link-card" data-act="native-return-dm"><b>𝕏 · 새로운 쪽지</b>${safe(body)}<small>쪽지함 열기 ›</small></button>`;
-      if(who==='system')return `<div class="native-story-note">${safe(body)}</div>`;
-      return `<div class="kk-message ${who==='me'?'mine':'other'}">${who==='them'?chatAvatar(c):''}<div class="kk-balloon">${safe(body)}</div></div>`;
-    }
-    function nativeChatActions(id){
-      const n=nativeStep();if(n>=ST_SCENES.length){if(id!=='ryota')return `<div class="native-controls"><button class="native-btn" data-act="native-start">료타와의 채팅 보기 →</button></div>`;
-        const end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open;
-        if((s.storyEndingLineIndex||0)<end.lines.length)return `<div class="native-controls"><div class="native-hint">${safe(end.title)} · 마지막 메시지</div><button class="native-btn" data-act="native-end-more">새 메시지 확인 ↓</button></div>`;
-        return `<div class="native-controls"><div class="native-hint">엔딩을 확인했어. 다시 플레이하면 다른 결말을 볼 수 있어.</div><button class="native-btn secondary" data-act="native-restart">처음부터 다시 시작하기 ↻</button></div>`;
-      }
-      const dest=nativeDestination(n),sc=ST_SCENES[n],where=nativeRoomFor(n);
-      if(dest.app==='call')return `<div class="native-controls"><button class="native-btn" data-act="native-start">☎ 료타와 통화 이어가기</button></div>`;
-      if(dest.app==='x'&&!['ryota','club','shou','aina'].includes(id))return '';
-      if(dest.app==='x')return `<div class="native-controls"><div class="native-hint">새 X 알림이 도착했어.</div><button class="native-btn" data-act="native-start">${n===3?'𝕏 쪽지 확인하기':'📰 새로운 기사 확인하기'} →</button></div>`;
-      if(id!==where){const contact=chatContacts.find(c=>c.id===where);return `<div class="native-controls"><div class="native-hint">${safe(contact?.name||'료타 선배')}에게 새 메시지가 왔어.</div><button class="native-btn" data-act="native-start">대화방 열기 →</button></div>`;}
-      const visible=Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0));
-      if(visible<sc.lines.length)return `<div class="native-controls"><div class="native-hint">${safe(sc.time)} · 메시지 수신 중</div><button class="native-btn" data-act="native-more">새 메시지 확인 ↓</button><div class="native-progress">${visible} / ${sc.lines.length}</div></div>`;
-      if(sc.choices){const key=sc.choices.key;
-        return `<div class="native-controls"><div class="native-hint">${safe(sc.choices.question)}</div>${sc.choices.options.map(([val,label],i)=>`<button class="native-btn ${i?'secondary':''}" data-act="native-choice:${key}:${val}">${safe(label)}</button>`).join('')}</div>`;
-      }
-      return `<div class="native-controls"><button class="native-btn" data-act="native-next">${n===18?'☎ 전화를 받을까?':'다음 메시지 확인 →'}</button></div>`;
-    }
-    function nativeEndingEntries(id){if(id!=='ryota'||nativeStep()<ST_SCENES.length)return '';
-      const end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open,visible=Math.min(end.lines.length,s.storyEndingLineIndex||0);
-      let html=`<div class="native-ending-card"><small>${safe(end.kind)}</small><br><b>${safe(end.title)}</b><br><small>${safe(end.subtitle)}</small></div>`;
-      for(const [who,body] of end.lines.slice(0,visible)){
-        if(who==='me'||who==='ryota')html+=nativeEntryHTML([who==='me'?'me':'them',body],chatContacts[0]);
-        else html+=nativeEntryHTML(['system',body],chatContacts[0]);
-      }return html;
-    }
-    function nativeCallUI(){
-      const n=nativeStep(),sc=ST_SCENES[n],end=ST_ENDINGS[s.storyEnding]||ST_ENDINGS.open;
-      if(!sc||n<18||n>=ST_SCENES.length)return '';
-      if(n===18)return `<div class="call-min-title">수신 전화</div><div class="native-ring-avatar">🐶</div><div class="native-ring-name">료타 선배</div><div class="native-ring-label">휴대전화 · 수신 중…</div><div class="native-ring-actions"><button class="decline" data-act="native-choice:incoming:later"><span>☎</span>거절 후 다시 걸기</button><button class="accept" data-act="native-choice:incoming:answer"><span>☎</span>응답</button></div><div class="call-homebar"></div>`;
-      const visible=Math.min(sc.lines.length,Math.max(3,s.storyLineIndex||0));
-      const redial=n===19&&s.storyAnswers?.incoming==='later'?`<div class="talk mine"><span class="who">시게오</span>늦게 연락드려 죄송합니다. 지금 통화 괜찮으십니까?</div>`:'';
-      const conversation=redial+sc.lines.slice(0,visible).map(([who,text])=>`<div class="talk ${who==='me'?'mine':''}"><span class="who">${who==='me'?'시게오':who==='ryota'?'료타 선배':'통화 내용'}</span>${safe(text)}</div>`).join('');
-      let buttons='';
-      if(visible<sc.lines.length)buttons=`<button class="native-btn" data-act="native-more">통화 계속 듣기 ↓</button>`;
-      else if(sc.choices){buttons=sc.choices.options.map(([v,label],i)=>`<button class="native-btn ${i?'secondary':''}" data-act="native-choice:${sc.choices.key}:${v}">${safe(label)}</button>`).join('');}
-      else buttons=`<button class="native-btn" data-act="native-next">대화 계속하기 →</button>`;
-      return `<div class="call-min-title">${n===18?'전화 수신 중':'료타 선배 · 전화 통화'}</div><div class="call-person">🐶 료타 선배</div><div class="call-state">${n===18?'휴대전화 · 수신 중...':`통화 중 · ${safe(sc.time)}`}</div><div class="native-callstory">${conversation}</div><div class="native-call-actions">${buttons}</div><div class="call-homebar"></div>`;
-    }
-    // ===== End native scene integration =====
-
-    function render(){
+    function startLiveAlerts(){ /* 진행 순서에 따라 실제 카카오톡 알림만 전송 */ }
+        function render(){
+      const prior=document.getElementById('kk-timeline');const prevScroll=prior?{y:prior.scrollTop,atBottom:(prior.scrollHeight-prior.clientHeight-prior.scrollTop)<85}:null;
       const el=$('screen');
       if(s.page==='intro') el.innerHTML=intro();
       else if(s.page==='lock') el.innerHTML=lock();
@@ -1527,8 +1272,8 @@ function storyAct(a){
       const lockish = (s.page==='lock' || s.page==='passcode');
       $('home-line').classList.toggle('is-hidden',s.page==='intro'||s.page==='ending'||lockish);
       $('home-line').classList.toggle('dark',s.page==='app'&&!(s.app==='instagram'||(s.app==='x'&&s.sub!=='article')));
-      $('status').style.color=s.page==='app'&&!(['instagram','phone','story'].includes(s.app)||(s.app==='gallery'&&s.sub.startsWith('photo:')))?'#1e1e28':'#fff';
-      $('status').classList.toggle('dark-ink', s.page==='app' && !(s.app==='instagram' || s.app==='phone' || s.app==='story' || (s.app==='gallery' && s.sub.startsWith('photo:'))));
+      $('status').style.color=s.page==='app'&&!(['instagram','phone'].includes(s.app)||(s.app==='gallery'&&s.sub.startsWith('photo:')))?'#1e1e28':'#fff';
+      $('status').classList.toggle('dark-ink', s.page==='app' && !(s.app==='instagram' || s.app==='phone' || (s.app==='gallery' && s.sub.startsWith('photo:'))));
       $('device').classList.toggle('home-mode',s.page==='home');
       $('device').classList.toggle('fullscreen-shot', lockish);
       $('device').classList.toggle('lock-view', lockish);
@@ -1538,52 +1283,29 @@ function storyAct(a){
       if(s.page==='lock') scheduleLockNotifications(); else clearAlertTimer();
       drawCall();
       el.scrollTop=0;
-      const ot=document.getElementById('ot-scroll'); if(ot) ot.scrollTop=ot.scrollHeight;
-      const timeline=document.getElementById('kk-timeline'); if(timeline) timeline.scrollTop=timeline.scrollHeight; const xt=document.getElementById('x-dm-timeline');if(xt)xt.scrollTop=xt.scrollHeight;
+      const timeline=document.getElementById('kk-timeline'); if(timeline) timeline.scrollTop=prevScroll && !prevScroll.atBottom ? prevScroll.y : timeline.scrollHeight; const xt=document.getElementById('x-dm-timeline');if(xt)xt.scrollTop=xt.scrollHeight; if(timeline)novelAfterRender(!!(prevScroll&&!prevScroll.atBottom));
     }
     $('screen').addEventListener('submit',e=>{
+      if(e.target.id==='x-dm-compose-form'){
+        e.preventDefault();
+        const value=document.getElementById('x-dm-message-input')?.value.trim();
+        if(value){
+          const id=s.sub.slice(3);s.xDmSent[id]=[...(s.xDmSent[id]||[]),value].slice(-30);
+          s.xDmRead[id]=true;s.xDmDrafts[id]='';save();render();
+        }
+        return;
+      }
+      if(e.target.id==='kk-compose-form'){
+        e.preventDefault();novelSend(s.sub);
+        return;
+      }
       if(e.target.id==='ig-comment-form'){e.preventDefault();const v=document.getElementById('ig-comment-input')?.value.trim();if(v){s.igComments=s.igComments||[];s.igComments.push({id:s.sub.slice(9),text:v});save();render();}return;}
       if(e.target.id==='name-form'){e.preventDefault();const input=$('player-name');s.name=input.value.trim().slice(0,12)||'유나';go('lock');}
     });
     $('screen').addEventListener('click',e=>{if(e.target.closest('.kk-send')){e.preventDefault();document.getElementById('kk-compose-form')?.requestSubmit();return;}const btn=e.target.closest('[data-act]');if(btn)act(btn.dataset.act);});
     $('home-line').addEventListener('click',()=>act('home'));
     $('call-surface').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b)act(b.dataset.act);});
-    // Dismiss iPhone-like notification with a finger swipe (iOS Safari touch events)
-    // OR a mouse/pen pointer swipe. Prevent ghost clicks after dismissal.
-    const liveBanner=$('live-banner');
-    let bannerTouch=null, bannerPointer=null, bannerLastSwipe=0;
-    function bannerMove(dx,dy){
-      if(!liveBanner.classList.contains('active'))return;
-      liveBanner.style.animation='none';liveBanner.style.transition='none';
-      liveBanner.style.transform=`translate3d(${dx}px,${Math.min(dy,0)}px,0)`;
-      liveBanner.style.opacity=String(Math.max(.15,1-Math.max(Math.abs(dx),-dy)/190));
-    }
-    function bannerFinish(dx,dy){
-      const side=Math.abs(dx)>=48&&Math.abs(dx)>Math.abs(dy)*.75;
-      const up=dy<=-24&&Math.abs(dy)>Math.abs(dx)*.65;
-      liveBanner.style.transition='transform .14s ease, opacity .14s ease';
-      if(side||up){bannerLastSwipe=Date.now();bannerIgnoreClick=true;
-        liveBanner.style.transform=side?`translate3d(${dx>0?'120%':'-120%'},0,0)`:'translate3d(0,-160px,0)';
-        liveBanner.style.opacity='0';
-        clearTimeout(bannerExitTimeout);bannerExitTimeout=setTimeout(()=>{dismissLiveBanner();},145);
-      }else{liveBanner.style.transform='translate3d(0,0,0)';liveBanner.style.opacity='1';}
-    }
-    liveBanner.addEventListener('touchstart',e=>{if(!liveBanner.classList.contains('active')||e.touches.length!==1)return;
-      const t=e.touches[0];bannerTouch={x:t.clientX,y:t.clientY};},{passive:true});
-    liveBanner.addEventListener('touchmove',e=>{if(!bannerTouch||e.touches.length!==1)return;
-      const t=e.touches[0],dx=t.clientX-bannerTouch.x,dy=t.clientY-bannerTouch.y;
-      if(Math.abs(dx)>5||Math.abs(dy)>5){e.preventDefault();bannerMove(dx,dy);}
-    },{passive:false});
-    liveBanner.addEventListener('touchend',e=>{if(!bannerTouch)return;
-      const t=e.changedTouches[0];const dx=t.clientX-bannerTouch.x,dy=t.clientY-bannerTouch.y;
-      bannerTouch=null;bannerFinish(dx,dy);},{passive:true});
-    liveBanner.addEventListener('touchcancel',()=>{bannerTouch=null;bannerFinish(0,0);},{passive:true});
-    liveBanner.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||!liveBanner.classList.contains('active'))return;bannerPointer={x:e.clientX,y:e.clientY};});
-    liveBanner.addEventListener('pointermove',e=>{if(!bannerPointer||e.pointerType==='touch')return;bannerMove(e.clientX-bannerPointer.x,e.clientY-bannerPointer.y);});
-    liveBanner.addEventListener('pointerup',e=>{if(!bannerPointer||e.pointerType==='touch')return;const dx=e.clientX-bannerPointer.x,dy=e.clientY-bannerPointer.y;bannerPointer=null;bannerFinish(dx,dy);});
-    liveBanner.addEventListener('click',e=>{if(bannerIgnoreClick||Date.now()-bannerLastSwipe<500){e.preventDefault();e.stopPropagation();bannerIgnoreClick=false;return;}
-      if(e.target.closest('.live-dismiss')){dismissLiveBanner();return;}const route=liveBanner.dataset.act;dismissLiveBanner();if(route)act(route);
-    });
+    $('live-banner').addEventListener('click',e=>{if(suppressBannerClick){e.preventDefault();return;}if(e.target.closest('.live-dismiss')){dismissLiveBanner();return;}const route=$('live-banner').dataset.act;dismissLiveBanner();if(route)act(route);});
     function gestureBack(){
       if(s.page==='lock') {act('show-passcode');return;}
       if(s.page==='passcode'){s.passcode='';go('lock');return;}
@@ -1603,8 +1325,7 @@ function storyAct(a){
       if(s.page==='ending'){go('home');}
     }
     function act(a){
- if(a.startsWith('native-')&&nativeAct(a))return;
-      if(a.startsWith('story-')){if(a==='story-restart')nativeRestart();else nativeGotoStep();return;}
+      if(novelAction(a))return;
       if(a.startsWith('call-ui:')){callAction(a.slice(8));return;}
       if(a==='call-preview'){startCall('incoming','demo');return;}
       if(a.startsWith('kk-tab:')){s.kkTab=a.slice(7);go('app','chat');return;}
@@ -1632,7 +1353,7 @@ function storyAct(a){
       if(a.startsWith('x-like:')){const sc=document.querySelector('.x-scroll');const y=sc?sc.scrollTop:0;const id=a.slice(7);s.likedPosts=s.likedPosts||[];s.likedPosts=s.likedPosts.includes(id)?s.likedPosts.filter(n=>n!==id):[...s.likedPosts,id];save();render();const next=document.querySelector('.x-scroll');if(next)next.scrollTop=y;return;}
       if(a.startsWith('x-retweet:')){toast('게시물을 재게시했습니다.');return;}
       if(a==='x-share'){toast('공유 링크를 복사할 수 없는 시제품입니다.');return;}
-      if(a.startsWith('story-reply:')){nativeChoice('reply',a.slice(12));return;}
+      if(a.startsWith('story-reply:')){const n=novel();n.answerIndex=a.endsWith('safe')?0:1;save();render();return;}
       if(a==='chat-old'){const timeline=document.getElementById('kk-timeline');if(timeline)timeline.scrollTop=0;return;}
       if(a.startsWith('call:')){startCall('outgoing',a.slice(5));return;}
       if(a==='home'){return gestureBack();}
@@ -1661,7 +1382,7 @@ function storyAct(a){
       if(a==='wallpaper-reset'){try{localStorage.removeItem(WALL_KEY);}catch(e){}render();toast('기본 배경을 적용했어요.');return;}
       if(a.startsWith('stub:')){toast(`${a.slice(5)} 앱은 아직 콘텐츠 제작 전이에요.`);return;}
       if(a.startsWith('stub:')){toast(`${a.split(':')[1]} 앱은 아직 연결되지 않았어요.`);return;}
-      if(a.startsWith('chat:')){const id=a.slice(5);s.kkRead[id]=true;save();go('app','chat',id);return;}
+      if(a.startsWith('chat:')){const id=a.slice(5);s.kkRead[id]=true;novel().seen[id]=true;save();go('app','chat',id);return;}
       if(a==='reply'){mark('chatReplied');render();toast('하린에게 답장을 보냈습니다.');return;}
       if(a==='ig-main'){go('app','instagram');return;}
       if(a==='ig-story'){go('app','instagram','story');toast('단서 1 · 마지막 스토리');return;}
@@ -1709,11 +1430,15 @@ function storyAct(a){
     $('device').addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;const box=$('device').getBoundingClientRect();mouseStart={x:e.clientX,y:e.clientY,near:gestureOrigin(e.target,box.bottom,e.clientY)};});
     $('device').addEventListener('pointerup',e=>{if(!mouseStart||e.pointerType!=='mouse')return;const dy=mouseStart.y-e.clientY,dx=Math.abs(mouseStart.x-e.clientX),near=mouseStart.near;mouseStart=null;if(s.page==='lock'&&dy>65&&dx<65)act('show-passcode');else if(near&&dy>110&&dx<55)gestureBack();});
     $('screen').addEventListener('input',e=>{
+      if(e.target.id==='kk-message-input'){s.kkDrafts=s.kkDrafts||{};s.kkDrafts[s.sub]=e.target.value;return;}
+      if(e.target.id==='x-dm-message-input'){s.xDmDrafts[s.sub.slice(3)]=e.target.value;return;}
       if(e.target.id==='ios-app-query') {
         const q=e.target.value.trim().toLowerCase();
         document.querySelectorAll('[data-app-name]').forEach(b=>b.hidden=!b.dataset.appName.includes(q));
       }
     });
+    $('screen').addEventListener('focusin',e=>{if(e.target.id==='kk-message-input')document.getElementById('kk-room')?.classList.add('keyboard-open');});
+    $('screen').addEventListener('focusout',e=>{if(e.target.id==='kk-message-input'&&!e.relatedTarget?.closest('.kk-send'))document.getElementById('kk-room')?.classList.remove('keyboard-open');});
     $('screen').addEventListener('change', async e=>{
       if(e.target.id!=='wallpaper-file')return;
       const file=e.target.files?.[0];
@@ -1741,7 +1466,22 @@ function storyAct(a){
         toast('사진을 적용하지 못했어요. JPG 또는 PNG 사진을 다시 선택해 주세요.');
       }
     });
+
+    // 손가락으로 위/옆으로 밀면 상단 알림 배너만 닫는다. 다른 화면에는 영향 없음.
+    (function(){
+      const b=$('live-banner');let start=null,moved=false;
+      b.style.touchAction='pan-y';
+      b.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;start={x:e.touches[0].clientX,y:e.touches[0].clientY};moved=false;},{passive:true});
+      b.addEventListener('touchmove',e=>{if(!start||e.touches.length!==1)return;const dx=e.touches[0].clientX-start.x,dy=e.touches[0].clientY-start.y;if(Math.abs(dx)>8||Math.abs(dy)>8){moved=true;b.style.transform=`translate(${dx}px,${Math.min(0,dy)}px)`;b.style.opacity=String(Math.max(.25,1-Math.max(Math.abs(dx),Math.abs(dy))/145));if(Math.abs(dx)>12||dy< -12)e.preventDefault();}},{passive:false});
+      b.addEventListener('touchend',e=>{if(!start)return;const p=e.changedTouches[0],dx=p.clientX-start.x,dy=p.clientY-start.y;if(Math.abs(dx)>55||dy< -45){suppressBannerClick=true;dismissLiveBanner();setTimeout(()=>suppressBannerClick=false,400);}else{b.style.transform='';b.style.opacity='';}start=null;},{passive:true});
+      b.addEventListener('touchcancel',()=>{start=null;b.style.transform='';b.style.opacity='';},{passive:true});
+      let mx=null;
+      b.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')mx={x:e.clientX,y:e.clientY};});
+      b.addEventListener('pointerup',e=>{if(!mx||e.pointerType!=='mouse')return;const dx=e.clientX-mx.x,dy=e.clientY-mx.y;mx=null;if(Math.abs(dx)>55||dy< -45){suppressBannerClick=true;dismissLiveBanner();setTimeout(()=>suppressBannerClick=false,400);}});
+    })();
+
     render();
+    novelResume();
   })();
   </script>
 </body>

@@ -587,8 +587,14 @@
 .novel-auto-placeholder{display:flex;align-items:center;min-height:38px;border:1px solid #d7d7d7;background:#f8f8f8;border-radius:24px;padding:0 13px;flex:1;font-size:13px;color:#a4a4a4}
 .novel-speaker{display:block;font-size:10px;color:#626262;font-weight:700;margin-bottom:3px}
 
-/* v11: 카톡 안에는 시나리오 해설이나 날짜 구분선 대신 말풍선과 작은 시각만 표시. */
-.kk-timeline .kk-date,.kk-timeline .kk-old-link{display:none!important}
+/* v14: 과거/날짜가 바뀐 대화는 카카오톡처럼 날짜 선으로 구분, 무대지시는 비노출 */
+.kk-timeline .kk-old-link{display:none!important}
+.kk-timeline .kk-date{display:block!important;width:max-content;max-width:90%;margin:16px auto 20px;padding:6px 13px;background:rgba(80,97,113,.32);border-radius:22px;text-align:center;font-size:10px;letter-spacing:.1px;font-weight:500;color:#fff}
+.kk-roomhead .kk-room-actions{display:flex;gap:6px;align-items:center}
+.kk-roomhead .kk-room-actions button{font-size:20px;min-width:32px;min-height:37px}
+.kk-roomhead .kk-room-actions button.kk-muted{color:#657584}
+.kk-row .kk-muted-marker{display:inline;font-size:12px;color:#9ba0a7;font-style:normal;margin-left:5px}
+.kk-mute-state{font-size:11px;text-align:center;color:#596b79;padding:0 10px 5px}
 .kk-avatar-spacer{width:32px;height:32px;flex:0 0 32px;display:inline-block}
 .kk-timeline .kk-message{margin:5px 0;align-items:flex-end}
 .kk-timeline .novel-msgtime{font-size:10px;color:#566579;font-weight:400;margin-bottom:4px;text-shadow:none;white-space:nowrap}
@@ -596,7 +602,7 @@
 </style>
 </head>
 <body>
-  <div class="page"><main class="device" id="device" aria-label="11시 47분 가상 휴대폰 게임">
+  <div class="page"><main class="device" id="device" aria-label="시게오의 가상 휴대폰 게임">
     <div id="status" class="status photo-status" aria-hidden="true"></div>
     <div id="unified-chrome"></div>
     <section class="screen" id="screen" aria-live="polite"></section>
@@ -615,7 +621,7 @@
     let s;
     try { s={...fresh(),...JSON.parse(localStorage.getItem(KEY)||'{}')}; } catch { s=fresh(); }
     s.page='lock';s.app='';s.sub='';s.lockNotifCount=0;s.passcode='';s.xTab=s.xTab||'for-you';s.likedPosts=s.likedPosts||[];s.xSection='feed';s.igTab='feed';
-    s.kkRead=s.kkRead||{};s.kkLastTime=s.kkLastTime||{};s.xDmRead=s.xDmRead||{};s.xDmSent=s.xDmSent||{};s.xDmDrafts=s.xDmDrafts||{};
+    s.kkRead=s.kkRead||{};s.kkMuted=s.kkMuted||{};s.kkLastTime=s.kkLastTime||{};s.xDmRead=s.xDmRead||{};s.xDmSent=s.xDmSent||{};s.xDmDrafts=s.xDmDrafts||{};
     const $=id=>document.getElementById(id);
     const safe=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(s));}catch{}};
@@ -628,7 +634,7 @@
     function header(title,back='home',right='') { return `<header class="app-header"><button class="icon-btn" data-act="${back}" aria-label="뒤로가기">‹</button><h2>${title}</h2><span style="min-width:35px;text-align:right">${right}</span></header>`; }
     const appMap={chat:['카톡','chat','☏'],instagram:['인스타','insta','◎'],gallery:['사진','gallery','✿'],notes:['메모','notes','▤'],phone:['전화','phone','☎'],info:['도움말','info','?']};
     const homeLayout=[
-      {id:'stub-x',label:'X',cls:'xapp',act:'stub:X'},
+      {id:'stub-x',label:'X',cls:'xapp',act:'open:x'},
       {id:'instagram',label:'Instagram',cls:'insta2',act:'open:instagram'},
       {id:'stub-youtube',label:'YouTube',cls:'youtube',act:'stub:YouTube'},
       {id:'stub-weverse',label:'Weverse',cls:'weverse',act:'stub:Weverse'},
@@ -669,7 +675,7 @@
     }
     function topChrome(locked=false){return `<div class="story-topbar"><div class="story-top-left"><span>LG U+</span><span class="story-mute" aria-hidden="true"><i></i></span></div><div class="story-top-center">${locked ? `<svg class="story-top-locksvg" viewBox="0 0 25 33" aria-hidden="true"><path d="M6 14v-5a6.5 6.5 0 0 1 13 0v5" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="3" y="14" width="19" height="18" rx="4"/></svg>` : ''}</div><div class="story-top-right"><span class="story-signal" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="story-net">LTE</span><span class="story-battery-wrap">20</span></div></div>`;}
     function iosStatus(){return topChrome();}
-    function notificationMarkup(item,index){return `<button type="button" class="story-notification n${index}" data-act="${item.target}" aria-label="${item.title}: ${item.body} 알림 열기"><img class="story-notif-icon" src="${ICON_ASSETS[item.kind]}" alt=""><div class="story-notif-text"><div class="story-notif-title"><span>${item.title}</span><time>${item.time}</time></div><div class="story-notif-body">${item.body}</div></div></button>`;}
+    function notificationMarkup(item,index){if(item.kind==='kakaotalk'&&((item.target==='alert:ryota'&&s.kkMuted?.ryota)||(item.target==='alert:shou'&&s.kkMuted?.shou)||(item.target==='alert:club'&&s.kkMuted?.club)))return '';return `<button type="button" class="story-notification n${index}" data-act="${item.target}" aria-label="${item.title}: ${item.body} 알림 열기"><img class="story-notif-icon" src="${ICON_ASSETS[item.kind]}" alt=""><div class="story-notif-text"><div class="story-notif-title"><span>${item.title}</span><time>${item.time}</time></div><div class="story-notif-body">${item.body}</div></div></button>`;}
     function lock(){return `<div class="content story-lock"><div class="story-wallpaper"></div><div class="story-date-hero">11월 2일 (월)</div><div class="story-time-hero">6:33</div><div class="story-notifications">${alertItems.slice(0,s.lockNotifCount||0).map(notificationMarkup).join('')}</div><div class="story-lock-tools"><button class="story-lock-tool" type="button" data-act="flashlight" aria-label="손전등"><svg viewBox="0 0 24 28"><path d="M7 3h10l-2 6v14a3 3 0 0 1-6 0V9L7 3Z"/><path d="M9 10h6"/></svg></button><button class="story-lock-tool" type="button" data-act="camera" aria-label="카메라"><svg viewBox="0 0 28 24"><path d="M3 7h5l2-3h8l2 3h5v14H3V7Z"/><circle cx="14" cy="14" r="5"/></svg></button></div><div class="story-lock-bottom"><span class="story-up-arrow">⌃</span><button type="button" class="story-unlock-label" data-act="show-passcode">위로 쓸어올려 잠금 해제</button></div><div class="story-white-home"></div></div>`;}
     function passcode(){
       const keys=[["1","",27,48],["2","ABC",50,48],["3","DEF",73,48],["4","GHI",27,60],["5","JKL",50,60],["6","MNO",73,60],["7","PQRS",27,72],["8","TUV",50,72],["9","WXYZ",73,72],["0","",50,84]];
@@ -708,8 +714,30 @@
       {id:'p9',avatar:'🐢',name:'57년째 응원 중',handle:'@slowpitch_57',when:'6분',body:'뭘 속였다는 건지 모르겠음. 프로 선수가 팬한테 연애 여부 보고해야 하냐고. 덕질이랑 소유욕 구분 좀',likes:'5,911',reposts:'3,005',type:'support'},
       {id:'p10',avatar:'✉️',name:'익명',handle:'@anon_notice',when:'4분',body:'@kikuchi_57 둘이 같이 있던 목격담 돌아다니는 거 봄? 기사 터지자마자 신상 파는 거 진짜 미쳤다',likes:'407',reposts:'203'},
       {id:'p11',avatar:'🗣',name:'백스탑',handle:'@backstop_hr',when:'3분',body:'나는 아직 안 믿을래. 사진도 없고 전부 익명 제보잖아. 본인이 말하기 전까진 그냥 가만히 있으면 안 됨?',likes:'2,005',reposts:'500',type:'support'},
-      {id:'p12',avatar:'🐯',name:'하...',handle:'@late_night_57',when:'2분',body:'시발 알림 켜놨다가 아침부터 이걸 봐야 하냐고... 아예 전혀 예상 못 했음. 아무것도 손에 안 잡힌다',likes:'758',reposts:'110'}
+      {id:'p12',avatar:'🐯',name:'하...',handle:'@late_night_57',when:'2분',body:'시발 알림 켜놨다가 아침부터 이걸 봐야 하냐고... 아예 전혀 예상 못 했음. 아무것도 손에 안 잡힌다',likes:'758',reposts:'110'},
+
+      {id:'p13',avatar:'🧤',name:'시야좋은외야',handle:'@flyball_57',when:'1분',body:'아니 일단 오늘 선발 라인업부터 알려줘요 구단아... 어제 잔루 9개였는데 내 속이 더 터짐',likes:'1,394',reposts:'177',type:'support'},
+      {id:'p14',avatar:'🍙',name:'직관간다',handle:'@seat302',when:'4분',body:'열애설 알림보다 내가 예매한 외야석 날씨예보가 더 무서움 비야 제발 오지마',likes:'946',reposts:'85',type:'support'},
+      {id:'p15',avatar:'🥶',name:'불펜금지',handle:'@no_bullpen_pls',when:'6분',body:'키쿠치 어제 7회 슬라이더 각도 좋았는데. 이런 기사보다 다음 경기 투구수 관리가 더 중요하거든요',likes:'1,699',reposts:'258',type:'support'},
+      {id:'p16',avatar:'☕',name:'원정커피',handle:'@coffee_inning',when:'8분',body:'나는 야구선수 사생활이 궁금한 게 아니라 오늘도 수비가 땅볼 처리 잘할지가 궁금함',likes:'3,558',reposts:'480',type:'support'},
+      {id:'p17',avatar:'🎟️',name:'홈런은언제',handle:'@ticket_chance',when:'10분',body:'스포츠 기사 본문 세 줄 읽고 중단함. 오피셜 뜨기 전엔 그냥 야구 얘기나 하자. 57번 다음 경기 언제?',likes:'2,418',reposts:'360',type:'support'},
+      {id:'p18',avatar:'📋',name:'오늘의선발',handle:'@starting_pitch',when:'12분',body:'오늘의 관전포인트: 키쿠치 구속보다 1회 제구. 경기 초반 볼넷만 안 주면 됨. 진짜로.',likes:'1,122',reposts:'204',type:'support'},
+      {id:'p19',avatar:'🫠',name:'삼진만줘',handle:'@strikeout_pls',when:'13분',body:'근데 유니폼 마킹해놓고 이런 기사 뜨면 좀 복잡한 건 사실임. 그래도 마킹 바꾸지는 않을 거고... 야구 잘해라',likes:'841',reposts:'76'},
+      {id:'p20',avatar:'🧢',name:'도쿄돔지박령',handle:'@stadium_zip',when:'15분',body:'선수 기사 뜨자마자 상대 일반인 인스타 찾는 사람들 뭐임. 그게 왜 필요한데? 경기장 오면 박수나 쳐줘',likes:'5,037',reposts:'1,203',type:'support'},
+      {id:'p21',avatar:'🐟',name:'57슬라이더',handle:'@sliderisart',when:'16분',body:'키쿠치 덕질하는 이유: 포수 미트 꽂히는 소리. 오늘도 그걸 들으러 간다. 그 이상은 나도 모르겠음',likes:'3,115',reposts:'522',type:'support'},
+      {id:'p22',avatar:'🥟',name:'만두먹는관중',handle:'@dumplingstand',when:'18분',body:'아침부터 타임라인 이상해져서 그냥 군만두 먹는 중. 내일 경기만 이겨주면 좋겠어ㅠㅠ',likes:'709',reposts:'44',type:'support'},
+      {id:'p23',avatar:'🪑',name:'2층3루',handle:'@thirdbase_2',when:'19분',body:'사진에 찍혔다는 사람 신상 추측 그만해. 애초에 선수 본인 허락 없이 찍은 사진이라며',likes:'3,864',reposts:'1,111',type:'support'},
+      {id:'p24',avatar:'⚾',name:'야구보는사람',handle:'@playball_yeah',when:'21분',body:'유격수 송구 실책 얘기할 땐 조용하더니 남 연애 얘기에는 다들 전문가 된 거 웃기네',likes:'2,664',reposts:'326',type:'support'},
+      {id:'p25',avatar:'🌸',name:'57번꽃길',handle:'@season57',when:'24분',body:'솔직히 조금 놀라긴 했는데... 본인이 행복하면 됐지 뭐. 나는 여전히 그 선수가 던지는 공이 좋아',likes:'1,209',reposts:'185',type:'support'},
+      {id:'p26',avatar:'🧃',name:'관중석주스',handle:'@juicedugout',when:'26분',body:'그 와중에 우리팀 점수 낼 수 있냐고 묻는 사람이 나 하나는 아닐 거임. 1점만 내줘 제발',likes:'2,035',reposts:'289',type:'support'},
+      {id:'p27',avatar:'🌙',name:'57영상계',handle:'@clips57',when:'28분',body:'오늘 영상은 일단 안 올릴게요. 팬들끼리 싸우는 인용 너무 많아서. 훈련 영상 정리하고 올게요',likes:'724',reposts:'95'},
+      {id:'p28',avatar:'📣',name:'그냥응원함',handle:'@baseball_okay',when:'30분',body:'연애해서 성적 떨어졌다는 말은 데이터 가져와서 해야지. 지난 5경기 평균자책점부터 보고 얘기해라',likes:'1,650',reposts:'407',type:'support'},
+      {id:'p29',avatar:'🌧️',name:'원정비예보',handle:'@raincheck_ball',when:'32분',body:'오늘 우천취소 날까봐 다들 기상청만 새로고침함. 차라리 그게 훨씬 현실적인 야구팬의 고민이다',likes:'1,106',reposts:'101',type:'support'},
+      {id:'p30',avatar:'💙',name:'라스트이닝',handle:'@last_inning',when:'35분',body:'팬이면 충격받을 수는 있겠지만 그러니까 더더욱 기사 댓글 말고 경기장에서 응원하자. 제발',likes:'3,405',reposts:'786',type:'support'},
+      {id:'p31',avatar:'🫧',name:'오랜팬',handle:'@longtime57',when:'40분',body:'나는 그냥 키쿠치가 경기 끝나고 모자 벗고 인사할 때가 좋았음. 지금도 그건 안 달라짐',likes:'1,945',reposts:'229',type:'support'},
+      {id:'p32',avatar:'🤍',name:'직관후기계',handle:'@inninglog',when:'45분',body:'시게오 오늘 불펜 피칭 있었다는 제보. 본인 상태 괜찮길... 하여튼 공 잘 던지면 나는 응원함',likes:'1,302',reposts:'148',type:'support'}
     ];
+    xPosts.sort((a,b)=>(parseInt(a.when)||0)-(parseInt(b.when)||0));
     function xPost(p,detail=false){
       const liked=(s.likedPosts||[]).includes(p.id);
       return `<article class="x-tweet"><span class="x-avatar">${p.avatar}</span><div class="x-tweet-main"><div class="x-meta"><strong>${safe(p.name)}</strong><span>${safe(p.handle)} · ${p.when}</span><span class="x-ellipsis">···</span></div><button type="button" class="x-textbtn" data-act="x-post:${p.id}">${safe(p.body)}</button>${p.type==='news'?`<button class="x-linkcard" data-act="x-article"><small>SPORTS FOCUS · 단독 보도</small><b>키쿠치 시게오, 일반인 남성과 열애설… 선수 측 “확인 중”</b><span>사진 없음 · 기사 보기</span></button>`:''}<div class="x-actions"><button data-act="x-post:${p.id}">♧ <span>${detail?'4':Math.round(parseInt(p.reposts.replace(/,/g,''),10)/5).toLocaleString('ko-KR')}</span></button><button data-act="x-retweet:${p.id}">⇄ <span>${p.reposts}</span></button><button class="${liked?'liked':''}" data-act="x-like:${p.id}">${liked?'♥':'♡'} <span>${p.likes}</span></button><button data-act="x-share">↥</button></div></div></article>`;
@@ -741,7 +769,7 @@
       const mode=s.xNotifTab||'all';const items=xNotificationItems.filter(t=>mode==='mentions'?t.kind==='mention'||t.kind==='mention2':true);
       return `<div class="x-screen"><div class="x-page-header"><b>알림</b><span class="right">⚙</span></div><div class="x-notif-tabs"><button class="${mode==='all'?'active':''}" data-act="x-notif-tab:all">전체</button><button class="${mode==='mentions'?'active':''}" data-act="x-notif-tab:mentions">내 언급</button></div><div class="x-scroll">${items.map(t=>`<button class="x-notification-row" data-act="${t.route}"><span class="x-notif-ico">${t.kind==='news'?'📰':t.kind==='like'?'♥':t.kind==='follow'?'👤':'＠'}</span><span class="x-notif-content"><b>${t.time}</b><div>${safe(t.text)}</div></span></button>`).join('')}</div>${xNav('notifications')}</div>`;
     }
-    function xDmList(){return `<div class="x-screen"><div class="x-page-header"><b>쪽지</b><span class="right">✎</span></div><div class="x-scroll"><div class="x-story-note">모두 게임 속 가상의 계정과 메시지입니다.</div>${xDms.map(m=>{const last=xLatest(m);return `<button class="x-dm-row" data-act="x-dm:${m.id}"><span class="x-avatar">${m.emoji}</span><span class="x-dm-details"><span><b>${safe(m.name)}</b> <small style="display:inline">${safe(m.handle)} · ${safe(last.time)}</small></span><small>${safe(last.text)}</small></span>${xUnread(m)?'<span style="color:#1d9bf0">●</span>':''}</button>`;}).join('')}</div>${xNav('dms')}</div>`;}
+    function xDmList(){return `<div class="x-screen"><div class="x-page-header"><b>쪽지</b><span class="right">✎</span></div><div class="x-scroll">${xDms.map(m=>{const last=xLatest(m);return `<button class="x-dm-row" data-act="x-dm:${m.id}"><span class="x-avatar">${m.emoji}</span><span class="x-dm-details"><span><b>${safe(m.name)}</b> <small style="display:inline">${safe(m.handle)} · ${safe(last.time)}</small></span><small>${safe(last.text)}</small></span>${xUnread(m)?'<span style="color:#1d9bf0">●</span>':''}</button>`;}).join('')}</div>${xNav('dms')}</div>`;}
     function xDmThread(){const id=s.sub.slice(3),m=xDms.find(t=>t.id===id)||xDms[0];const msgs=[...m.messages];if(id==='reporter'&&s.xDmReply)msgs.push(['me',s.xDmReply==='later'?'공식 입장은 구단을 통해 전달하겠습니다.':'개별 인터뷰에는 응하지 않겠습니다.']);for(const message of (s.xDmSent?.[id]||[]))msgs.push(['me',message]);return `<div class="x-screen"><div class="x-page-header"><button data-act="x-nav:dms" aria-label="쪽지 목록으로">‹</button><span class="x-avatar" style="width:30px;height:30px;font-size:17px">${m.emoji}</span><b style="font-size:15px">${safe(m.name)}</b></div><div class="x-scroll" id="x-dm-timeline"><div class="x-dm-thread"><div style="text-align:center;font-size:12px;color:#777"><b>${safe(m.name)}</b><p>${safe(m.handle)}</p></div>${msgs.map(([who,t])=>who==='day'?`<div class="x-chatdate">${safe(t)}</div>`:`<div class="x-dm-bubble ${who==='me'?'me':''}">${safe(t)}</div>`).join('')}${id==='reporter'&&!s.xDmReply?`<div class="kk-choices" style="padding:10px"><span>답장하기</span><button data-act="x-dm-reply:later">공식 입장은 구단을 통해 전달하겠습니다.</button><button data-act="x-dm-reply:decline">개별 인터뷰에는 응하지 않겠습니다.</button></div>`:''}</div></div><form class="x-dm-foot" id="x-dm-compose-form"><input type="text" id="x-dm-message-input" maxlength="280" autocomplete="off" placeholder="쪽지 보내기" aria-label="X 쪽지 입력" value="${safe(s.xDmDrafts?.[id]||'')}"><button type="submit" aria-label="쪽지 전송">➤</button></form></div>`;}
     function xSearch(){return `<div class="x-screen"><div class="x-page-header"><b>검색</b></div><div class="x-scroll"><div style="padding:10px 16px"><input id="x-live-query" class="x-search-field" style="display:block;margin:0;width:100%;border:0;outline:0" value="키쿠치 시게오" aria-label="X 검색어" placeholder="검색어를 입력해 주세요"></div><div class="x-story-note">실시간 인기 키워드</div>${[['1','키쿠치 시게오 열애설','24.8만 게시물'],['2','국가대표','8.4만 게시물'],['3','#시게오_지켜','3.2만 게시물'],['4','선수 사생활','1.4만 게시물']].map(([i,n,c])=>`<button class="x-notification-row" data-act="x-nav:feed"><span class="x-notif-ico">${i}</span><span class="x-notif-content"><b>${n}</b><div style="color:#7a8087">${c}</div></span></button>`).join('')}<button class="x-notification-row" data-act="x-article">관련 보도 읽기 →</button></div>${xNav('search')}</div>`;}
 
@@ -809,7 +837,7 @@
         ['day','2026년 11월 2일 · 오늘'],
         ['them','시게오.'],
         ['them','기사 봤어.'],
-        ['them','괜찮아, 시게오?']
+        ['them','야, 시게오. 괜찮냐?']
       ],
       shou:[
         ['day','2026년 10월 31일'],
@@ -843,6 +871,69 @@
         ['day','2026년 11월 2일 · 오늘'],['them','키쿠치 선수, 현재 인터넷에서 선수 관련 보도가 확산되고 있습니다.'],['them','외부 취재 연락에는 개별 대응하지 마시고 먼저 구단으로 연락 부탁드립니다.']
       ]
     };
+
+    // v14: 과거 메시지 확장. 기존 2023~2026 기록은 한 줄도 삭제하지 않는다.
+    // 각 방의 추가 기록은 날짜별로 정렬하며, 오늘 기사 이후 대사는 별도 스토리 엔진이 담당한다.
+    const EXTRA_HISTORIES={
+      ryota:[
+        ['day','2026.10.24.'],['them','시게오~ 너 그때 얘기한 초록색 고양이 기억나?'],['me','무슨 고양이요.'],['them','맨날 학교 뒤 편의점 앞에 앉아 있던 애.'],['them','오늘도 있더라. 아주 당당하게 사람 구경함ㅋㅋ'],['me','선배 닮았네요.'],['them','뭐야~ 나 그렇게 귀여웠어?'],['me','당당하다고만 했습니다.'],['them','어휴. 우리 시게오는 칭찬 한 번을 그냥 안 해준다니까.'],
+        ['day','2026.10.26.'],['them','너 엽떡 먹어봤어?'],['me','갑자기 웬 엽떡입니까.'],['them','과 애들이랑 먹었는데 매워서 물 한 통 비웠어ㅋㅋ'],['me','선배 맵찔이잖아요.'],['them','그런 말 하지 마~ 자존심 상해.'],['me','전에 신라면 먹고 울었으면서.'],['them','그거는 뜨거워서 그런 거거든?'],['me','네. 그렇게 해두죠.'],['them','아 얄미워ㅋㅋ 오늘 훈련 끝나면 전화해.'],
+        ['day','2026.10.28.'],['me','선배 지금 학교예요?'],['them','어. 왜~ 나 보고 싶어?'],['me','아니요. 우산 가져가셨나 해서요.'],['them','안 가져왔는데. 지금 비 오려나?'],['me','정문 쪽에 비 많이 와요.'],['them','오~ 그러면 네가 데리러 오는 이벤트?'],['me','제가 지금 원정 와 있다는 건 잊으셨습니까.'],['them','ㅋㅋㅋㅋ 알고 있지. 그냥 듣기 좋은 말 해본 거야.'],['me','편의점에서 우산 사세요. 감기 걸리지 말고.'],['them','네네~ 우리 시게오 잔소리도 꽤 귀여워.'],
+        ['day','2026.10.30.'],['them','나 오늘 편의점 갔다가 너 닮은 과자 봤다.'],['me','과자가 사람을 닮습니까.'],['them','엄청 딱딱하다고 써 있길래.'],['me','그거 칭찬입니까.'],['them','맛있었다는 얘기지~'],['me','...'],['them','ㅋㅋㅋ 나중에 하나 사줄게.'],['me','선배나 드세요.']
+      ],
+      shou:[
+        ['day','2026.10.28.'],['them','야 너 운동화 아직도 그거 신냐'],['me','왜.'],['them','밑창 닳았다며. 넘어지면 내가 또 데려가야 되잖아'],['me','새로 샀어.'],['them','뭐야 벌써? 내 링크 덕분이지'],['me','네 링크는 안 봤는데.'],['them','아 진짜 정없다ㅋㅋ'],
+        ['day','2026.10.29.'],['them','편의점에서 도시락 두 개 샀다가 하나 남음'],['me','그걸 왜 나한테 알려.'],['them','오면 줄라고.'],['me','나 지금 버스.'],['them','그럼 니 거 없다ㅋㅋ'],['me','알았어.'],['them','야 근데 오면 냉장고 봐. 넣어놨음'],
+        ['day','2026.10.30.'],['them','오늘 불펜 영상 보냄'],['me','확인했어.'],['them','손목 내려가는 건 네가 봐도 알겠지'],['me','응. 고칠게.'],['them','진지할 때 말 짧아지는 거 개웃김'],['me','너 원래 할 말 없어도 길게 하잖아'],['them','하 됐다 쉬어라ㅋㅋ']
+      ],
+      aina:[
+        ['day','2026.10.28.'],['them','시게오!!!!!!!!'],['me','왜.'],['them','나 버스 반대로 탐'],['me','또?'],['them','또라니. 저번엔 지하철이거든'],['me','자랑이다.'],['them','어쨌든 어디서 내려야 돼'],['me','기사님께 물어봐.'],['them','너 정말 상냥하다^^'],
+        ['day','2026.10.29.'],['them','야 엽떡 할인하던데'],['me','너 저번에 맵다고 안 먹는다며.'],['them','치즈 추가하면 돼'],['me','치즈가 해결책은 아니야.'],['them','그래서 같이 갈 사람을 찾는 중'],['me','훈련.'],['them','아 아직 말도 안 했는데ㅋㅋ'],
+        ['day','2026.10.31.'],['them','오늘 길고양이 봤는데 얼굴이 딱 너였음'],['me','그게 무슨 소리야.'],['them','간식 주니까 째려보더라ㅋㅋㅋㅋ'],['me','난 간식 안 받아.'],['them','아니 그러니까 닮았다고'],['me','사진 보내.'],['them','ㅋㅋㅋㅋ 결국 궁금하긴 하지?']
+      ],
+      club:[
+        ['day','2026.10.28.'],['them','내일 미디어 인터뷰는 오전 훈련 후 진행 예정입니다.'],['me','알겠습니다.'],['them','복장은 구단 지급 훈련복으로 부탁드립니다.'],
+        ['day','2026.10.30.'],['them','선수님, 지난 경기 사진 업로드 예정입니다.'],['me','확인했습니다.'],['them','확인 감사합니다.']
+      ],
+      chyotaro:[
+        ['day','2026.10.27.'],['them','키쿠치. 지난 경기 봤다.'],['me','그래서.'],['them','마지막 공은 좀 높았다.'],['me','네 타석이면 안 그랬어.'],['them','그러면 다음에 보여줘.'],
+        ['day','2026.10.29.'],['them','요즘 구속은 어떠냐.'],['me','그대로야.'],['them','이번엔 네 공을 쳐볼 생각인데.'],['me','꿈에서?'],['them','진짜 재수 없다.'],['me','너도.']
+      ],
+      team:[
+        ['day','2026.10.28.'],['them','내일 원정 이동 버스 07:20 출발입니다.','하세가와'],['them','확인했습니다.','노무라'],['me','확인했습니다.'],['them','버스에서 냄새 강한 음식 먹지 마라.','오카'],['them','누가 지난번에 마라탕 먹었냐ㅋㅋ','미야케'],['them','저 아닙니다!','노무라'],
+        ['day','2026.10.30.'],['them','어제 경기 수고했다. 쉬는 날에도 몸관리.','하세가와'],['them','선배님들 수고하셨습니다!','노무라'],['them','오전 타격 영상 공유했습니다.','오카'],['me','확인했습니다.']
+      ],
+      miyake:[
+        ['day','2026.10.28.'],['them','키쿠치, 타격 연습 장소 바뀐 거 들었냐.'],['me','네. 실내 2번이라고 들었습니다.'],['them','늦지 마라.'],['me','알겠습니다.'],
+        ['day','2026.10.31.'],['them','내일 훈련 시간 바뀌었대.'],['me','팀 단톡에서 확인했습니다.'],['them','그럼 됐다.']
+      ],
+      captain:[
+        ['day','2026.10.27.'],['them','시게오. 오늘은 공 개수 조절해라.'],['me','네, 주장님.'],['them','내일 선발 아니어도 몸은 네가 챙겨야 한다.'],['me','알겠습니다.'],
+        ['day','2026.10.31.'],['them','원정 버스에 물건 두고 내리지 말고.'],['me','네.'],['them','지난번 글러브 찾으러 간 사람 너다.'],['me','...이번엔 챙겼습니다.']
+      ],
+      director:[
+        ['day','2026.10.28.'],['them','오늘 불펜은 35구로 마무리.'],['me','네, 감독님.'],['them','쉴 때는 제대로 쉬어라.'],['me','알겠습니다.'],
+        ['day','2026.10.31.'],['them','내일 아침 몸 상태 보고해.'],['me','확인했습니다.']
+      ],
+      nomura:[
+        ['day','2026.10.28.'],['them','선배님 슬라이더 그립 질문해도 될까요?'],['me','사진 보내봐.'],['them','이렇게 잡는 거 맞나요?'],['me','엄지 위치만 조금 내려.'],['them','아! 감사합니다. 연습해볼게요.'],
+        ['day','2026.10.30.'],['them','선배님, 오늘 식당 돈가스 나왔어요.'],['me','왜 나한테 보고해.'],['them','아 선배님 좋아하신다고 들어서요!'],['me','나 이미 먹었어.'],['them','앗... 다음엔 먼저 연락드릴게요.']
+      ],
+      oka:[
+        ['day','2026.10.28.'],['them','시게오, 테이핑 새로 챙겨 놨다.'],['me','감사합니다.'],['them','다음엔 그냥 필요한 거 먼저 말해.'],['me','네.'],
+        ['day','2026.10.31.'],['them','투구폼 영상 다시 보내줘.'],['me','지금 보냈습니다.'],['them','내일 불펜에서 얘기하자.'],['me','알겠습니다.']
+      ],
+      grandma:[
+        ['day','2026.10.27.'],['them','시게오야 귤 보냈다'],['me','받았어. 고마워.'],['them','너무 차게 먹지 마'],['me','응.'],
+        ['day','2026.10.29.'],['them','오늘 바람 차다'],['them','옷 따뜻하게 입고 다녀'],['me','할머니도 감기 조심해.'],['them','너 오면 된장국 끓여줄게'],['me','응. 갈게.'],
+        ['day','2026.11.01.'],['them','내일도 일찍 나가니'],['me','응. 아침 훈련.'],['them','아침은 꼭 먹고 가'],['me','알았어.']
+      ]
+    };
+    function storyDateKey(raw){const str=String(raw||'');let m=str.match(/(20\d{2})\D+(\d{1,2})\D+(\d{1,2})/);return m?Number(m[1])*10000+Number(m[2])*100+Number(m[3]):0;}
+    function storyDateLabel(raw){const key=storyDateKey(raw);if(!key)return safe(raw);return `${String(Math.floor(key/10000)).padStart(4,'0')}.${String(Math.floor((key%10000)/100)).padStart(2,'0')}.${String(key%100).padStart(2,'0')}.`;}
+    function pastChatMerge(existing,extra){const blocks=[], makeBlocks=(arr,rank)=>{let block=null;for(const item of arr){if(item[0]==='day'){block={key:storyDateKey(item[1]),order:rank,items:[item]};blocks.push(block);}else if(block)block.items.push(item);}};makeBlocks(existing,0);makeBlocks(extra,1);return blocks.sort((a,b)=>a.key-b.key||a.order-b.order).flatMap(x=>x.items);}
+    for(const [id,extra] of Object.entries(EXTRA_HISTORIES))msgHistories[id]=pastChatMerge(msgHistories[id]||[],extra);
+
     // v8: 자연스럽게 이어지는 메신저 게임. 기존 화면/사진/메시지 기록 보존.
     // 이야기의 진행은 오직 료타 대화방에서 '전송'을 눌렀을 때만 일어난다.
     // v9: 료타방 대본 · 카톡 시뮬레이터 — 대본의 대사와 분기만 메인 루트로 사용.
@@ -902,7 +993,7 @@
       {min:4,send:['내일 면담 일정 확인했습니다.'],reply:['네, 키쿠치 선수.','개별 취재에 응하지 않도록 부탁드립니다.']}
     ]};
     const SIDE_IDS=Object.keys(SIDE_AUTO);
-    const SIDE_SCRIPT_VERSION=12;
+    const SIDE_SCRIPT_VERSION=14; // v14: 1~2분씩 흐르는 가상시각, 직접 전송은 v13처럼 유지
     const SIDE_EPILOGUE={
       happy:{
         shou:[A("them","오늘 7이닝 2실점 봤다."),A("them","입장문은 너답게 딱딱하더라."),A("me","그게 왜."),A("them","마지막 줄은 좀 멋있었다고."),A("them","료타한테도 축하한다고 전해.")],
@@ -926,95 +1017,135 @@
 
     let novelTimer=null,novelTypingTimer=null,suppressBannerClick=false;
     let sideTimers={};
-    function novelFresh(){return {version:SCRIPT_VERSION,beat:0,stage:0,phase:'ready',log:[],queue:[],outgoing:'',O:0,T:0,answerIndex:0,flag:'',route:'',side:{},seen:{},unlocked:[],ending:'',recentIncoming:{},epilogue:false,press:[],clockLabel:'06:40',popup:false,init:true};}
-    function novel(){if(!s.chatNovel || s.chatNovel.version!==SCRIPT_VERSION){if(s.chatNovel && s.chatNovel.version!==SCRIPT_VERSION){s.v11PreviousChat=s.chatNovel;if(!s.v8ChatArchive)s.v8ChatArchive=s.chatNovel;}s.chatNovel=novelFresh();save();}return s.chatNovel;}
+    function novelFresh(){return {version:SCRIPT_VERSION,beat:0,stage:0,phase:'ready',log:[],queue:[],outgoing:'',O:0,T:0,answerIndex:0,flag:'',route:'',side:{},seen:{},unlocked:[],ending:'',recentIncoming:{},epilogue:false,press:[],clockLabel:'06:34',timeModelVersion:14,activeDay:'2026.11.02.',lastRenderedWho:'',burstCount:0,minuteAlternator:0,clockStartedAt:0,draftReadyAt:0,popup:false,init:true};}
+    function novel(){if(!s.chatNovel || s.chatNovel.version!==SCRIPT_VERSION){if(s.chatNovel && s.chatNovel.version!==SCRIPT_VERSION){s.v11PreviousChat=s.chatNovel;if(!s.v8ChatArchive)s.v8ChatArchive=s.chatNovel;}s.chatNovel=novelFresh();save();}
+      const n=s.chatNovel;if(n.timeModelVersion!==14){
+        // 이전 v11~v13의 시간 도약 데이터는 백업/보존하고, 여기서부터 진행하는 시각만 정상화한다.
+        n.previousTimeLabel=n.clockLabel;
+        n.clockLabel=({0:'06:34',1:'06:53',2:'07:08',3:'07:23',4:'07:31',5:'07:36',6:'07:46',7:'07:52',8:'07:56'})[n.stage]||'07:10';
+        n.lastRenderedWho='';n.burstCount=0;n.minuteAlternator=0;n.timeModelVersion=14;save();
+      }
+      return n;}
     function novelSide(id){const n=novel();if(!n.side)n.side={};
-      if(SIDE_AUTO[id]){if(!n.side[id]||n.side[id].autoVersion!==SIDE_SCRIPT_VERSION){
+      if(SIDE_AUTO[id]){
+        // v13 -> v14 changes only the time model and dated history; preserve existing side dialogue and unsent draft.
+        if(n.side[id]?.autoVersion===13){
+          const previous=n.side[id];n.sideArchiveV13=n.sideArchiveV13||{};n.sideArchiveV13[id]=JSON.parse(JSON.stringify(previous));
+          previous.autoVersion=14;previous.timeModelVersion=14;
+          previous.baseClock=previous.baseClock||novelSideClock(n.clockLabel||'06:34',1+SIDE_IDS.indexOf(id)%4);
+          previous.simMinutes=previous.simMinutes||0;previous.epilogueSimMinutes=previous.epilogueSimMinutes||0;
+          previous.minuteAlternator=previous.minuteAlternator||0;previous.burstCount=previous.burstCount||0;
+          previous.lastRenderedWho=previous.lastRenderedWho||previous.log?.at(-1)?.who||'them';save();
+        }
+        if(!n.side[id]||n.side[id].autoVersion!==SIDE_SCRIPT_VERSION){
         // Archive previous side-room conversations for recovery, but do not reset the Ryota main route.
-        if(n.side[id]){n.sideArchive=n.sideArchive||{};n.sideArchive[id]=n.side[id];n.recentIncoming[id]=0;n.epilogueUnlocked=false;}
-        n.side[id]={autoVersion:SIDE_SCRIPT_VERSION,log:[],queue:[],phase:'locked',opened:false,readComplete:false,epilogueQueued:false,epilogueShown:false,elapsedMs:0,epilogueElapsedMs:0};save();
+        if(n.side[id]){n.sideArchive=n.sideArchive||{};n.sideArchive[id]=n.side[id];if(n.side[id].autoVersion===13){n.sideArchiveV13=n.sideArchiveV13||{};n.sideArchiveV13[id]=n.side[id];}if(n.side[id].autoVersion===12){n.sideArchiveV12=n.sideArchiveV12||{};n.sideArchiveV12[id]=n.side[id];}n.recentIncoming[id]=0;n.epilogueUnlocked=false;}
+        n.side[id]={autoVersion:SIDE_SCRIPT_VERSION,log:[],queue:[],phase:'locked',opened:false,readComplete:false,epilogueQueued:false,epilogueShown:false,elapsedMs:0,epilogueElapsedMs:0,simMinutes:0,epilogueSimMinutes:0,baseClock:'',lastRenderedWho:'them',burstCount:1,minuteAlternator:0,outgoing:'',draftReadyAt:0};save();
       }return n.side[id];}
       if(!n.side[id])n.side[id]={turn:0,log:[],answerIndex:0,phase:'ready',queue:[],popup:false};return n.side[id];}
     function novelIsRoom(id){return s.page==='app'&&s.app==='chat'&&s.sub===id;}
-    function novelClock(){return ({0:'06:40',1:'12:31',2:'20:52',3:'23:47',4:'23:49',5:'23:55',6:'23:58',7:'23:59',8:'00:01'})[novel().stage]||'방금';}
+    function novelClock(){return novel().clockLabel||'06:34';}
+    function moveClock(hm,minutes){const m=String(hm||'06:34').match(/^(\d{1,2}):(\d{2})$/);if(!m)return '06:34';let n=(Number(m[1])*60+Number(m[2])+minutes+1440*10)%1440;return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');}
+    function advanceMainClock(minutes){const n=novel();n.clockLabel=moveClock(n.clockLabel,Math.max(0,Math.floor(minutes||0)));return n.clockLabel;}
+    function advanceMainOnSend(){const n=novel(),waited=Math.max(1,Math.min(8,Math.floor((Date.now()-(n.draftReadyAt||Date.now()))/10000)));advanceMainClock(waited);n.draftReadyAt=0;}
     function novelMarkRead(id){const n=novel();s.kkRead[id]=true;n.seen[id]=true;n.recentIncoming[id]=0;const b=$('live-banner');if(b?.classList.contains('active')&&b.dataset.act==='chat:'+id)dismissLiveBanner();save();}
     function novelPush(who,body,id='ryota',time,sender){const n=novel();const obj={who,body,time:time||(SIDE_AUTO[id]?.time)||n.clockLabel||novelClock()};if(sender)obj.sender=sender;if(id==='ryota')n.log.push(obj);else novelSide(id).log.push(obj);if(who==='them'){if(novelIsRoom(id))novelMarkRead(id);else{n.seen[id]=false;n.recentIncoming[id]=(n.recentIncoming[id]||0)+1;}}save();}
     function novelSideReady(id){const side=novelSide(id);if(SIDE_AUTO[id])return novel().beat>=SIDE_AUTO[id].group;const part=CLUB_SCRIPT[id]?.[side.turn];return !!part&&novel().beat>=part.min;}
-    function novelComposeOptions(id){const n=novel();if(id==='ryota'){if(n.ending||n.phase!=='ready')return [];if(n.outgoing)return [n.outgoing];return (R_STAGE_CHOICES[n.stage]||[]).map(v=>v.text);}if(SIDE_AUTO[id])return [];const side=novelSide(id);return side.phase==='ready'&&novelSideReady(id)?(CLUB_SCRIPT[id][side.turn].send||[]):[];}
-    function novelPreview(id){const opt=novelComposeOptions(id);const idx=id==='ryota'?novel().answerIndex:novelSide(id).answerIndex;return opt[Math.min(idx,opt.length-1)]||'';}
+    function novelComposeOptions(id){const n=novel();if(id==='ryota'){if(n.ending||n.phase!=='ready')return [];if(n.outgoing)return [n.outgoing];return (R_STAGE_CHOICES[n.stage]||[]).map(v=>v.text);}if(SIDE_AUTO[id]){const side=novelSide(id);return side.phase==='ready'&&side.outgoing?[side.outgoing]:[];}const side=novelSide(id);return side.phase==='ready'&&novelSideReady(id)?(CLUB_SCRIPT[id][side.turn].send||[]):[];}
+    function novelPreview(id){const opt=novelComposeOptions(id);const idx=id==='ryota'?(novel().answerIndex||0):(novelSide(id).answerIndex||0);return opt[Math.min(idx,opt.length-1)]||'';}
     function novelDisplayMessages(id){
-      const base=(msgHistories[id]||[]).map(([who,body])=>({who,body,old:true}));
+      let baseDay=0,baseIndex=0;
+      const base=(msgHistories[id]||[]).map(([who,body,sender])=>{
+        if(who==='day'){baseDay=storyDateKey(body);baseIndex=0;return {who,body,sender,old:true};}
+        const starting=baseDay===20261102?'06:29':baseDay===20230114?'15:10':'18:37';
+        const t=novelSideClock(starting,Math.floor(baseIndex/2));baseIndex++;
+        return {who,body,sender,old:true,time:t};
+      });
       if(id!=='ryota'){
-        if(SIDE_AUTO[id]){const today=base.findIndex(m=>m.who==='day'&&m.body.includes('11월 2일'));return [...(today<0?base:base.slice(0,today)),...novelSide(id).log];}
+        if(SIDE_AUTO[id]){const today=base.findIndex(m=>m.who==='day'&&storyDateKey(m.body)===20261102);return [...(today<0?base:base.slice(0,today)),...novelSide(id).log];}
         return [...base,...novelSide(id).log];
       }
       // 가장 최근 기사 당일 메시지에도 시각을 부여. 그 이전 과거 대화는 손대지 않는다.
       let latestDay=false;
       for(const m of base){
-        if(m.who==='day')latestDay=m.body.includes('2026년 11월 2일');
+        if(m.who==='day')latestDay=storyDateKey(m.body)===20261102;
         else if(latestDay){m.old=false;m.time='06:29';}
       }
       return [...base,...novel().log];
     }
     function novelMessageMarkup(m,c,previous,next){
       // 설명, 무대지시, 시간 바는 데이터로만 사용하고 채팅창에서는 출력하지 않음.
-      if(m.who==='day'||m.who==='note'||m.who==='photo')return '';
+      if(m.who==='day')return `<div class="kk-date">${storyDateLabel(m.body)}</div>`;if(m.who==='note'||m.who==='photo')return '';
       if(m.who==='file')return `<div class="kk-message other">${chatAvatar(c)}<div class="kk-balloon novel-file"><strong>📄 ${safe(m.body.split('|')[0])}</strong><span>${safe(m.body.split('|').slice(1).join('|'))}</span></div></div>`;
       const isChat=m.who==='them'||m.who==='me';
       const prevSame=isChat&&previous?.who===m.who&&previous?.time===m.time&&previous?.old===m.old;
       const nextSame=isChat&&next?.who===m.who&&next?.time===m.time&&next?.old===m.old;
-      const mt=m.old||nextSame?'':`<small class="novel-msgtime">${safe(m.time||'')}</small>`;
+      const mt=nextSame?'':`<small class="novel-msgtime">${safe(m.time||'')}</small>`;
       const avatar=m.who==='them'?(prevSame?'<span class="kk-avatar-spacer" aria-hidden="true"></span>':chatAvatar(c)):'';
       return `<div class="kk-message ${m.who==='me'?'mine':'other'}">${avatar}${m.who==='me'?mt:''}<div class="kk-balloon">${m.sender?`<small class="novel-speaker">${safe(m.sender)}</small>`:''}${safe(m.body)}</div>${m.who==='them'?mt:''}</div>`;
     }
     function novelRoom(id){const c=chatContacts.find(x=>x.id===id)||chatContacts[0];const n=novel();const row=id==='ryota'?n:novelSide(id);
-      const visibleMessages=novelDisplayMessages(id).filter(m=>!['day','note','photo'].includes(m.who));const items=visibleMessages.map((m,i)=>novelMessageMarkup(m,c,visibleMessages[i-1],visibleMessages[i+1])).join('');
+      const visibleMessages=novelDisplayMessages(id).filter(m=>!['note','photo'].includes(m.who));const items=visibleMessages.map((m,i)=>novelMessageMarkup(m,c,visibleMessages[i-1],visibleMessages[i+1])).join('');
       const options=novelComposeOptions(id),draft=novelPreview(id),receiving=row.phase==='receiving',ending=id==='ryota'&&n.ending;
-      const isAuto=!!SIDE_AUTO[id];const canSend=!!draft&&!receiving&&!ending&&!isAuto;
+      const isAuto=!!SIDE_AUTO[id];const canSend=!!draft&&!receiving&&!ending;
       const switchOptions=!isAuto&&options.length>1&&!row.outgoing;
       const pop= switchOptions&&row.popup?`<div class="novel-reply-popover">${options.map((t,i)=>{const locked=id==='ryota'&&n.stage===3&&i===2&&(n.O<2||n.T<2);return `<button class="${(row.answerIndex||0)===i?'selected':''} ${locked?'novel-locked':''}" data-act="${locked?'novel-locked':'novel-option:'+id+':'+i}">${locked?'🔒 ':''}${safe(t)}</button>`;}).join('')}</div>`:'';
       const typing=receiving&&novelIsRoom(id)&&(!isAuto||row.queue?.[0]?.[0]==='them')?`<div class="kk-message other kk-is-typing">${chatAvatar(c)}<div class="kk-balloon"><span></span><span></span><span></span></div></div>`:'';
       const hint=ending?'':receiving?'입력 중...':(!draft?'새 메시지를 기다리는 중...':'메시지 입력');
-      return `<div class="kk-room" id="kk-room"><div class="kk-roomhead"><button data-act="chat-main">‹</button><strong>${safe(c.name)}</strong><button data-act="call:${id}" aria-label="통화">☎</button></div><div class="kk-timeline" id="kk-timeline"><button class="kk-old-link" data-act="chat-old">↑ 예전 대화부터 보기</button>${items}${typing}</div>${pop}${isAuto?`<div class="kk-composer-v3 novel-auto-composer"><span>＋</span><span class="novel-auto-placeholder">${row.phase==='receiving'?'대화 중…':'메시지 입력'}</span><span>♧</span></div>`:`<form class="kk-composer-v3 novel-composer" id="kk-compose-form"><button type="button" data-act="chat-old" aria-label="이전 대화">＋</button><div class="novel-input-wrap"><input id="kk-message-input" type="text" autocomplete="off" readonly value="" data-full="${safe(draft)}" placeholder="${safe(hint)}" ${canSend?'':'disabled'} aria-label="보낼 메시지">${switchOptions?`<button class="novel-switch" type="button" data-act="novel-toggle:${id}" aria-label="다른 문장 보기">⌄</button>`:''}</div><button type="submit" class="kk-send" ${canSend?'':'disabled'}>전송</button></form>`}</div>`;}
+      return `<div class="kk-room" id="kk-room"><div class="kk-roomhead"><button data-act="chat-main">‹</button><strong>${safe(c.name)}</strong><span class="kk-room-actions"><button type="button" class="${s.kkMuted?.[id]?'kk-muted':''}" data-act="chat-mute:${id}" aria-label="${s.kkMuted?.[id]?'알림 켜기':'알림 끄기'}" aria-pressed="${!!s.kkMuted?.[id]}">${s.kkMuted?.[id]?'🔕':'🔔'}</button><button data-act="call:${id}" aria-label="통화">☎</button></span></div><div class="kk-timeline" id="kk-timeline"><button class="kk-old-link" data-act="chat-old">↑ 예전 대화부터 보기</button>${items}${typing}</div>${pop}<form class="kk-composer-v3 novel-composer" id="kk-compose-form"><button type="button" data-act="chat-old" aria-label="이전 대화">＋</button><div class="novel-input-wrap"><input id="kk-message-input" type="text" autocomplete="off" readonly value="" data-full="${safe(draft)}" placeholder="${safe(hint)}" ${canSend?'':'disabled'} aria-label="보낼 메시지">${switchOptions?`<button class="novel-switch" type="button" data-act="novel-toggle:${id}" aria-label="다른 문장 보기">⌄</button>`:''}</div><button type="submit" class="kk-send" ${canSend?'':'disabled'}>전송</button></form></div>`;}
     function novelPreviewLatest(id){const all=novelDisplayMessages(id);const last=[...all].reverse().find(m=>['them','me','file','photo'].includes(m.who));const c=chatContacts.find(c=>c.id===id);if(SIDE_AUTO[id]&&!novelSide(id).log.length)return {text:'',time:''};return last?{text:(last.who==='me'?'나: ':'')+(last.who==='file'?'📄 '+last.body.split('|')[0]:last.who==='photo'?'사진':last.body),time:last.time||c?.time||'방금'}:{text:c?.last||'',time:c?.time||''};}
     function novelUnread(c){if(novelIsRoom(c.id))return 0;const n=novel();if(SIDE_AUTO[c.id])return (n.recentIncoming[c.id]||0);return ((s.kkRead[c.id]||n.seen[c.id])?0:(c.unread||0))+(n.recentIncoming[c.id]||0);}
     function novelStartTyping(){clearTimeout(novelTypingTimer);const x=$('kk-message-input');if(!x||x.disabled)return;const full=x.dataset.full||'';if(!full)return;let at=0;x.value='';function tick(){if(!x.isConnected||x.dataset.full!==full)return;at=Math.min(full.length,at+1);x.value=full.slice(0,at);if(at<full.length)novelTypingTimer=setTimeout(tick,65);}novelTypingTimer=setTimeout(tick,130);}
     function novelAfterRender(){if(novelIsRoom(s.sub))novelStartTyping();}
-    function novelFlash(id,body){if(novelIsRoom(id)||s.page==='lock'||s.page==='passcode')return;const c=chatContacts.find(x=>x.id===id);if(c)pushLiveAlert({kind:'kakaotalk',title:c.name,text:body,route:'chat:'+id});}
+    function novelFlash(id,body){if(s.kkMuted?.[id]||novelIsRoom(id)||s.page==='lock'||s.page==='passcode')return;const c=chatContacts.find(x=>x.id===id);if(c)pushLiveAlert({kind:'kakaotalk',title:c.name,text:body,route:'chat:'+id});}
     function R(who,body){return [who,body];}
     function novelQueue(seq){const n=novel();n.queue.push(...seq.map(v=>Array.isArray(v)?v:['them',v]));n.phase='receiving';save();render();novelDrain();}
     function novelPrepareStage(stage){const n=novel();n.stage=stage;n.beat=stage+1;
       // 시간은 말풍선 바깥에만 작게 표시. 화면 중앙 날짜 바는 사용하지 않는다.
-      n.clockLabel=({0:'06:40',1:'12:31',2:'20:52',3:'23:47',4:'23:49',5:'23:55',6:'23:58',7:'23:59',8:'00:01'})[stage]||'방금';n.answerIndex=0;n.popup=false;n.outgoing='';
-      const pre=stage===1?[R('them','시게오, 지금은 좀 어때?'),R('them','아까는 너무 정신없어서 제대로 못 물었네.'),R('them','아, 그리고 기사 사진 계속 돌려봤거든.'),R('them','나보다 네가 더 잘 나왔더라? 이건 좀 억울한데~')]:
-        stage===2?[R('them','시게오, 이제 수업 끝났어.'),R('them','오늘 폰만 봤더니 눈이 아프네.'),R('them','네 쪽은 좀 조용해졌어?'),R('them','아까부터 답장 쓰다가 지웠다 했지, 나.'),R('them','...그래서 그냥 물어볼게.'),R('them','구단에서는 뭐래?')]:
-        stage===3?n.flag==='DENY'?[R('them','초안 다시 봤어.'),R('them','시게오, 네가 어떤 결정을 해도 이해하려고 할게.')]:n.flag==='HIDE'?[R('them','아직 안 자?'),R('them','나 눈치 빠른 거 알지. 억지로 괜찮은 척 안 해도 돼.')]:[R('them','시게오, 자?'),R('them','난 아직 잠이 안 오네.'),R('them','아까 네가 같이 생각하자고 해줘서 고마웠어.')]:[];
+      n.clockLabel=n.clockLabel||'06:34';n.answerIndex=0;n.popup=false;n.outgoing='';
+      const pre=stage===1?[R('them','야, 시게오. 좀 어때?'),R('them','답장 왔으니까 이제 좀 살겠네~'),R('them','아, 그리고 기사 사진 계속 돌려봤거든.'),R('them','잠깐, 나보다 네가 잘 나왔는데? 이건 좀 억울한걸ㅋㅋ')]:
+        stage===2?[R('them','시게오~ 버스에서 내렸어.'),R('them','아까부터 폰만 보고 있었네 나.'),R('them','네 쪽은 좀 조용해졌어?'),R('them','자꾸 지웠다 썼다 하게 되더라. 나답지 않게.'),R('them','...그래서 그냥 물어볼게.'),R('them','구단에서는 뭐래?')]:
+        stage===3?n.flag==='DENY'?[R('them','초안 다시 봤어.'),R('them','시게오, 네가 어떤 결정을 해도 이해하려고 할게.')]:n.flag==='HIDE'?[R('them','시게오, 지금 잠깐 괜찮아?'),R('them','나 눈치 빠른 거 알지. 억지로 괜찮은 척 안 해도 돼.')]:[R('them','시게오, 아직 폰 보고 있어?'),R('them','나 아까부터 좀 멍해.'),R('them','아까 네가 같이 생각하자고 해줘서 고마웠어.')]:[];
       novelQueue(pre);
     }
     function novelFinishEnding(route){const n=novel();n.ending=route;n.epilogue=true;n.unlocked=[...new Set([...(n.unlocked||[]),route])];n.phase='ended';n.beat=9;save();render();novelMaybeUnlockEpilogue();}
-    function novelAdvance(){const n=novel();n.phase='ready';n.answerIndex=0;n.popup=false;
+    function novelAdvance(){const n=novel();n.phase='ready';n.draftReadyAt=Date.now();n.answerIndex=0;n.popup=false;
       if(n.next){const next=n.next;n.next='';if(typeof next==='number')novelPrepareStage(next);else if(next.startsWith('ending:'))novelFinishEnding(next.slice(7));else {n.stage=Number(next);n.beat=n.stage+1;n.clockLabel=novelClock();save();render();}}
       else {save();render();}}
     function novelDrain(){clearTimeout(novelTimer);const n=novel();if(n.phase!=='receiving')return;
       if(!n.queue.length){novelAdvance();return;}
+      const next=n.queue[0],delay=entryDelay(next);
       novelTimer=setTimeout(()=>{const entry=n.queue.shift();if(!entry)return;
-        if(entry[0]==='me'){n.outgoing=entry[1];n.phase='ready';save();render();return;}
+        if(entry[0]==='me'){n.outgoing=entry[1];n.phase='ready';n.draftReadyAt=Date.now();save();render();return;}
         if(entry[0]==='effect'){novelSideEffect(entry[1]);novelDrain();return;}
         if(entry[0]==='ending'){novelFinishEnding(entry[1]);return;}
-        if(entry[0]==='stage'){novelPrepareStage(Number(entry[1]));return;}
+        if(entry[0]==='stage'){advanceMainClock(1);n.lastRenderedWho='';n.burstCount=0;novelPrepareStage(Number(entry[1]));return;}
+        if(entry[0]==='day'){const key=storyDateKey(entry[1]);if(key){n.activeDay=storyDateLabel(entry[1]);n.clockLabel='18:42';n.lastRenderedWho='';n.burstCount=0;}novelPush('day',entry[1]);novelDrain();return;}
+        if(entry[0]==='them'){
+          advanceMainClock(n.pendingMinuteDelta||0);
+          n.burstCount=n.lastRenderedWho==='them'?(n.pendingMinuteDelta===0?(n.burstCount||0)+1:1):1;
+          n.lastRenderedWho='them';
+        }else if(entry[0]==='file'){
+          advanceMainClock(1);n.lastRenderedWho='file';n.burstCount=0;
+        }
         novelPush(entry[0],entry[1]);if(entry[0]==='them')novelFlash('ryota',entry[1]);
         if(novelIsRoom('ryota')||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrain();
-      },entryDelay(n.queue[0]));
+      },delay);
     }
     function entryDelay(entry){
-      const kind=entry?.[0],body=String(entry?.[1]||'');
-      if(kind==='stage')return 6500; // 대화가 지나치게 급하게 다음 사건으로 튀지 않게 여백
-      if(kind==='effect')return 600;
-      if(kind==='note'||kind==='day'||kind==='photo')return 300;
-      if(kind==='file')return 3200;
-      if(kind==='me')return 1900; // 다음 답장은 실제 사용자 전송을 기다림
-      if(kind==='them')return Math.min(4700,Math.max(2300,1800+body.length*48));
-      return 1900;
+      const n=novel(),kind=entry?.[0],body=String(entry?.[1]||'');n.pendingMinuteDelta=0;
+      if(kind==='stage')return 10000;
+      if(kind==='effect'||kind==='note'||kind==='day'||kind==='photo')return 180;
+      if(kind==='file')return 2600;
+      if(kind==='me')return 550; // 내 메시지는 자동으로 보내지 않는다.
+      if(kind==='them'){
+        // 연속 말풍선은 같은 분에 묶고, 새로운 대답은 1분(10초) / 2분(15초) 간격.
+        const withinBurst=n.lastRenderedWho==='them'&&(n.burstCount||0)<2;
+        if(withinBurst)return Math.min(5700,Math.max(3100,2500+body.length*35));
+        n.pendingMinuteDelta=(n.minuteAlternator||0)%3===2?2:1;n.minuteAlternator=(n.minuteAlternator||0)+1;
+        return n.pendingMinuteDelta===2?15000:10000;
+      }
+      return 700;
     }
     function novelSideEffect(kind){
       if(kind==='first'||kind==='second'||kind==='third'){
@@ -1031,26 +1162,26 @@
         [R('them','내 걱정은 말고.'),R('them','질문은 내가 먼저 했잖아~')]
       ][idx].concat([
         R('them','사진 봤어?'),R('them','나 좀 못나왔더라.'),R('them','넌 좀 귀엽게 나왔고.'),
-        R('me','지금 그게 중요합니까.'),R('them','아니지.'),R('them','네가 연락해준 게 중요하지.'),
+        R('me','지금 그게 중요합니까.'),R('them','아니지.'),R('them','너랑 지금 이렇게 얘기하고 있잖아. 그게 중요하지.'),
         R('them','무슨 말부터 해야 할지 모르겠으면 안 해도 돼.'),R('them','대신 밥은 먹고.'),
         R('them','...그리고 내 걱정은 하지 마. 나 꽤 멀쩡해.'),R('them','네가 더 신경 쓰여서 그래.'),
-        R('them','나 수업 들어가야겠다.'),R('them','끝나면 연락할게. 답장 늦어도 너무 걱정하지 말고.'),
+        R('them','나 학교 가는 중이야.'),R('them','좀 늦어도 답은 할게. 너무 마음 졸이지 말고.'),
         R('effect','first'),R('stage',1)]);}
       if(stage===1){return [
         [R('them','왜~ 사실이잖아.'),R('them','그래도 좀 웃었어?'),R('them','...그랬으면 됐어.')],
         [R('them','나?'),R('them','솔직히 놀랐지. 안 놀랐다고 하면 거짓말이고.'),R('them','근데 시게오, 내가 제일 걱정한 건 네 표정이었어.'),R('them','혼자 다 감당할 생각 하지 마.'),R('me','...선배도요.')],
         [R('them','먹었지~ 참치마요 삼각김밥.'),R('me','또 그겁니까.'),R('them','왜, 맛있잖아.'),R('them','다음엔 네가 밥 사줘. 지금은 네 밥부터 챙겨 먹고.')]
-      ][idx].concat([R('them','아, 교수님이 부르신다.'),R('them','저녁에 다시 연락할게. 그동안 너무 혼자 생각하지 말고.'),R('effect','second'),R('stage',2)]);}
+      ][idx].concat([R('them','앗 우리 과 애들 만났다.'),R('them','학교 도착해서도 폰은 볼게. 혼자 다 참지 마.'),R('effect','second'),R('stage',2)]);}
       if(stage===2){return [
         [R('them','아, 그렇구나.'),R('them','안전한 게 우선이긴 하지.'),R('them','...네가 그렇게 정하면 난 괜찮아.'),R('them','그러니까 내 눈치 보지는 마.')],
         [R('them','정말?'),R('them','너 별일 아닐 때는 그렇게 말 안 하던데.'),R('them','...알았어. 지금 말하기 싫으면 안 해도 돼.')],
         [R('me','선배까지 괜히 끌어들이고 싶지는 않습니다.'),R('me','그렇다고 없던 사이처럼 말하는 것도 싫고요.'),R('me','...솔직히 좀 무섭습니다.'),R('them','시게오.'),R('note','답장을 쓰다 잠깐 멈춘다.'),R('them','나도 무서워.'),R('them','근데 네가 잘못한 건 아니잖아.'),R('them','나 걱정한다고 너 혼자 결정하지는 않았으면 좋겠어.'),R('them','...같이 생각하자.')]
-      ][idx].concat([R('them','내일 구단이랑 얘기해야 한다며.'),R('them','일단 오늘은 좀 쉬어. 내가 먼저 연락해놓고 이런 말 하는 것도 웃기지만.'),R('effect','third'),R('stage',3)]);}
+      ][idx].concat([R('them','내일 구단이랑 얘기해야 한다며.'),R('them','일단 물이라도 한 잔 마셔. 내가 먼저 연락해놓고 이러는 것도 웃기지만.'),R('effect','third'),R('stage',3)]);}
       return [];
     }
     function novelEndSequence(choice){
       if(choice==='bad')return [R('note','입력 표시가 나타났다 사라진다.'),R('them','...알겠어.'),R('them','그게 제일 안전하겠다.'),R('them','나는 그냥 오랜 친구 하면 되는 거잖아.'),R('them','괜찮아. 진짜로.'),R('stage',4)];
-      if(choice==='normal')return [R('them','아무 말도 안 한다고?'),R('them','...시게오답네.'),R('them','그럼 한동안 시끄럽겠다.'),R('me','알고 있습니다.'),R('them','나 당분간 경기장에는 못 가겠네.'),R('them','카메라가 관중석까지 찍을 테니까.'),R('me','...죄송합니다.'),R('them','왜 네가 미안해.'),R('them','중계는 볼 거야. 그건 못 막아~'),R('note','6이닝 2실점 노디시전. 팀은 연패를 끊었다.'),R('me','선배, 다음 주에 시간 되십니까?'),R('them','어? 갑자기?'),R('me','그냥 얼굴 좀 보려고요.'),R('them','...그런 말도 할 줄 아네, 우리 시게오.'),R('them','좋아. 대신 이번엔 내가 먼저 갈게.'),R('me','마스크는 꼭 쓰세요.'),R('them','네네, 야구 천재님~'),R('effect','epilogue'),R('ending','normal')];
+      if(choice==='normal')return [R('them','아무 말도 안 한다고?'),R('them','...시게오답네.'),R('them','그럼 며칠 시끄럽겠네.'),R('me','알고 있습니다.'),R('them','나 당분간 경기장에는 못 가겠네.'),R('them','카메라가 관중석까지 찍을 테니까.'),R('me','...죄송합니다.'),R('them','왜 네가 미안해.'),R('them','중계는 볼 거야. 그건 못 막아~'),R('note','6이닝 2실점 노디시전. 팀은 연패를 끊었다.'),R('day','2026.11.09.'),R('me','선배, 다음 주에 시간 되십니까?'),R('them','어? 갑자기?'),R('me','그냥 얼굴 좀 보려고요.'),R('them','...그런 말도 할 줄 아네, 우리 시게오.'),R('them','좋아. 대신 이번엔 내가 먼저 갈게.'),R('me','마스크는 꼭 쓰세요.'),R('them','네네, 야구 천재님~'),R('effect','epilogue'),R('ending','normal')];
       if(choice==='happy')return [R('note','입력 표시가 잠깐 멈춘다.'),R('them','...시게오.'),R('them','진심이야?'),R('them','네 야구는 어떡하고.'),R('me','선배를 없는 사람이라고 할 생각은 없습니다.'),R('them','...잠깐만. 나도 생각 좀 하고.'),R('stage',5)];
       return [];
     }
@@ -1068,19 +1199,26 @@
       R('me','입장문 초안 쓰고 있습니다.'),R('them','보여줘. 나 그래도 문예창작부 출신이잖아.'),R('stage',6)
     ];}
     function novelAfterPress(){const n=novel();const msg=[...n.press,'남은 시즌과 클라이맥스 시리즈에서, 응원해 주시는 분들의 기대를 절대 실망시키지 않겠습니다.'].join(' ');
-      return [R('file','공식 입장문 초안.txt|'+msg),R('them','너무 딱딱한 거 아니야? ㅋㅋ'),R('them','...그래도 마지막 문장은 좋다.'),R('them','너답잖아.'),R('note','[기사] 키쿠치 시게오, 열애 인정 “곁에 있어 준 사람”'),R('note','7이닝 2실점 승리투수. 관중석 맨 앞줄에는 료타가 있었다.'),R('them','시게오~'),R('them','내기 내가 졌네.'),R('them','맨 앞줄 소감. 네 공 진짜 빠르더라.'),R('them','근데 나 카메라에 다 찍힌 거 같아. 어떡해? ㅋㅋ'),R('me','잘 나왔습니다.'),R('them','당연하지. 내가 원래 잘생겼잖아~'),R('me','네. 인정합니다.'),R('them','...잠깐만.'),R('them','지금 뭐라고 했어? 한 번만 더 해봐.'),R('me','두 번은 안 합니다.'),R('them','너무하네, 우리 시게오.'),R('effect','epilogue'),R('ending','happy')];
+      return [R('file','공식 입장문 초안.txt|'+msg),R('them','너무 딱딱한 거 아니야? ㅋㅋ'),R('them','...그래도 마지막 문장은 좋다.'),R('them','너답잖아.'),R('note','[기사] 키쿠치 시게오, 열애 인정 “곁에 있어 준 사람”'),R('day','2026.11.03.'),R('note','7이닝 2실점 승리투수. 관중석 맨 앞줄에는 료타가 있었다.'),R('them','시게오~'),R('them','내기 내가 졌네.'),R('them','맨 앞줄 소감. 네 공 진짜 빠르더라.'),R('them','근데 나 카메라에 다 찍힌 거 같아. 어떡해? ㅋㅋ'),R('me','잘 나왔습니다.'),R('them','당연하지. 내가 원래 잘생겼잖아~'),R('me','네. 인정합니다.'),R('them','...잠깐만.'),R('them','지금 뭐라고 했어? 한 번만 더 해봐.'),R('me','두 번은 안 합니다.'),R('them','너무하네, 우리 시게오.'),R('effect','epilogue'),R('ending','happy')];
     }
     function novelSend(id){const n=novel();const options=novelComposeOptions(id);if(!options.length)return;
-      if(id!=='ryota'&&SIDE_AUTO[id])return;
-      if(id!=='ryota'){const side=novelSide(id),data=CLUB_SCRIPT[id][side.turn];const text=options[Math.min(side.answerIndex,options.length-1)];side.answerIndex=0;side.turn++;side.phase='receiving';side.queue=data.reply.map(x=>R('them',x));novelPush('me',text,id);save();render();novelDrainSide(id);return;}
+      if(id!=='ryota'&&SIDE_AUTO[id]){const side=novelSide(id);if(side.phase!=='ready'||!side.outgoing)return;
+        const elapsedKey=side.epilogueQueued?'epilogueElapsedMs':'elapsedMs';
+        // 실제로 답장을 고민한 시간을 채팅 시각에 반영한다.
+        side[elapsedKey]=(side[elapsedKey]||0)+Math.max(0,Date.now()-(side.draftReadyAt||Date.now()));
+        const baseTime=side.epilogueQueued?(n.ending==='normal'?'20:10':'21:30'):(side.baseClock||SIDE_AUTO[id].time);
+        side[side.epilogueQueued?'epilogueSimMinutes':'simMinutes']=(side[side.epilogueQueued?'epilogueSimMinutes':'simMinutes']||0)+Math.max(1,Math.min(5,Math.floor((Date.now()-(side.draftReadyAt||Date.now()))/10000)));
+        const time=novelSideClock(baseTime,side[side.epilogueQueued?'epilogueSimMinutes':'simMinutes']);side.lastRenderedWho='me';side.burstCount=0;
+        novelPush('me',side.outgoing,id,time);side.outgoing='';side.draftReadyAt=0;side.phase='receiving';save();render();novelDrainSide(id);return;}
+      if(id!=='ryota'){const side=novelSide(id),data=CLUB_SCRIPT[id][side.turn];const text=options[Math.min(side.answerIndex,options.length-1)];side.answerIndex=0;side.turn++;side.phase='receiving';side.queue=data.reply.map(x=>R('them',x));side.baseClock=side.baseClock||novelClock();side.clubSimMinutes=(side.clubSimMinutes||0)+1;novelPush('me',text,id,novelSideClock(side.baseClock,side.clubSimMinutes));save();render();novelDrainSide(id);return;}
       if(n.phase!=='ready')return;
-      if(n.outgoing){novelPush('me',n.outgoing);n.outgoing='';n.phase='receiving';save();render();novelDrain();return;}
+      if(n.outgoing){advanceMainOnSend();n.lastRenderedWho='me';n.burstCount=0;novelPush('me',n.outgoing);n.outgoing='';n.phase='receiving';save();render();novelDrain();return;}
       const stage=n.stage,ix=Math.min(n.answerIndex,options.length-1),choice=R_STAGE_CHOICES[stage]?.[ix];if(!choice)return;
       if(choice.locked&&(n.O<2||n.T<2)){novelLocked();return;}
       n.O+=choice.o||0;n.T+=choice.t||0;n.answerIndex=0;n.popup=false;
       if(choice.flag)n.flag=choice.flag;
-      if(choice.kind==='decision'){novelPush('me',choice.text);n.phase='receiving';const seq=novelStageSequence(stage,ix);n.queue=[...seq];save();render();novelDrain();return;}
-      if(choice.kind==='call'){novelPush('note','료타에게 전화를 걸었다.');}else novelPush('me',choice.text);
+      if(choice.kind==='decision'){advanceMainOnSend();n.lastRenderedWho='me';n.burstCount=0;novelPush('me',choice.text);n.phase='receiving';const seq=novelStageSequence(stage,ix);n.queue=[...seq];save();render();novelDrain();return;}
+      advanceMainOnSend();n.lastRenderedWho='me';n.burstCount=0;if(choice.kind==='call'){novelPush('note','료타에게 전화를 걸었다.');}else novelPush('me',choice.text);
       if(stage<=2){n.queue=novelStageSequence(stage,ix);n.phase='receiving';save();render();novelDrain();return;}
       if(stage===3){n.route=choice.end;n.queue=novelEndSequence(n.route);n.phase='receiving';save();render();novelDrain();return;}
       if(stage===4){n.queue=ix===0?[R('them','알아. 네가 왜 그러는지도 아는데... 오늘은 더 못 듣겠다.')]:[R('them','응. 그렇게 하자.')];n.queue.push(R('them','나 당분간 연락 좀 줄일게.'),R('them','기자들이 붙으면 너한테 곤란하잖아.'),R('them','끼니 거르지 말고. 훈련도 무리하지 말고.'),R('note','[기사] 키쿠치 시게오 측 “오랜 친구 사이… 사실무근”'),R('me','선배.'),R('me','...죄송합니다.'),R('ending','bad'));n.phase='receiving';save();render();novelDrain();return;}
@@ -1095,19 +1233,26 @@
     }
     function novelDrainSide(id){const side=novelSide(id);clearTimeout(sideTimers[id]);if(side.phase!=='receiving')return;
       if(!SIDE_AUTO[id]){if(!side.queue.length){side.phase='ready';save();if(novelIsRoom(id))render();return;}
-        sideTimers[id]=setTimeout(()=>{const e=side.queue.shift();novelPush(e[0],e[1],id);if(e[0]==='them')novelFlash(id,e[1]);if(novelIsRoom(id)||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrainSide(id);},700);return;}
+        const minutes=(side.minuteAlternator||0)%3===2?2:1,delay=minutes===2?15000:10000;
+        sideTimers[id]=setTimeout(()=>{const e=side.queue.shift();side.baseClock=side.baseClock||novelClock();side.clubSimMinutes=(side.clubSimMinutes||0)+minutes;side.minuteAlternator=(side.minuteAlternator||0)+1;novelPush(e[0],e[1],id,novelSideClock(side.baseClock,side.clubSimMinutes));if(e[0]==='them')novelFlash(id,e[1]);if(novelIsRoom(id)||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrainSide(id);},delay);return;}
       if(!side.queue.length){side.phase='done';if(novelIsRoom(id)){side.readComplete=true;novelMarkRead(id);}save();render();novelMaybeUnlockEpilogue();return;}
-      const e=side.queue[0];const delay=e[0]==='note'?1000:e[0]==='me'?3300:Math.min(6800,Math.max(3200,2550+(e[1]||'').length*45));
+      // 상대 메시지는 자동 도착하지만 내(시게오) 말풍선은 반드시 전송을 눌러야 생성된다.
+      if(side.queue[0][0]==='me'){sideTimers[id]=setTimeout(()=>{if(side.phase!=='receiving')return;const msg=side.queue.shift();side.outgoing=msg[1];side.draftReadyAt=Date.now();side.phase='ready';save();if(novelIsRoom(id))render();},700);return;}
+      const e=side.queue[0],sameRun=e[0]==='them'&&side.lastRenderedWho==='them'&&(side.burstCount||0)<2;
+      const minutes=sameRun?0:((side.minuteAlternator||0)%3===2?2:1);
+      const delay=e[0]==='note'?300:sameRun?Math.min(5500,Math.max(3100,2300+(e[1]||'').length*40)):(minutes===2?15000:10000);
       sideTimers[id]=setTimeout(()=>{if(side.phase!=='receiving')return;const msg=side.queue.shift();
         const elapsedKey=side.epilogueQueued?'epilogueElapsedMs':'elapsedMs';side[elapsedKey]=(side[elapsedKey]||0)+delay;
-        const baseTime=side.epilogueQueued?(novel().ending==='normal'?'20:10':'21:30'):SIDE_AUTO[id].time;
-        const time=novelSideClock(baseTime,Math.floor(side[elapsedKey]/60000));
+        const simKey=side.epilogueQueued?'epilogueSimMinutes':'simMinutes';side[simKey]=(side[simKey]||0)+minutes;side.minuteAlternator=(side.minuteAlternator||0)+(!sameRun?1:0);
+        const baseTime=side.epilogueQueued?(novel().ending==='normal'?'20:10':'21:30'):(side.baseClock||SIDE_AUTO[id].time);
+        const time=novelSideClock(baseTime,side[simKey]);side.burstCount=side.lastRenderedWho===msg[0]&&sameRun?(side.burstCount||0)+1:1;side.lastRenderedWho=msg[0];
         novelPush(msg[0],msg[1],id,time,msg[2]);if(msg[0]==='them')novelFlash(id,msg[1]);if(novelIsRoom(id)||(s.page==='app'&&s.app==='chat'&&!s.sub)||s.page==='home')render();novelDrainSide(id);},delay);
     }
     function novelUnlockSide(id){const n=novel(),spec=SIDE_AUTO[id],side=novelSide(id);if(!spec||side.phase!=='locked'||n.beat<spec.group)return;
       side.phase='pending';side.queue=[...spec.messages.slice(1)];
-      novelPush('day','2026년 11월 2일 · '+spec.time,id);
-      const first=spec.messages[0];novelPush(first[0],first[1],id,spec.time,first[2]);if(first[0]==='them')novelFlash(id,first[1]);save();
+      const sameGroup=SIDE_IDS.filter(x=>SIDE_AUTO[x].group===spec.group);side.baseClock=novelSideClock(n.clockLabel||'06:34',1+sameGroup.indexOf(id));
+      novelPush('day','2026.11.02.',id);
+      const first=spec.messages[0];novelPush(first[0],first[1],id,side.baseClock,first[2]);if(first[0]==='them')novelFlash(id,first[1]);save();
     }
     function novelSyncSideUnlocks(){const b=novel().beat;for(const id of SIDE_IDS){if(b>=SIDE_AUTO[id].group)novelUnlockSide(id);}novelMaybeUnlockEpilogue();}
     function novelEnterSide(id){if(!SIDE_AUTO[id])return;const side=novelSide(id);
@@ -1120,7 +1265,7 @@
     function novelMaybeUnlockEpilogue(){const n=novel();if(n.epilogueUnlocked||!n.ending||!SIDE_IDS.every(id=>novelSide(id).readComplete))return;
       n.epilogueUnlocked=true;const ep=SIDE_EPILOGUE[n.ending]||{};
       for(const [id,entries] of Object.entries(ep)){const side=novelSide(id);side.epilogueQueued=true;side.epilogueElapsedMs=0;
-        side.phase='pending';side.queue=[...entries.slice(1)];novelPush('day',n.ending==='normal'?'일주일 뒤':'2026년 11월 3일 · 밤',id,n.ending==='normal'?'20:10':'21:30');
+        side.phase='pending';side.queue=[...entries.slice(1)];novelPush('day',n.ending==='normal'?'2026.11.09.':'2026.11.03.',id,n.ending==='normal'?'20:10':'21:30');
         novelPush(entries[0][0],entries[0][1],id,n.ending==='normal'?'20:10':'21:30',entries[0][2]);if(entries[0][0]==='them')novelFlash(id,entries[0][1]);
       }
       save();render();if(SIDE_AUTO[s.sub]&&ep[s.sub])novelEnterSide(s.sub);
@@ -1128,7 +1273,7 @@
     function novelAction(a){if(a.startsWith('novel-toggle:')){const id=a.slice(13);const r=id==='ryota'?novel():novelSide(id);r.popup=!r.popup;save();render();return true;}
       if(a.startsWith('novel-option:')){const [,id,num]=a.split(':');const r=id==='ryota'?novel():novelSide(id);r.answerIndex=Number(num)||0;r.popup=false;save();render();return true;}
       if(a==='novel-locked'){novelLocked();return true;}
-      if(a==='novel-restart'){if(confirm('료타방 대본을 처음부터 다시 시작할까요? 이전 시연 데이터는 백업되고, 기존 사진과 다른 앱 기록은 유지됩니다.')){clearTimeout(novelTimer);Object.values(sideTimers).forEach(clearTimeout);s.chatNovel=novelFresh();save();go('app','chat','ryota');}return true;}
+      if(a==='novel-restart'){if(confirm('게임을 처음 잠금화면부터 다시 시작할까요? 스토리 진행 기록은 백업되고 사진 등 기존 자료는 유지됩니다.')){clearTimeout(novelTimer);Object.values(sideTimers).forEach(clearTimeout);clearAlertTimer();dismissLiveBanner();stopCall();if(s.chatNovel)s.v14PreviousChat=s.chatNovel;s.chatNovel=novelFresh();s.page='lock';s.app='';s.sub='';s.lockNotifCount=0;s.passcode='';s.passcodeError='';s.kkRead={};save();render();}return true;}
       return false;}
     function novelResume(){const n=novel();novelSyncSideUnlocks();if(n.phase==='receiving')novelDrain();for(const id of [...SIDE_IDS,'club'])if(novelSide(id).phase==='receiving')novelDrainSide(id);}
     function novelCallAction(a){return false;} // 일반 통화 UI는 보존, 대본의 부재중 전화는 카톡 기록으로 처리.
@@ -1155,7 +1300,7 @@
     }
     function kkHome(){
       const tab=s.kkTab||'chats';
-      const inner=tab==='friends'?kkFriendList():tab==='chats'?`<div class="kk-scroll"><p class="kk-notice">2026년 11월 2일</p>${chatContacts.map(c=>{const last=chatLatest(c),unread=chatUnread(c);return `<button class="kk-row" data-act="chat:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}</b><small>${safe(last.text)}</small></span><span class="kk-row-right"><time>${safe(last.time)}</time>${unread?`<i>${unread}</i>`:''}</span></button>`;}).join('')}<div class="kk-listfoot">채팅방에서 위로 스크롤하면 지난 기록을 볼 수 있어.</div></div>`:`<div class="kk-scroll" style="display:grid;align-content:center;justify-items:center;gap:12px;color:#888;padding:35px"><div style="font-size:40px">${tab==='open'?'◉':'···'}</div><b>${tab==='open'?'오픈채팅':'더보기'}</b><p style="font-size:12px;text-align:center">이 화면은 UI 참고용입니다.<br>추가 인물이나 스토리는 아직 정해지지 않았습니다.</p></div>`;
+      const inner=tab==='friends'?kkFriendList():tab==='chats'?`<div class="kk-scroll"><p class="kk-notice">시게오의 카카오톡</p>${chatContacts.map(c=>{const last=chatLatest(c),unread=chatUnread(c);return `<button class="kk-row" data-act="chat:${c.id}">${chatAvatar(c)}<span class="kk-row-body"><b>${safe(c.name)}${s.kkMuted?.[c.id]?'<i class="kk-muted-marker">🔕</i>':''}</b><small>${safe(last.text)}</small></span><span class="kk-row-right"><time>${safe(last.time)}</time>${unread?`<i>${unread}</i>`:''}</span></button>`;}).join('')}<div class="kk-listfoot">채팅방에서 위로 스크롤하면 지난 기록을 볼 수 있어.</div></div>`:`<div class="kk-scroll" style="display:grid;align-content:center;justify-items:center;gap:12px;color:#888;padding:35px"><div style="font-size:40px">${tab==='open'?'◉':'···'}</div><b>${tab==='open'?'오픈채팅':'더보기'}</b><p style="font-size:12px;text-align:center">이 화면은 UI 참고용입니다.<br>추가 인물이나 스토리는 아직 정해지지 않았습니다.</p></div>`;
       return `<div class="kk-list"><div class="kk-top"><h2>${tab==='friends'?'친구':tab==='chats'?'채팅':tab==='open'?'오픈채팅':'더보기'}</h2><span class="kk-tools"><button data-act="kk-search" aria-label="검색">⌕</button><button data-act="kk-options" aria-label="더보기">⚙</button></span></div>${inner}${kkBottomTabs()}</div>`;
     }
     function kkProfile(id){
@@ -1202,7 +1347,7 @@
     function gallery(){return appShell('사진',`<div class="memory-gallery"><div class="memory-title">최근 항목 <small>6장</small></div><div class="memory-grid"><div>⚾<small>첫 국가대표 유니폼</small></div><div>🍵<small>녹차 두 잔</small></div><div>📖<small>선배가 빌려준 책</small></div><div>🌧️<small>비 오던 날</small></div><div>🎟️<small>야구장 표 두 장</small></div><div>🌆<small>경기 끝난 저녁</small></div></div><p>사진은 나중에 교체할 수 있도록 비워두었어.</p></div>`);}
     function notes(){return appShell('메모',`<div class="memory-gallery"><div class="memory-title">메모</div><div class="story-note"><small>2023.01.15</small><h3>등번호</h3><p>57번으로 뛰면 잘 어울릴 거라던 선배.<br>말은 아무렇게나 하면서 은근히 사람 신경 쓰이게 만든다.<br>...사인부터 해 주라고 할 것 같으니까.</p></div><div class="story-note"><small>2026.10.28</small><h3>해야 할 일</h3><p>훈련 9:00<br>인터뷰<br>할머니께 전화<br>선배가 빌린 책 돌려받기</p></div></div>`);}
     function phone(){return appShell('최근 통화',`<div class="memory-gallery"><div class="memory-title">최근 통화</div><button class="kk-row" data-act="call:ryota"><span class="kk-avatar" style="background:#e6d4ba">🐶</span><span class="kk-row-body"><b style="color:#ce4455">료타 선배</b><small>부재중 전화 · 오늘 06:31</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:shou"><span class="kk-avatar" style="background:#b5d4e7">🫧</span><span class="kk-row-body"><b>카토 쇼우</b><small>부재중 전화 · 06:30</small></span><span>ⓘ</span></button><button class="kk-row" data-act="call:club"><span class="kk-avatar" style="background:#cad8ce">⚾</span><span class="kk-row-body"><b>구단 홍보팀</b><small>부재중 전화 · 06:32</small></span><span>ⓘ</span></button><p class="kk-sim-only">부재중 통화 기록</p></div>`);}
-    function help(){return appShell('설정',`<div class="help-panel"><h2>시게오의 휴대폰</h2><p>료타 × 시게오 IF · 아웃팅 보도 이후의 아침</p>${wallpaperCard()}<p><button class="secondary" data-act="lock-screen">잠금화면 다시 보기</button> <button class="secondary" data-act="open:chat">카톡 열기</button> <button class="secondary" data-act="call-preview">전화 수신 UI 시연</button></p><p style="font-size:11px;color:#888">전화 수신 시연의 발신자와 시점은 스토리 설정이 아닙니다.</p><p><button class="secondary" data-act="novel-restart">료타방 대본 처음부터 다시 시작</button></p><p style="font-size:11px;color:#777">료타 대화방의 전송 버튼으로만 메인 이야기가 이어집니다. 쇼우·아이나·홍보팀 대화는 자유롭게 확인할 수 있습니다.</p><p style="font-size:12px;color:#777">본문과 계정은 모두 창작이며 실제 사람의 연애·성적 지향 정보가 아닙니다.</p></div>`);}
+    function help(){return appShell('설정',`<div class="help-panel"><h2>시게오의 휴대폰</h2><p>료타 × 시게오 IF · 아웃팅 보도 이후의 아침</p>${wallpaperCard()}<p><button class="secondary" data-act="lock-screen">잠금화면 다시 보기</button> <button class="secondary" data-act="open:chat">카톡 열기</button> <button class="secondary" data-act="call-preview">전화 수신 UI 시연</button></p><p style="font-size:11px;color:#888">전화 수신 시연의 발신자와 시점은 스토리 설정이 아닙니다.</p><p><button class="secondary" data-act="novel-restart">처음부터 다시 시작 (잠금화면)</button></p><p style="font-size:11px;color:#777">료타 대화방의 전송 버튼으로만 메인 이야기가 이어집니다. 다른 채팅방에서도 시게오의 답장은 입력창에서 전송해야 대화가 이어집니다.</p><p style="font-size:12px;color:#777">본문과 계정은 모두 창작이며 실제 사람의 연애·성적 지향 정보가 아닙니다.</p></div>`);}
 
 
     // v3 calls are purely an interface rehearsal. No caller, dialogue or story event is canonized.
@@ -1318,6 +1463,7 @@
     }
     function act(a){
       if(novelAction(a))return;
+      if(a.startsWith('chat-mute:')){const id=a.slice(10);if(chatContacts.some(c=>c.id===id)){s.kkMuted=s.kkMuted||{};s.kkMuted[id]=!s.kkMuted[id];save();render();toast(s.kkMuted[id]?'이 채팅방의 알림을 껐어요.':'이 채팅방의 알림을 켰어요.');}return;}
       if(a.startsWith('call-ui:')){callAction(a.slice(8));return;}
       if(a==='call-preview'){startCall('incoming','demo');return;}
       if(a.startsWith('kk-tab:')){s.kkTab=a.slice(7);go('app','chat');return;}
